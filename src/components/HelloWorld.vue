@@ -1,0 +1,10 @@
+<script setup>
+import { ref } from 'vue'
+</script>
+
+<template>
+  <h1 class="">Hello World</h1>
+</template>
+
+<style scoped>
+</style>
