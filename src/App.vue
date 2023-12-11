@@ -1,9 +1,14 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+  <script setup>
+  import NavBar from './components/NavBar.vue'
+  import Header from './components/Header.vue'
+  import HeroCarousel from './components/HeroCarouselScroll.vue'
+  </script>
 
 <template>
-  <HelloWorld />
+  <NavBar />
+  <Header />
+  <HeroCarousel />
+
 </template>
 
 <style scoped>
