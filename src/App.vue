@@ -2,12 +2,14 @@
   import NavBar from './components/NavBar.vue'
   import Header from './components/Header.vue'
   import HeroCarousel from './components/HeroCarouselScroll.vue'
+  import ViewProducts from './components/ViewProducts.vue'
   </script>
 
 <template>
   <NavBar />
   <Header />
   <HeroCarousel />
+  <ViewProducts />
 
 </template>
 
