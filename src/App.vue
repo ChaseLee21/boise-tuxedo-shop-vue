@@ -4,6 +4,7 @@
   import HeroCarousel from './components/HeroCarouselScroll.vue';
   import ViewProducts from './components/ViewProducts.vue';
   import Footer from './components/Footer.vue';
+  import GoogleMap from './components/GoogleMap.vue';
   </script>
 
 <template>
@@ -11,6 +12,7 @@
   <Header />
   <HeroCarousel />
   <ViewProducts />
+  <GoogleMap />
   <Footer />
 
 </template>
