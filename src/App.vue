@@ -1,8 +1,9 @@
   <script setup>
-  import NavBar from './components/NavBar.vue'
-  import Header from './components/Header.vue'
-  import HeroCarousel from './components/HeroCarouselScroll.vue'
-  import ViewProducts from './components/ViewProducts.vue'
+  import NavBar from './components/NavBar.vue';
+  import Header from './components/Header.vue';
+  import HeroCarousel from './components/HeroCarouselScroll.vue';
+  import ViewProducts from './components/ViewProducts.vue';
+  import Footer from './components/Footer.vue';
   </script>
 
 <template>
@@ -10,6 +11,7 @@
   <Header />
   <HeroCarousel />
   <ViewProducts />
+  <Footer />
 
 </template>
 
