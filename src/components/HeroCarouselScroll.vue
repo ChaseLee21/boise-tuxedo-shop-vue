@@ -52,6 +52,16 @@
     font-size: 1.5rem;
     text-align: center;
 }
+/* This will apply only to devices with a height larger than width */
+@media screen and (max-width: 768px) {
+    .wrapper {
+        margin: 0;
+    }
+    .wrapper .carousel {
+        height: 100%;
+        width: 100vw;
+    }
+}
 </style>
 
 <script setup>
@@ -98,7 +108,7 @@ const scrollToNext = () => {
 };
 
 onMounted(() => {
-    state.intervalId = setInterval(scrollToNext, 6000); // Change 3000 to the desired interval in milliseconds
+    state.intervalId = setInterval(scrollToNext, 8000); // Change 3000 to the desired interval in milliseconds
 });
 
 onUnmounted(() => {
