@@ -1,9 +1,7 @@
 <template>
-    <h1>Our Products</h1>
+    <TuxedosAndSuits />
 </template>
 
 <script setup>
-    import NavBar from './NavBar.vue';
-    import Header from './Header.vue';
-    import Footer from './Footer.vue';
+import TuxedosAndSuits from './products/TuxedosAndSuits.vue';
 </script>
