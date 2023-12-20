@@ -2,7 +2,7 @@
     <section class="m-3 ">
         <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2">Tuxedos & Suits</h2>
         <div class="flex flex-row overflow-x-auto scroll-smooth snap-x snap-mandatory md:h-[70vh] ">
-            <div class="flex flex-col m-1 p-3 border border-black rounded min-w-[85vw] md:min-w-[40vw] lg:min-w-[25vw] snap-center items-center" v-for="product in products">
+            <div class="flex flex-col m-1 p-3 border border-black rounded min-w-[85vw] md:min-w-[40vw] lg:min-w-[25vw] snap-center items-center" v-for="product in props.tuxedoAndSuitProducts">
                 <h3 class="text-center font-bold text-xl md:text-2xl lg:text-3xl">{{ product.name }}</h3>
                 <!-- TODO: fix image path, could just be a problem during testing -->
                 <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" src="https://placehold.co/300x500" :alt="product.imageAlt" >
@@ -24,29 +24,17 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import jQuery from 'jquery';
 
-const $ = jQuery;
+const props = defineProps({
+    tuxedoAndSuitProducts: {
+        type: Array,
+        required: true
+    }
+})
 
 // for testing I have the products array in the component
 // for production I will be passing a filtered products array as a prop to the component
 // TODO: pass filtered products array as a prop to the component
-const products = ref([]);
 
-onMounted(() => {
-    getProducts();
-})
-
-async function getProducts() {
-    await $.ajax({
-        url: 'https://boisetuxedoshop.azurewebsites.net/api/products',
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            products.value = data;
-            console.log(products.value);
-        }
-    })
-}
 
 </script>
