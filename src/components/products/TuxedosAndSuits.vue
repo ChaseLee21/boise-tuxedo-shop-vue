@@ -16,6 +16,11 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import jQuery from 'jquery';
+
+const $ = jQuery;
+
 const products = [
     {
         id: 1,
@@ -78,4 +83,19 @@ const products = [
         imageAlt: 'Performance Stretch Mens Slim Black Suit'
     },
 ]
+
+onMounted(() => {
+    getProducts();
+})
+
+async function getProducts() {
+    await $.ajax({
+        url: 'https://boisetuxedoshop.azurewebsites.net/api/products',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+        }
+    })
+}
 </script>
