@@ -23,18 +23,10 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-
 const props = defineProps({
     tuxedoAndSuitProducts: {
         type: Array,
         required: true
     }
 })
-
-// for testing I have the products array in the component
-// for production I will be passing a filtered products array as a prop to the component
-// TODO: pass filtered products array as a prop to the component
-
-
 </script>
