@@ -1,9 +1,11 @@
 <template>
     <TuxedosAndSuits :tuxedoAndSuitProducts = tuxedoAndSuitProducts />
+    <Shirts :shirtProducts = shirtProducts />
 </template>
 
 <script setup>
 import TuxedosAndSuits from './products/TuxedosAndSuits.vue';
+import Shirts from './products/Shirts.vue';
 import jQuery from 'jquery';
 import { computed, onMounted, ref } from 'vue';
 
@@ -28,6 +30,10 @@ async function getProducts() {
 
 const tuxedoAndSuitProducts = computed(() => {
     return products.value.filter(product => product.type === "TuxedoSuit");
+})
+
+const shirtProducts = computed(() => {
+    return products.value.filter(product => product.type === "Shirt");
 })
 
 
