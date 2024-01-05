@@ -10,17 +10,14 @@ const $ = jQuery;
 
 const props = defineProps({
     id: {
-        type: Number,
+        type: [Number, String],
         required: true
     }
 })
 
-let productObject = null;
-try {
-  productObject = JSON.parse(props.product);
-} catch (e) {
-  console.error("Error parsing product prop:", e);
-}
+const id = ref(parseInt(props.id));
+
+console.log(id.value);
 
 //TODO: update this component to do a get request using the product id to get the product details
 //this ensures that the product page can be shared since it will be using the product id to get the product details
