@@ -5,9 +5,10 @@
             <div class="flex flex-col m-1 p-3 border border-black rounded min-w-[85vw] md:min-w-[40vw] lg:min-w-[25vw] snap-center items-center" v-for="product in props.shirtProducts">
                 <h3 class="text-center font-bold text-xl md:text-2xl lg:text-3xl">{{ product.name }}</h3>
                 <!-- TODO: fix image path, could just be a problem during testing -->
-                <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" src="https://placehold.co/300x500" :alt="product.imageAlt" >
-                <h4 class="text-left font-bold text-xl md:text-2xl lg:text-3xl w-full underline">Style Description:</h4>
-                <p class="text-left text-lg md:text-xl lg:text-2xl">{{ product.description }}</p>
+                <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" :src="product.imageURL" :alt="product.imageAlt" >
+                <!-- Commenting out description because it is making product cards too long -->
+                <!-- <h4 class="text-left font-bold text-xl md:text-2xl lg:text-3xl w-full underline">Style Description:</h4>
+                <p class="text-left text-lg md:text-xl lg:text-2xl">{{ product.description }}</p> -->
                 <h4 class="text-left font-bold text-xl md:text-2xl lg:text-3xl w-full underline">Style Features:</h4>
                 <ul class="text-left w-full text-lg md:text-xl lg:text-2xl list-disc list-inside">
                     <li v-for="feature in product.keyFeatures">{{ feature }}</li>
