@@ -19,6 +19,5 @@ const id = ref(parseInt(props.id));
 
 console.log(id.value);
 
-//TODO: update this component to do a get request using the product id to get the product details
-//this ensures that the product page can be shared since it will be using the product id to get the product details
+//TODO: fetch product data from API using id
 </script>
