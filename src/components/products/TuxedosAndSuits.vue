@@ -14,7 +14,7 @@
                     <li v-for="feature in product.keyFeatures">{{ feature }}</li>
                 </ul>
                 <div class="flex justify-center">
-                    <button class="text-white bg-red-600 p-2 rounded inline-block">View Details</button>
+                    <button class="text-white bg-red-600 p-2 rounded inline-block"><router-link :to="{ name: 'Product', params: {id: product.id } }">View Details</router-link></button>
                 </div>
                 <p class="text-center text-lg md:text-xl lg:text-2xl">Style Number: {{ product.styleNumber }}</p>
             </div>
