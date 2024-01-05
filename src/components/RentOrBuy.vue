@@ -1,11 +1,13 @@
 <template>
     <TuxedosAndSuits :tuxedoAndSuitProducts = tuxedoAndSuitProducts />
     <Shirts :shirtProducts = shirtProducts />
+    <Pants :pantProducts = pantProducts />
 </template>
 
 <script setup>
 import TuxedosAndSuits from './products/TuxedosAndSuits.vue';
 import Shirts from './products/Shirts.vue';
+import Pants from './products/Pants.vue';
 import jQuery from 'jquery';
 import { computed, onMounted, ref } from 'vue';
 
@@ -39,6 +41,10 @@ const tuxedoAndSuitProducts = computed(() => {
 
 const shirtProducts = computed(() => {
     return products.value.filter(product => product.type === "Shirts");
+})
+
+const pantProducts = computed(() => {
+    return products.value.filter(product => product.type === "Pants");
 })
 
 
