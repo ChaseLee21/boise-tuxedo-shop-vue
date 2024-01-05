@@ -24,26 +24,11 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
-
 const props = defineProps({
     tuxedoAndSuitProducts: {
         type: Array,
         required: true
     }
 })
-
-onMounted(() => {
-    for (let product of props.tuxedoAndSuitProducts) {
-        console.log(product);
-        if (product.keyFeatures.length > 5) {
-            for (let i = 5; i < product.keyFeatures.length; i++) {
-                    product.keyFeatures.pop();
-            }
-        }
-    }
-})
-
-
 
 </script>
