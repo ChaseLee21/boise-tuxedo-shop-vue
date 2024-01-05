@@ -1,20 +1,27 @@
 <template>
     <section v-if="product" class="p-2">
         <h2 class="font-bold text-center text-lg py-2"> {{ product.name }} </h2>
-        <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit  rounded-2xl" :src="product.imageURL" :alt="product.imageAlt" >
-        <p class="font-bold text-center text-md">Style #: {{ product.styleNumber }}</p>
-        <div class="m-1 border">
-            <h3 class="font-bold text-lg underline">Pricing</h3>
-            <p v-if="product.retailPrice">Retail Price: {{ product.retailPrice }}</p>
-            <p v-if="product.rentalPrice">Rental Price: {{ product.rentalPrice }}</p>
+        <div class="flex justify-center align-middle">
+            <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit rounded-2xl" :src="product.imageURL" :alt="product.imageAlt" >
         </div>
-        <p><span class="underline">Style Description</span>
-            <br>
-            {{ product.description }}</p>
-        <ul>
-            <li v-for="feature in product.keyFeatures">{{ feature }}</li>
-        </ul>
-        <!-- TODO: dynamically display sale retail price or normal retail price  -->
+        <p class="font-bold text-center text-md">Style #: {{ product.styleNumber }}</p>
+        <p class="font-bold text-center text-md">{{ product.name }}</p>
+        <div class="m-1 border border-black rounded border-opacity-50 p-1">
+            <h3 class="font-bold text-lg underline">Pricing</h3>
+            <!-- TODO: dynamically display sale retail price or normal retail price  -->
+            <p v-if="product.retailPrice" class="font-bold">Retail Price: ${{ product.retailPrice }}</p>
+            <p v-if="product.rentalPrice" class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+        </div>
+        <div class="m-1 border border-black rounded border-opacity-50 p-1">
+            <h3 class="font-bold text-lg underline">Style Features</h3>
+            <ul class="list-inside list-disc">
+                <li v-for="feature in product.keyFeatures">{{ feature }}</li>
+            </ul>
+        </div>
+        <div class="m-1 border border-black rounded border-opacity-50 p-1">
+            <h3 class="font-bold text-lg underline">Style Description</h3>
+            <p>{{ product.description }}</p>
+        </div>
     </section>
 </template>
 
