@@ -1,10 +1,16 @@
 <template>
     <nav class="flex flex-row items-center justify-center p-3 bg-gray-800 text-white">
-        <button class="absolute left-0" @click="navOpen = !navOpen">
+        <button v-if="!navOpen" class="absolute left-0" @click="navOpen = !navOpen">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-red-600 stroke-[4px]">
-                <line x1="6" y1="24" x2="42" y2="24"></line> 
                 <line x1="6" y1="12" x2="42" y2="12"></line>
+                <line x1="6" y1="24" x2="42" y2="24"></line> 
                 <line x1="6" y1="36" x2="42" y2="36"></line>
+            </svg>
+        </button>
+        <button v-else class="absolute left-0" @click="navOpen = !navOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-white opacity-60 stroke-[4px]">
+                <line x1="13" y1="15" x2="32" y2="30"></line>
+                <line x1="13" y1="30" x2="32" y2="15"></line> 
             </svg>
         </button>
         <h1 class="text-2xl font-bold">Boise Tuxedo Shop</h1>
