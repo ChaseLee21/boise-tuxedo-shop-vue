@@ -16,6 +16,13 @@ const router = createRouter({
         { path: '/Category/:category', component: Category, name: 'Category', props: true }
         // other routes...
     ],
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+          return savedPosition;
+        } else {
+          return { top: 0 };
+        }
+      },
   })
   
 
