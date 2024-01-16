@@ -4,11 +4,31 @@
         <div class="grid grid-cols-1 md:grid-cols-4">
             <div class="flex flex-col m-2 border border-black rounded items-center" v-for="product in products">
                 <router-link 
-                class="text-center font-bold text-xl md:text-2xl lg:text-3xl" 
+                class="text-center font-bold text-xl md:text-2xl lg:text-3xl " 
                 :to="{ name: 'Product', params: {id: product.id } }">
-                    {{ product.name }}
+                    <p class="p-1">{{ product.name }}</p>
                     <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" :src="product.imageURL" :alt="product.imageAlt" >
                 </router-link>
+                <div v-if="product.retailPrice && !product.saleRetailPrice && !product.rentalPrice" class="">
+                    <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
+                </div>
+                <div v-if="product.retailPrice && product.saleRetailPrice && !product.rentalPrice" class="flex justify-between w-full px-2">
+                    <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
+                    <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
+                </div>
+                <div v-if="product.retailPrice && !product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2">
+                    <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
+                    <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                </div>
+                <div v-if="product.retailPrice && product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2 text-center">
+                    <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
+                    <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
+                    <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                </div>
+                <div v-if="product.rentalPrice && !product.retailPrice && !product.saleRetailPrice">
+                    <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                </div>
+                
             </div>
         </div>
 
