@@ -8,9 +8,9 @@
             </svg>
         </button>
         <h1 class="text-2xl font-bold">Boise Tuxedo Shop</h1>
-        <ul v-if="navOpen" class="absolute left-0 top-12 flex flex-col  p-3 bg-gray-800 text-white">
+        <ul v-if="navOpen" class="absolute left-0 top-12 flex flex-col p-3 bg-gray-800 text-white rounded-lg rounded-t-none mt-1">
             <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
-            <li class="p-2 hover:text-zinc-300 transition ease-in-out duration-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
+            <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
         </ul>
     </nav>
 </template>
