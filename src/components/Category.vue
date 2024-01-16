@@ -1,15 +1,19 @@
 <template>
-    <section class="m-3 ">
+    <section class="m-3">
+        <!-- Category Title -->
         <h2 v-if="props.category == 'TuxedoSuit'" class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> Tuxedos & Suits </h2>
         <h2 v-else class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> {{ props.category }} </h2>
+        <!-- Products Container -->
         <div class="grid grid-cols-1 md:grid-cols-4">
             <div class="flex flex-col m-2 border border-black rounded items-center" v-for="product in products">
+                <!-- Product Image & Title w/ Router Link -->
                 <router-link 
                 class="text-center font-bold text-xl md:text-2xl lg:text-3xl " 
                 :to="{ name: 'Product', params: {id: product.id } }">
                     <p class="p-1">{{ product.name }}</p>
                     <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" :src="product.imageURL" :alt="product.imageAlt" >
                 </router-link>
+                <!-- Pricing -->
                 <div v-if="product.retailPrice && !product.saleRetailPrice && !product.rentalPrice" class="">
                     <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
                 </div>
@@ -37,11 +41,14 @@
 </template>
 
 <script setup>
+// importing jQuery for ajax call
 import jQuery from 'jquery';
-import { computed, onMounted, ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
+// jQuery alias
 const $ = jQuery;
 
+// Props containing category name
 const props = defineProps({
     category: {
         type: String,
@@ -49,13 +56,10 @@ const props = defineProps({
     }
 })
 
+// Products array
 const products = ref([]);
 
-
-onMounted(() => {
-    getProducts();
-})
-
+// Get products from API using jQuery ajax call
 async function getProducts() {
     await $.ajax({
         url: 'https://boisetuxedoshop.azurewebsites.net/api/products',
@@ -68,15 +72,21 @@ async function getProducts() {
                 }
             }
             products.value = data;
+            // Filter products call
             filterProducts();
-
         }
     })
 }
 
+// Filters product array by category
 function filterProducts() {
     products.value = products.value.filter(product => product.type === props.category);
     console.log(products.value);
 }
+
+// On mount, get products from API
+onMounted(() => {
+    getProducts();
+})
 
 </script>
