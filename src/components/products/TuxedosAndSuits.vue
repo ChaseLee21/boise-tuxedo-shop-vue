@@ -1,6 +1,6 @@
 <template>
     <section class="m-3 ">
-        <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2">Tuxedos & Suits</h2>
+        <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">Tuxedos & Suits <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : 'TuxedoSuit' } }">View All</router-link></h2>
         <div class="flex flex-row overflow-x-auto scroll-smooth snap-x snap-mandatory md:h-[70vh] ">
             <div class="flex flex-col m-1 p-3 border border-black rounded min-w-[85vw] md:min-w-[40vw] lg:min-w-[25vw] snap-center items-center" v-for="product in props.tuxedoAndSuitProducts">
                 <h3 class="text-center font-bold text-xl md:text-2xl lg:text-3xl">{{ product.name }}</h3>
@@ -29,5 +29,7 @@ const props = defineProps({
         required: true
     }
 })
+
+
 
 </script>

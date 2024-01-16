@@ -5,6 +5,7 @@ import App from './App.vue'
 import Home from './components/Home.vue'
 import RentOrBuy from './components/RentOrBuy.vue'
 import Product from './components/Product.vue'
+import Category from './components/Category.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -12,6 +13,7 @@ const router = createRouter({
         { path: '/', component: Home },
         { path: '/RentOrBuy', component: RentOrBuy, name: 'RentOrBuy' },
         { path: '/Product/:id', component: Product, name: 'Product', props: true },
+        { path: '/Category/:category', component: Category, name: 'Category', props: true }
         // other routes...
     ],
   })
