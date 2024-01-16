@@ -36,16 +36,33 @@ async function getProducts() {
 }
 
 const tuxedoAndSuitProducts = computed(() => {
-    return products.value.filter(product => product.type === "TuxedoSuit");
+    let arr = products.value.filter(product => product.type === "TuxedoSuit");
+    while (arr.length > 6) {
+        arr.pop();
+    }
+    return arr;
 })
 
 const shirtProducts = computed(() => {
-    return products.value.filter(product => product.type === "Shirts");
+    let arr = products.value.filter(product => product.type === "Shirts");
+    while (arr.length > 6) {
+        arr.pop();
+    }
+    return arr;
 })
 
 const pantProducts = computed(() => {
-    return products.value.filter(product => product.type === "Pants");
+    let arr = products.value.filter(product => product.type === "Pants");
+    while (arr.length > 6) {
+        arr.pop();
+    }
+    return arr;
 })
 
-
+// TODO: implement a featured products method
+// for this to work I would need to update the database to include a featured column
+// if the featured column is true then the product would be displayed on the RentOrBuy page
+// if the featured column is false then the product would not be displayed on the RentOrBuy page
+// but instead on the category page
+// HACK: for now I am just limiting the number of products displayed on the RentOrBuy page in the computed property
 </script>

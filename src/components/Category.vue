@@ -81,7 +81,6 @@ async function getProducts() {
 // Filters product array by category
 function filterProducts() {
     products.value = products.value.filter(product => product.type === props.category);
-    console.log(products.value);
 }
 
 // On mount, get products from API

@@ -89,7 +89,6 @@ onMounted(() => {
                 data.keyFeatures = data.keyFeatures.split(',');
             }
             product.value = data;
-            console.log(product.value);
         }
     })
 })
