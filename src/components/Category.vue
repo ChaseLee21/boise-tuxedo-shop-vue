@@ -1,6 +1,7 @@
 <template>
     <section class="m-3 ">
-        <h2 class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 ">Tuxedos & Suits </h2>
+        <h2 v-if="props.category == 'TuxedoSuit'" class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> Tuxedos & Suits </h2>
+        <h2 v-else class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> {{ props.category }} </h2>
         <div class="grid grid-cols-1 md:grid-cols-4">
             <div class="flex flex-col m-2 border border-black rounded items-center" v-for="product in products">
                 <router-link 
