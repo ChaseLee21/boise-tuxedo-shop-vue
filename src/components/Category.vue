@@ -1,5 +1,18 @@
 <template>
-    <h1>Category Page</h1>
+    <section class="m-3 ">
+        <h2 class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 ">Tuxedos & Suits </h2>
+        <div class="grid grid-cols-1 md:grid-cols-4">
+            <div class="flex flex-col m-2 border border-black rounded items-center" v-for="product in products">
+                <router-link 
+                class="text-center font-bold text-xl md:text-2xl lg:text-3xl" 
+                :to="{ name: 'Product', params: {id: product.id } }">
+                    {{ product.name }}
+                    <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" :src="product.imageURL" :alt="product.imageAlt" >
+                </router-link>
+            </div>
+        </div>
+
+    </section>
 </template>
 
 <script setup>
