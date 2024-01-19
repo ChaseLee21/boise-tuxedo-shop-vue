@@ -14,10 +14,12 @@
             </svg>
         </button>
         <h1 class="text-2xl font-bold">Boise Tuxedo Shop</h1>
-        <ul v-if="navOpen" class="absolute left-0 top-12 flex flex-col p-3 bg-gray-800 text-white rounded-lg rounded-t-none mt-1">
-            <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
-            <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
-        </ul>
+        <Transition>
+            <ul v-if="navOpen" class="absolute left-0 top-12 flex flex-col min-w-[90vw] p-3 bg-gray-800 text-white rounded-br-lg mt-1">
+                <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
+                <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
+            </ul>
+        </Transition>
     </nav>
 </template>
 
@@ -28,6 +30,19 @@ let navOpen = ref(false);
 
 </script>
 
+<style scoped>
+.v-enter-active, .v-leave-active {
+    transition: opacity 0.3s ease-in-out;
+}
+.v-leave-to, .v-enter-from {
+    opacity: 0;
+}
+
+.v-enter-to, .v-leave-from {
+    opacity: 1;
+}
+
+</style>
 
 <!-- <template>
     <nav>
