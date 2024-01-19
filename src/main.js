@@ -6,12 +6,14 @@ import Home from './components/Home.vue'
 import RentOrBuy from './components/RentOrBuy.vue'
 import Product from './components/Product.vue'
 import Category from './components/Category.vue'
+import Faq from './components/Faq.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: Home },
         { path: '/RentOrBuy', component: RentOrBuy, name: 'RentOrBuy' },
+        { path: '/Faq', component: Faq, name: 'Faq' },
         { path: '/Product/:id', component: Product, name: 'Product', props: true },
         { path: '/Category/:category', component: Category, name: 'Category', props: true }
         // other routes...
