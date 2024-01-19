@@ -1,32 +1,38 @@
 <template>
-    <nav class="flex flex-row items-center justify-center p-3 bg-gray-800 text-white">
-        <button v-if="!navOpen" class="absolute left-0" @click="navOpen = !navOpen">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-red-600 stroke-[4px]">
+    <section class="flex flex-row items-center justify-center p-3 bg-gray-800 text-white">
+        <button class="absolute left-0" @click="handleNavMenuClick()">
+            <svg v-if="!navOpen" xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-red-600 stroke-[4px]">
                 <line x1="6" y1="12" x2="42" y2="12"></line>
                 <line x1="6" y1="24" x2="42" y2="24"></line> 
                 <line x1="6" y1="36" x2="42" y2="36"></line>
             </svg>
-        </button>
-        <button v-else class="absolute left-0" @click="navOpen = !navOpen">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-white opacity-60 stroke-[4px]">
+            <svg v-else xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-white opacity-60 stroke-[4px]">
                 <line x1="13" y1="15" x2="32" y2="30"></line>
                 <line x1="13" y1="30" x2="32" y2="15"></line> 
             </svg>
         </button>
-        <h1 class="text-2xl font-bold">Boise Tuxedo Shop</h1>
+        <router-link to="/" class="text-2xl font-bold">Boise Tuxedo Shop</router-link>
         <Transition>
-            <ul v-if="navOpen" class="absolute left-0 top-12 flex flex-col min-w-[90vw] p-3 bg-gray-800 text-white rounded-br-lg mt-1">
-                <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
-                <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
-            </ul>
+            <nav v-show="navOpen" id="navMenu" class="collapse">
+                <ul class="absolute left-0 top-12 flex flex-col min-w-[90vw] p-3 bg-gray-800 text-white rounded-br-lg mt-1">
+                    <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
+                    <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
+                </ul>
+            </nav>
         </Transition>
-    </nav>
+    </section>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 
 let navOpen = ref(false);
+
+const handleNavMenuClick = () => {
+    navOpen.value = !navOpen.value;
+    document.getElementById('navMenu').classList.toggle('collapse');
+}
+
 
 </script>
 
