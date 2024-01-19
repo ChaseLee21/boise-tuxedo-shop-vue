@@ -14,7 +14,7 @@
         <router-link to="/" class="text-2xl font-bold">Boise Tuxedo Shop</router-link>
         <Transition>
             <nav v-show="navOpen" class="absolute left-0 top-12 w-[100vw]">
-                <ul class="flex flex-col p-3 bg-gray-800 text-white">
+                <ul class="flex flex-col p-3 text-lg bg-gray-800 text-white">
                     <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
                 </ul>
