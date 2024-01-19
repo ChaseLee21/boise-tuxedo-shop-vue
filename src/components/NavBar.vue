@@ -39,6 +39,9 @@ const handleNavMenuClose = (e) => {
     if (!e.target.closest('#navMenu') ) {
         navOpen.value = false;
         document.removeEventListener('click', handleNavMenuClose);
+    } else if (e.target.closest('.router-link-active')) {
+        navOpen.value = false;
+        document.removeEventListener('click', handleNavMenuClose);
     }
 }
     
