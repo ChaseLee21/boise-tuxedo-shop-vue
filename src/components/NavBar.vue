@@ -17,6 +17,7 @@
                 <ul class="flex flex-col p-3 text-lg bg-gray-800 text-white">
                     <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
+                    <li class="p-2 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
                 </ul>
             </nav>
         </Transition>
