@@ -1,13 +1,5 @@
 <template>
-    <div name="termly-embed" data-id="daa297aa-9a40-4820-8d62-0f4dae3aac2e"></div>
+  <a class="flex justify-center underline text-blue-600" href="https://app.termly.io/document/privacy-policy/daa297aa-9a40-4820-8d62-0f4dae3aac2e">
+    Click here to read our Privacy Policy.
+  </a>
 </template>
-
-<script type="text/javascript">
-(function(d, s, id) {
-  var js, tjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "https://app.termly.io/embed-policy.min.js";
-  tjs.parentNode.insertBefore(js, tjs);
-}(document, 'script', 'termly-jssdk'));
-</script>
