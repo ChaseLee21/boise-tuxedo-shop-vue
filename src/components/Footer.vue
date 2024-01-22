@@ -27,5 +27,12 @@
             </ul>
         </section>
         <p class="col-span-1 md:col-span-3">© 2023 Boise Tuxedo Shop. All rights reserved.</p>
+        <section>
+            <ul class="flex flex-row justify-evenly">
+                <li class="underline"><router-link to="/Privacy">Privacy Policy</router-link></li>
+                <li class="underline"><router-link to="/Terms">Terms of Use</router-link></li>
+                <li class="underline"><router-link to="/Disclaimer">Disclaimer</router-link></li>
+            </ul>
+        </section>
     </footer>
 </template>
