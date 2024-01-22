@@ -11,9 +11,5 @@
         <section class="col-span-1 m-auto">
             <img src="/src/assets/images/Tuxedo-Shop-Logo-3.jpg" alt="Logo including a top hat, part of a suit, and the words Boise Tuxedo Shop." >
         </section>
-        <section class="col-span-1 m-auto">
-            <h1 class="font-bold mb-2 text-xl">Contact Us:</h1>
-            <button class="bg-red-700 text-white p-2 rounded hover:bg-red-900 transition ease-in-out duration-300" aria-label="Call us at (208)375-9616">(208)375-9616</button>
-        </section>
     </header>
 </template>

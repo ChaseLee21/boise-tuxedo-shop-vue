@@ -18,6 +18,7 @@
                     <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
+                    <li class="p-2 hover:text-zinc-300"><a href="tel:208-375-9616" alt="208-375-9616">Call: (208) 375-9616</a></li>
                 </ul>
             </nav>
         </Transition>
