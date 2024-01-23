@@ -49,4 +49,11 @@ let specialties = [
         text: 'We are open Monday - Saturday. No appointment required!'
     }
 ]
+
+
+//TODO: rename component to ShopExperience.vue
+//TODO: add a new table in the database called shop_experience
+//TODO: add a new route in the backend called /api/shop_experience
+//TODO: store each 'specialty' in the database and retrieve them from the backend
+//TODO: add a new section to the admin page to manage the shop experience component
 </script>
