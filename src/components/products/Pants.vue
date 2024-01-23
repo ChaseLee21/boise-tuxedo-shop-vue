@@ -24,16 +24,11 @@
 </template>
 
 <script setup>
-
-
 const props = defineProps({
     pantProducts: {
         type: Array,
         required: true
     }
 })
-
-
-
 
 </script>
