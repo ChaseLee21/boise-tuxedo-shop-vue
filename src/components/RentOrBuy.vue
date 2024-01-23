@@ -62,7 +62,6 @@ const pantProducts = computed(() => {
 // TODO: implement a featured products method
 // for this to work I would need to update the database to include a featured column
 // if the featured column is true then the product would be displayed on the RentOrBuy page
-// if the featured column is false then the product would not be displayed on the RentOrBuy page
-// but instead on the category page
+// if the featured column is false then the product would not be displayed on the RentOrBuy page but instead on the category page
 // HACK: for now I am just limiting the number of products displayed on the RentOrBuy page in the computed property
 </script>
