@@ -1,20 +1,4 @@
 <template>
-    <!-- TODO: update this component -->
-    <!-- 
-        user story: 
-        AS A potential customer
-        I WANT to see a description of the business and their background
-        SO THAT I can decide if I want to do business with them
-     -->
-     <!-- 
-        acceptance criteria: 
-        GIVEN I am on the About Us section
-        WHEN I view the information
-        THEN I see a brief description of the business split into 3 sections:
-            1. About Us
-            2. Our History
-            3. Contact Us
-      -->
     <section id="about-us" class="min-h-screen h-fit bg-no-repeat bg-cover flex items-center">
             <div class="bg-zinc-700 bg-opacity-80 p-5 md:p-10 m-0 md:m-10 rounded">
                 <h2 class="text-white  text-2xl md:text-3xl lg:text-4xl">About Us</h2>
