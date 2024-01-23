@@ -45,5 +45,4 @@ onMounted(() => {
     getFaqs();
 })
 
-// TODO: update router-link to go to contact page
 </script>
