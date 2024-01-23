@@ -114,4 +114,8 @@ onMounted(() => {
 onUnmounted(() => {
     clearInterval(state.intervalId);
 });
+
+//TODO: along with the non-scrolling carousel, retrieve the images from the database
+//TODO: implement route on backend to store / retrieve carousel images in a table
+//TODO: implement route on admin to add carousel images to the table 
 </script>

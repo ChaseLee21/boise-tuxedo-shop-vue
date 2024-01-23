@@ -13,3 +13,8 @@
         </section>
     </header>
 </template>
+<script setup>
+//TODO: Change ul to something cleaner
+// probably talk with family about what they want to say
+//TODO: reccomend a logo change or move logo to navbar
+</script>

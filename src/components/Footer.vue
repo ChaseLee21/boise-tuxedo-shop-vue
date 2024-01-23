@@ -36,3 +36,6 @@
         </section>
     </footer>
 </template>
+<script setup>
+//TODO: fix routes that do not use router-link 
+</script>

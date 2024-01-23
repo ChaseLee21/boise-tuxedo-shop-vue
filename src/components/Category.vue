@@ -88,4 +88,5 @@ onMounted(() => {
     getProducts();
 })
 
+//TODO: add a catgory dropdown to the navbar which allows the user to go directly to a category /category/:category
 </script>

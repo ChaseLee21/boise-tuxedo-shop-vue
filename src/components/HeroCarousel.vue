@@ -109,4 +109,6 @@ const move = (direction) => {
   currentImage.value = (currentImage.value + direction + images.length) % images.length;
 };
 
+//TODO: implement this component and make sure it actually works
+//TODO: this component should only be served to non-mobile devices that would require arrows to scroll through the carousel
 </script>
