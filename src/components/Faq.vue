@@ -5,7 +5,7 @@
             <li class="text-2xl text-red-600 font-bold">Q: {{ faq.question }}</li>
             <li class="text-lg">A: {{ faq.answer }}</li>
         </ul>
-        <p class="text-lg ms-4 my-3">Not finding the answer you're looking for? Feel free to <router-link class="text-blue-900 font-bold underline" to="/">contact us</router-link></p>
+        <p class="text-lg ms-4 my-3">Not finding the answer you're looking for? Feel free to <router-link class="text-blue-900 font-bold underline" to="/Contact">contact us</router-link></p>
     </section>
 </template>
 
