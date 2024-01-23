@@ -1,5 +1,6 @@
 <template>
     <footer class="text-center flex flex-col justify-center">
+        <hr class="border-2 my-4">
         <div class="flex flex-row flex-wrap justify-center">
             <SiteLinks />
             <Hours />
@@ -21,5 +22,4 @@
 import Hours from './Hours.vue'
 import Location from './Location.vue'
 import SiteLinks from './SiteLinks.vue';
-//TODO: fix routes that do not use router-link 
 </script>
