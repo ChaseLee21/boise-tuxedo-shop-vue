@@ -93,4 +93,6 @@ onMounted(() => {
     })
 })
 
+//TODO: add a share button to share product on social media or via message / email
+//TODO: insure this works on iOS
 </script>
