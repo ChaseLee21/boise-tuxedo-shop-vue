@@ -50,9 +50,6 @@ const handleNavMenuClose = (e) => {
 onMounted(() => {
     document.addEventListener('click', handleNavMenuOpen);
 })
-
-//TODO: fix bug where nav bar is open behind images
-
 </script>
 
 <style scoped>
@@ -67,4 +64,7 @@ onMounted(() => {
     opacity: 1;
 }
 
+#navMenu {
+    z-index: 100;
+}
 </style>
