@@ -10,6 +10,7 @@ import Faq from './components/Faq.vue'
 import Privacy from './components/Privacy.vue'
 import Terms from './components/Terms.vue'
 import Disclaimer from './components/Disclaimer.vue'
+import Contact from './components/Contact.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -22,6 +23,7 @@ const router = createRouter({
         { path: '/Privacy', component: Privacy, name: 'Privacy' },
         { path: '/Terms', component: Terms, name: 'Terms' },
         { path: '/Disclaimer', component: Disclaimer, name: 'Disclaimer' },
+        { path: '/Contact', component: Contact, name: 'Contact' },
         // other routes...
     ],
     scrollBehavior(to, from, savedPosition) {

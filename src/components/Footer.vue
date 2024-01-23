@@ -8,26 +8,10 @@
                 <li><a href="contact.html" class="hover:text-red-400 transition ease-in-out duration-300">Contact</a></li>            
             </ul>
         </section>
+        <Hours />
+        <Location />
         <section>
-            <ul class="col-span-1 p-2">
-                <li><p class="font-bold">Hours</p></li>
-                <li>Mon – Fri: 10am – 6pm</li>
-                <li>Saturday: 10am – 5pm</li>
-                <li>Sunday: Closed</li>
-            </ul>
-        </section>
-        <section>
-            <ul class="col-span-1 p-2">
-                <li><p class="font-bold">Our Location</p></li>
-                <li class="font-bold">
-                    3371 N. Eagle Road Suite C130
-                    Meridian, ID 83646
-                </li>
-                <li><button class="bg-red-700 text-white p-2 rounded hover:bg-red-900 transition ease-in-out duration-300">(208)375-9616</button></li>
-            </ul>
-        </section>
-        <p class="col-span-1 md:col-span-3">© 2023 Boise Tuxedo Shop. All rights reserved.</p>
-        <section>
+            <p class="col-span-1 md:col-span-3">© 2023 Boise Tuxedo Shop. All rights reserved.</p>
             <ul class="flex flex-row justify-evenly">
                 <li class="underline"><router-link to="/Privacy">Privacy Policy</router-link></li>
                 <li class="underline"><router-link to="/Terms">Terms of Use</router-link></li>
@@ -37,5 +21,7 @@
     </footer>
 </template>
 <script setup>
+import Hours from './Hours.vue'
+import Location from './Location.vue'
 //TODO: fix routes that do not use router-link 
 </script>

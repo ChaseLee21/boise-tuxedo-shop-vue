@@ -5,7 +5,7 @@
         <h2 v-else class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> {{ props.category }} </h2>
         <!-- Products Container -->
         <div class="grid grid-cols-1 md:grid-cols-4">
-            <div class="flex flex-col m-2 border border-black rounded items-center" v-for="product in products">
+            <div class="flex flex-col m-2 border border-black rounded items-center" v-for="product in filterProducts">
                 <!-- Product Image & Title w/ Router Link -->
                 <router-link 
                 class="text-center font-bold text-xl md:text-2xl lg:text-3xl " 
@@ -41,11 +41,9 @@
 </template>
 
 <script setup>
-// importing jQuery for ajax call
 import jQuery from 'jquery';
-import { onMounted, ref } from 'vue';
+import { onMounted, computed, ref } from 'vue';
 
-// jQuery alias
 const $ = jQuery;
 
 // Props containing category name
@@ -56,8 +54,19 @@ const props = defineProps({
     }
 })
 
-// Products array
+// On mount, get products from API
+onMounted(() => {
+    getProducts();
+})
+
+// Holds all products and is used to filter products by category
 const products = ref([]);
+
+// property that holds all products that match the current category [props.category]
+const filterProducts = computed(() => { 
+    if (products.length === 0) return;
+    else return products.value.filter(product => product.type === props.category);
+});
 
 // Get products from API using jQuery ajax call
 async function getProducts() {
@@ -72,21 +81,7 @@ async function getProducts() {
                 }
             }
             products.value = data;
-            // Filter products call
-            filterProducts();
         }
     })
 }
-
-// Filters product array by category
-function filterProducts() {
-    products.value = products.value.filter(product => product.type === props.category);
-}
-
-// On mount, get products from API
-onMounted(() => {
-    getProducts();
-})
-
-//TODO: add a catgory dropdown to the navbar which allows the user to go directly to a category /category/:category
 </script>
