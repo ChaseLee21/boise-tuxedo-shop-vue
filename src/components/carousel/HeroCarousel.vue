@@ -54,4 +54,6 @@ onMounted(async () => {
     });
 });
 
+//TODO: style the carousel and buttons
+//TODO: add transition to the carousel
 </script>
