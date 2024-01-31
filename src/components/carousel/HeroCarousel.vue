@@ -1,9 +1,9 @@
 <template>
-    <section class="wrapper flex flex-row overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
+    <section class="flex flex-row">
         <!-- Carousel -->
-        <div class="carousel snap-center flex justify-center items-center flex-row flex-nowrap flex-grow-0 flex-shrink-0 flex-auto relative h-auto w-[100vw] " >
+        <div class="flex justify-center items-center flex-row relative h-auto w-[100vw]" >
             <!-- Previous Button -->
-            <button class="absolute left-0 top-1/2" @click="next()">
+            <button class="absolute left-5 top-1/2" @click="next()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2">
                         <line x1="10" y1="25" x2="40" y2="10"></line>
                         <line x1="10" y1="25" x2="40" y2="40"></line> 
@@ -11,7 +11,7 @@
             </button>
             <img class="carousel-image h-[100%] w-auto max-w-[100vw] object-cover object-center" v-if="currentImage" :src="currentImage.url" :alt="currentImage.imageAlt">
             <!-- Next Button -->
-            <button class="absolute top-1/2 right-0" @click="previous">
+            <button class="absolute top-1/2 right-5" @click="previous">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2">
                         <line x1="40" y1="25" x2="10" y2="10"></line>
                         <line x1="40" y1="25" x2="10" y2="40"></line> 
