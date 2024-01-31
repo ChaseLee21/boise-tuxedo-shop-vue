@@ -22,9 +22,6 @@ onMounted(async () => {
         },
         success: function (data) {
             images.value = data;
-            for (let image of images.value) {
-                console.log(image);
-            }
         }
     });
 });
