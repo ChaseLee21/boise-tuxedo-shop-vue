@@ -1,5 +1,5 @@
 <template>
-    <section id="navMenu" class="sticky top-0 w-full flex flex-row items-center justify-center p-3 bg-gray-800 text-white">
+    <section v-if="isMobile" id="navMenu" class="sticky top-0 w-full flex flex-row items-center justify-center p-3 bg-gray-800 text-white">
         <button id="navButton" class="absolute left-0 top-1">
             <svg v-if="!navOpen" xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-red-600 stroke-[4px]">
                 <line x1="6" y1="12" x2="42" y2="12"></line>
@@ -29,12 +29,28 @@
             </nav>
         </Transition>
     </section>
+    <section v-else id="navMenu" class="sticky top-0 w-[100vw]">
+        <nav class="bg-gray-800 text-white">
+            <ul class="flex flex-row flex-wrap justify-center text-lg p-3">
+                <li class="absolute left-4 text-2xl font-bold hover:text-zinc-300"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Faq">FAQs</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Contact">Contact Us</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Shirts">Shirts</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Pants">Pants</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Accessories">Accessories & More</router-link></li>
+            </ul>
+        </nav>
+    </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 
 let navOpen = ref(false);
+
+let isMobile = ref(window.innerWidth < 768);
 
 const handleNavMenuOpen = (e) => {
     if (e.target.closest('#navButton')) {
