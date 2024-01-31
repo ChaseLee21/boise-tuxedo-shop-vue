@@ -52,8 +52,6 @@ onMounted(async () => {
             currentImage.value = images.value[carouselIndex.value];
         }
     });
-    console.log(images.value);
-    console.log(currentImage);
 });
 
 </script>
