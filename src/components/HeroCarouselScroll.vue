@@ -66,8 +66,9 @@
 
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue';
+import $ from 'jquery';
 
-const images = []
+let images = []
 const carouselWrapper = ref(null);
 const state = reactive({ currentIndex: 0, intervalId: null });
 
@@ -88,6 +89,23 @@ onUnmounted(() => {
 
 const getImages = () => {
     //TODO: retrieve images from database
+    $.ajax(
+        {
+            url: 'https://boisetuxedoshop.azurewebsites.net/api/carousel',
+            type: 'GET',
+            success: function (data) {
+                validateImages(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }
+    )
+}
+
+const validateImages = (images) => {
+    images.value = images;
+    console.log(images.value);
 }
 
 //TODO: along with the non-scrolling carousel, retrieve the images from the database
