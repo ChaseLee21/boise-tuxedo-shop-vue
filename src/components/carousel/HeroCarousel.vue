@@ -9,7 +9,7 @@
                         <line x1="10" y1="25" x2="40" y2="40"></line> 
                 </svg>
             </button>
-            <img class="carousel-image h-[100%] w-auto max-w-[100vw] object-cover object-center" v-if="currentImage" :src="currentImage.src">
+            <img class="carousel-image h-[100%] w-auto max-w-[100vw] object-cover object-center" v-if="currentImage" :src="currentImage.url" :alt="currentImage.imageAlt">
             <!-- Next Button -->
             <button class="absolute top-1/2 right-0" @click="previous">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2">
