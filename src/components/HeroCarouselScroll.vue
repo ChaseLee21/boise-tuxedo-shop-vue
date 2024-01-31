@@ -4,86 +4,21 @@
             <img class="object-scale-down h-full w-full"  :src="image.src" :alt="image.alt">
         </div>
     </section> -->
-    <section class="wrapper" ref="carouselWrapper">
-        <div class="carousel" v-for="(image, index) in images" :key="index">
-            <img class="carousel-image" :src="image.url" :alt="image.imageAlt">
+    <section class="wrapper flex flex-row overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
+        <div class="carousel snap-center flex justify-center items-center flex-row flex-nowrap flex-grow-0 flex-shrink-0 flex-auto relative h-auto w-[100vw] " v-for="(image, index) in images" :key="index">
+            <img class="carousel-image h-[100%] w-auto max-w-[100vw] object-cover object-center" :src="image.src" :alt="image.alt">
         </div>
     </section>
 </template>
-
-<style scoped>
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    overflow-y: hidden;
-    margin: 1rem;
-    scroll-margin: 1rem;
-    scroll-behavior: smooth;
-}
-.wrapper .carousel {
-    scroll-snap-align: center;
-    flex: 0 0 auto;
-    position: relative;
-    height: 100vh;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-}
-.carousel-image {
-    height: 100%;
-    width: auto;
-    max-width: 100vw;
-    object-fit: cover;
-    object-position: center;
-}
-.carousel-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 1rem;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    font-size: 1.5rem;
-    text-align: center;
-}
-/* This will apply only to devices with a height larger than width */
-@media screen and (max-width: 768px) {
-    .wrapper {
-        margin: 0;
-    }
-    .wrapper .carousel {
-        height: 100%;
-        width: 100vw;
-    }
-}
-</style>
 
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue';
 import $ from 'jquery';
 
-let images = []
-const carouselWrapper = ref(null);
-const state = reactive({ currentIndex: 0, intervalId: null });
-
-const scrollToNext = () => {
-    state.currentIndex = (state.currentIndex + 1) % images.length;
-    const newScrollPosition = carouselWrapper.value.clientWidth * state.currentIndex;
-    carouselWrapper.value.scrollLeft = newScrollPosition;
-};
+let images = ref([]);
 
 onMounted(() => {
     getImages();
-    state.intervalId = setInterval(scrollToNext, 8000); // Change 3000 to the desired interval in milliseconds
-});
-
-onUnmounted(() => {
-    clearInterval(state.intervalId);
 });
 
 // USE: this method to retrieve images from the carousel api route
@@ -106,11 +41,9 @@ const validateImages = (data) => {
     for (let image of data) {
         let valid = true;
         if (!image.url || ! image.imageAlt || image.url == 'string') valid = false;
-        if (valid) images.push({ src: image.url, alt: image.alt});
+        if (valid) images.value.push({ src: image.url, alt: image.imageAlt});
     }
+    console.log(images.value);
 }
 
-//TODO: along with the non-scrolling carousel, retrieve the images from the database
-//TODO: implement route on backend to store / retrieve carousel images in a table
-//TODO: implement route on admin to add carousel images to the table 
 </script>
