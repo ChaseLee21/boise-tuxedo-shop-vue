@@ -1,9 +1,4 @@
 <template>
-    <!-- <section class="touch-pan-x flex flex-row overflow-auto">
-        <div class="min-w-full min-h-screen" v-for="image in images">
-            <img class="object-scale-down h-full w-full"  :src="image.src" :alt="image.alt">
-        </div>
-    </section> -->
     <section class="wrapper flex flex-row overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
         <div class="carousel snap-center flex justify-center items-center flex-row flex-nowrap flex-grow-0 flex-shrink-0 flex-auto relative h-auto w-[100vw] " v-for="(image, index) in images" :key="index">
             <img class="carousel-image h-[100%] w-auto max-w-[100vw] object-cover object-center" :src="image.src" :alt="image.alt">
