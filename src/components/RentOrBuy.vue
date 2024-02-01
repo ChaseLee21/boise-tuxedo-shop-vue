@@ -1,4 +1,14 @@
 <template>
+    <section class="m-3">
+        <h1 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 font-bold underline">Rent or Buy</h1>
+        <p class="text-start md:text-lg lg:text-xl ms-5">
+            Not only do we value helping you look good for your big event but we think it is important to do it your way.
+            Whether you are wanting to rent or buy your outfit, we have you covered at Boise Tuxedo Shop.
+            Our rental package for both tuxedos and suits includes 5 pieces: jacket, pants, shirt, vest, and your choice of tie, bowtie, or suspenders.
+            You may upgrade your rental package to include shoes or cufflinks for an additional fee.
+            
+        </p>
+    </section>
     <TuxedosAndSuits :tuxedoAndSuitProducts = tuxedoAndSuitProducts />
     <Shirts :shirtProducts = shirtProducts />
     <Pants :pantProducts = pantProducts />
