@@ -1,26 +1,32 @@
 <template>
+    <!-- Section Container -->
     <section class="m-3 ">
-        <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">Tuxedos & Suits <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : 'TuxedoSuit' } }">View All</router-link></h2>
-        <div class="flex flex-row overflow-x-auto scroll-smooth snap-x snap-mandatory md:h-[70vh] ">
-            <div class="flex flex-col m-1 p-3 border border-black rounded min-w-[85vw] md:min-w-[40vw] lg:min-w-[25vw] snap-center items-center" v-for="product in props.tuxedoAndSuitProducts">
-                <h3 class="text-center font-bold text-xl md:text-2xl lg:text-3xl">{{ product.name }}</h3>
-                <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" :src="product.imageURL" :alt="product.imageAlt" >
-                <!-- Commenting out description because it makes the product cards too long -->
-                <!-- <h4 class="text-left font-bold text-xl md:text-2xl lg:text-3xl w-full underline">Style Description:</h4>
-                <p class="text-left text-lg md:text-xl lg:text-2xl">{{ product.description }}</p> -->
-                <h4 class="text-left font-bold text-xl md:text-2xl lg:text-3xl w-full underline">Style Features:</h4>
-                <ul class="text-left w-full text-lg md:text-xl lg:text-2xl list-disc list-inside">
-                    <li v-for="feature in product.keyFeatures">{{ feature }}</li>
-                </ul>
-                <div class="flex justify-center">
-                    <button class="text-white bg-red-600 p-2 rounded inline-block"><router-link :to="{ name: 'Product', params: {id: product.id } }">View Details</router-link></button>
+        <!-- Category Title -->
+        <div class="flex flex-row justify-start items-end">
+            <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">Tuxedos & Suits</h2> 
+            <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : 'TuxedoSuit' } }">View All</router-link>
+        </div>
+        <!-- Product Container -->
+        <div class="flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
+            <!-- Product Card -->
+            <div class="flex flex-col text-center min-w-[90%] md:min-w-[56%] lg:min-w-[28%] mx-2 md:mx-4 my-2 bg-gray-800 text-white rounded shadow-lg shadow-black" v-for="product in props.tuxedoAndSuitProducts">
+                <h3 class="text-2xl">{{ product.name }}</h3>
+                <!-- Product Image -->
+                <div class="flex justify-center w-full my-1 md:my-2 p-2">
+                    <img class="h-[40rem] w-fit object-cover object-center rounded shadow shadow-black" :src="product.imageURL" :alt="product.imageAlt" >
                 </div>
-                <p class="text-center text-lg md:text-xl lg:text-2xl">Style Number: {{ product.styleNumber }}</p>
+                <div class="flex justify-center my-1 md:my-2">
+                    <button class="text-white bg-red-600 p-2 rounded inline-block"><router-link :to="{ name: 'Product', params: {id: product.id } }">View Style Details</router-link></button>
+                </div>
+                <p class="my-1 smd:my-2">Style Number: {{ product.styleNumber }}</p>
             </div>
         </div>
 
     </section>
 </template>
+
+<style scoped>
+</style>
 
 <script setup>
 const props = defineProps({
@@ -29,7 +35,4 @@ const props = defineProps({
         required: true
     }
 })
-
-
-
 </script>
