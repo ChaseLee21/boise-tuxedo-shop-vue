@@ -13,7 +13,7 @@
         </button>
         <router-link to="/" class="text-2xl font-bold">Boise Tuxedo Shop</router-link>
         <Transition>
-            <nav v-show="navOpen" class="absolute left-0 top-12 w-[100vw]">
+            <nav v-show="navOpen" class="absolute left-0 top-12 w-full">
                 <ul class="flex flex-col p-3 text-lg bg-gray-800 text-white">
                     <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
@@ -29,7 +29,7 @@
             </nav>
         </Transition>
     </section>
-    <section v-else id="navMenu" class="sticky top-0 w-[100vw]">
+    <section v-else id="navMenu" class="sticky top-0 w-full">
         <nav class="bg-gray-800 text-white">
             <ul class="flex flex-row flex-wrap justify-center items-center text-lg p-3">
                 <li class="lg:text-2xl text-xl font-bold hover:text-zinc-300 mx-2"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
