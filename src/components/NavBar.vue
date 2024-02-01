@@ -31,8 +31,8 @@
     </section>
     <section v-else id="navMenu" class="sticky top-0 w-[100vw]">
         <nav class="bg-gray-800 text-white">
-            <ul class="flex flex-row flex-wrap justify-center text-lg p-3">
-                <li class="absolute left-4 text-2xl font-bold hover:text-zinc-300"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
+            <ul class="flex flex-row flex-wrap justify-center items-center text-lg p-3">
+                <li class="lg:text-2xl text-xl font-bold hover:text-zinc-300 mx-2"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Faq">FAQs</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Contact">Contact Us</router-link></li>
@@ -50,7 +50,7 @@ import { ref, onMounted } from 'vue';
 
 let navOpen = ref(false);
 
-let isMobile = ref(window.innerWidth < 768);
+let isMobile = ref(window.innerWidth <= 768);
 
 const handleNavMenuOpen = (e) => {
     if (e.target.closest('#navButton')) {
