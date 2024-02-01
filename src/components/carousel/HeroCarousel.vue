@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-row">
         <!-- Carousel -->
-        <div class="flex justify-center items-center flex-row relative h-auto w-full m-4" >
+        <div class="flex justify-center items-center flex-row relative h-auto w-auto mt-4 mx-auto pt-4" >
             <!-- Previous Button -->
             <button class="absolute left-5 top-1/2" @click="next()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
