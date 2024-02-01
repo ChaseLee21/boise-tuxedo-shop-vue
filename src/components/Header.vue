@@ -13,11 +13,11 @@
         </section>
         <section class="col-span-1 m-auto">
             <div class="flex justify-center">
-                <a href="https://www.facebook.com/your-facebook-page" target="_blank" rel="noopener noreferrer">
-                    <font-awesome-icon icon="facebook" />
+                <a href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
+                    <font-awesome-icon :icon="['fab', 'facebook']" />
                 </a>
-                <a href="https://www.instagram.com/your-instagram-page" target="_blank" rel="noopener noreferrer">
-                    <font-awesome-icon icon="instagram" />
+                <a href="https://www.instagram.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
+                    <font-awesome-icon :icon="['fab', 'instagram']" />
                 </a>
             </div>
         </section>
