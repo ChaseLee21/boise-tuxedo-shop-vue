@@ -1,7 +1,7 @@
 <template>
-    <section class="flex flex-col text-start justify-center p-2">
+    <section class="flex flex-col text-start justify-center p-2 md:text-center ">
         <h2 class="font-bold text-2xl my-1">Contact Us</h2>
-        <ul class="my-1 mx-1 list-disc list-inside">
+        <ul class="my-1 mx-1 list-disc list-inside md:list-none">
             <li>Please refer to the <router-link class="text-blue-900 font-bold underline" to="/Faq">FAQ's</router-link> before calling to see if your question is already answered!</li>
             <li>If you are a part of a wedding party and are ready to give us your measurements, please send us an email with your name, wedding date, groom's name, and your measurements.</li>
             <li>If you still have questions or concerns, please call us or send us an email and we will get back to you as soon as possible!</li>
