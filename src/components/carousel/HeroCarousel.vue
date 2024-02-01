@@ -1,7 +1,7 @@
 <template>
     <section class="flex flex-row">
         <!-- Carousel -->
-        <div class="flex justify-center items-center flex-row relative h-auto w-auto mt-4 mx-auto pt-4" >
+        <div class="flex justify-center items-center flex-row relative h-auto w-auto my-4 mx-auto pt-4 px-2" >
             <!-- Previous Button -->
             <button class="absolute left-5 top-1/2" @click="next()">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
@@ -9,7 +9,7 @@
                         <line x1="10" y1="25" x2="40" y2="40"></line> 
                 </svg>
             </button>
-            <img class="h-[100%] w-auto object-cover object-center rounded-lg  m-2 shadow shadow-black" v-if="currentImage" :src="currentImage.url" :alt="currentImage.imageAlt">
+            <img class="h-[100%] w-auto object-cover object-center rounded-lg shadow shadow-black" v-if="currentImage" :src="currentImage.url" :alt="currentImage.imageAlt">
             <!-- Next Button -->
             <button class="absolute top-1/2 right-5" @click="previous">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
@@ -54,6 +54,5 @@ onMounted(async () => {
     });
 });
 
-//TODO: style the carousel and buttons
 //TODO: add transition to the carousel
 </script>
