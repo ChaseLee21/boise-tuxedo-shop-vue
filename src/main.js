@@ -1,5 +1,8 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './style.css'
 import App from './App.vue'
 import Home from './components/Home.vue'
@@ -35,7 +38,8 @@ const router = createRouter({
       },
   })
   
-
+  library.add(faFacebook, faInstagram)
   const app = createApp(App)
+  app.component('font-awesome-icon', FontAwesomeIcon)
   app.use(router)
   app.mount('#app')
