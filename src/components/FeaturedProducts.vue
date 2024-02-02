@@ -3,8 +3,8 @@
     <section class="m-3 ">
         <!-- Category Title -->
         <div class="flex flex-row justify-start items-end">
-            <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">Tuxedos & Suits</h2> 
-            <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : 'TuxedoSuit' } }">View All</router-link>
+            <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">{{props.title}}</h2> 
+            <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : props.route } }">View All</router-link>
         </div>
         <!-- Product Container -->
         <div ref="productContainer" class="relative flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem] md:overflow-hidden">
@@ -51,6 +51,14 @@ const props = defineProps({
     tuxedoAndSuitProducts: {
         type: Array,
         required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    route : {
+        type: String,
+        required: true
     }
 })
 
@@ -62,4 +70,8 @@ const scroll = (direction) => {
     container.scrollLeft += scrollAmount;
     console.log(container.children[2].clientWidth);
 }
+
+onMounted(() => {
+    console.log(props.title);
+})
 </script>
