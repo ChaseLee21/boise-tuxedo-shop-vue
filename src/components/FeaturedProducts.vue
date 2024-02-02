@@ -1,13 +1,13 @@
 <template>
     <!-- Section Container -->
-    <section class="m-3 ">
+    <section class="my-3 ">
         <!-- Category Title -->
         <div class="flex flex-row justify-start items-end">
             <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">{{props.title}}</h2> 
             <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : props.route } }">View All</router-link>
         </div>
         <!-- Product Container -->
-        <div ref="productContainer" class="relative flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem] md:overflow-hidden">
+        <div ref="productContainer" class="relative flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 py-4 w-full scroll-m-[1rem] md:overflow-hidden">
             <!-- Previous Button -->
             <button v-if="!isMobile" class="sticky left-0 top-1/2" @click="scroll(-1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">

@@ -1,5 +1,5 @@
 <template>
-    <section class="m-3">
+    <section class="my-3">
         <h1 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 font-bold underline">Rent or Buy</h1>
         <p class="text-start md:text-lg lg:text-xl ms-5">
             Not only do we value helping you look good for your big event but we think it is important to do it your way.
