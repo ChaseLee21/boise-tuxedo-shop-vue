@@ -9,8 +9,8 @@
             
         </p>
     </section>
-    <FeaturedProducts :tuxedoAndSuitProducts = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
-    <Shirts :shirtProducts = shirtProducts />
+    <FeaturedProducts :products = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
+    <FeaturedProducts :products = shirtProducts :title = shirts.title :route = shirts.route />
     <Pants :pantProducts = pantProducts />
 </template>
 
@@ -26,6 +26,11 @@ const $ = jQuery;
 const tuxedoAndSuit = {
     title: "Tuxedos & Suits",
     route: "TuxedoSuit"
+} 
+
+const shirts = {
+    title: "Shirts",
+    route: "Shirts"
 } 
 
 const products = ref([]);

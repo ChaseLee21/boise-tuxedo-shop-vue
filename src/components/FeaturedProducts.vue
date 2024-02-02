@@ -16,7 +16,7 @@
                 </svg>
             </button>
             <!-- Product Card -->
-            <div class="flex flex-col snap-center text-center min-w-[90%] md:min-w-[56%] lg:min-w-[28%] mx-2 md:mx-4 my-2 bg-gray-800 text-white rounded shadow-lg shadow-black" v-for="product in props.tuxedoAndSuitProducts">
+            <div class="flex flex-col snap-center text-center min-w-[90%] md:min-w-[56%] lg:min-w-[28%] mx-2 md:mx-4 my-2 bg-gray-800 text-white rounded shadow-lg shadow-black" v-for="product in props.products">
                 <h3 class="text-xl md:text-2xl p-1">{{ product.name }}</h3>
                 <!-- Product Image -->
                 <div class="flex justify-center w-full my-1 md:my-2 p-2">
@@ -48,7 +48,7 @@ import { ref, onMounted } from 'vue';
 let isMobile = ref(window.innerWidth < 768);
 
 const props = defineProps({
-    tuxedoAndSuitProducts: {
+    products: {
         type: Array,
         required: true
     },
