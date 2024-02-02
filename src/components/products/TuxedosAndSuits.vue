@@ -9,7 +9,7 @@
         <!-- Product Container -->
         <div ref="productContainer" class="relative flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem] md:overflow-hidden">
             <!-- Previous Button -->
-            <button class="sticky left-0 top-1/2" @click="scroll(-1)">
+            <button v-if="!isMobile" class="sticky left-0 top-1/2" @click="scroll(-1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
                         <line x1="10" y1="25" x2="40" y2="10"></line>
                         <line x1="10" y1="25" x2="40" y2="40"></line> 
@@ -28,7 +28,7 @@
                 <p class="my-1 smd:my-2">Style Number: {{ product.styleNumber }}</p>
             </div>
             <!-- Next Button -->
-            <button class="sticky top-1/2 right-0" @click="scroll(1)">
+            <button v-if="!isMobile" class="sticky top-1/2 right-0" @click="scroll(1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
                         <line x1="40" y1="25" x2="10" y2="10"></line>
                         <line x1="40" y1="25" x2="10" y2="40"></line> 
@@ -44,6 +44,8 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+
+let isMobile = ref(window.innerWidth < 768);
 
 const props = defineProps({
     tuxedoAndSuitProducts: {
