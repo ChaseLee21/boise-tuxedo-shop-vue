@@ -54,5 +54,5 @@ onMounted(async () => {
     });
 });
 
-//TODO: add transition to the carousel
+//TODO: update carousel to use same functionality as featuredProduct.vue
 </script>
