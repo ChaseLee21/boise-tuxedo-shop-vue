@@ -11,13 +11,11 @@
     </section>
     <FeaturedProducts :products = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
     <FeaturedProducts :products = shirtProducts :title = shirts.title :route = shirts.route />
-    <Pants :pantProducts = pantProducts />
+    <FeaturedProducts :products = pantProducts :title = pants.title :route = pants.route />
 </template>
 
 <script setup>
 import FeaturedProducts from './FeaturedProducts.vue';
-import Shirts from './products/Shirts.vue';
-import Pants from './products/Pants.vue';
 import jQuery from 'jquery';
 import { computed, onMounted, ref } from 'vue';
 
@@ -31,6 +29,11 @@ const tuxedoAndSuit = {
 const shirts = {
     title: "Shirts",
     route: "Shirts"
+}
+
+const pants = {
+    title: "Pants",
+    route: "Pants"
 } 
 
 const products = ref([]);
