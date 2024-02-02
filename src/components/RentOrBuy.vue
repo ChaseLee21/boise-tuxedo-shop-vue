@@ -1,17 +1,40 @@
 <template>
-    <TuxedosAndSuits :tuxedoAndSuitProducts = tuxedoAndSuitProducts />
-    <Shirts :shirtProducts = shirtProducts />
-    <Pants :pantProducts = pantProducts />
+    <section class="my-3">
+        <h1 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 font-bold underline">Rent or Buy</h1>
+        <p class="text-start md:text-lg lg:text-xl ms-5">
+            Not only do we value helping you look good for your big event but we think it is important to do it your way.
+            Whether you are wanting to rent or buy your outfit, we have you covered at Boise Tuxedo Shop.
+            Our rental package for both tuxedos and suits includes 5 pieces: jacket, pants, shirt, vest, and your choice of tie, bowtie, or suspenders.
+            You may upgrade your rental package to include shoes or cufflinks for an additional fee.
+            
+        </p>
+    </section>
+    <FeaturedProducts :products = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
+    <FeaturedProducts :products = shirtProducts :title = shirts.title :route = shirts.route />
+    <FeaturedProducts :products = pantProducts :title = pants.title :route = pants.route />
 </template>
 
 <script setup>
-import TuxedosAndSuits from './products/TuxedosAndSuits.vue';
-import Shirts from './products/Shirts.vue';
-import Pants from './products/Pants.vue';
+import FeaturedProducts from './FeaturedProducts.vue';
 import jQuery from 'jquery';
 import { computed, onMounted, ref } from 'vue';
 
 const $ = jQuery;
+
+const tuxedoAndSuit = {
+    title: "Tuxedos & Suits",
+    route: "TuxedoSuit"
+} 
+
+const shirts = {
+    title: "Shirts",
+    route: "Shirts"
+}
+
+const pants = {
+    title: "Pants",
+    route: "Pants"
+} 
 
 const products = ref([]);
 
