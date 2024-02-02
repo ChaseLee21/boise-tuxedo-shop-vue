@@ -58,7 +58,8 @@ const productContainer = ref(null);
 
 const scroll = (direction) => {
     const container = productContainer.value;
-    const scrollAmount = direction * container.clientWidth;
+    const scrollAmount = direction * container.children[2].clientWidth;
     container.scrollLeft += scrollAmount;
+    console.log(container.children[2].clientWidth);
 }
 </script>
