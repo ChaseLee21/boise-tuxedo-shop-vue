@@ -8,7 +8,7 @@
             <p class="font-bold text-center text-base">Style #: {{ product.styleNumber }}</p>
         </div>
 
-        <div class="flex flex-row justify-center">
+        <div class="flex flex-col md:flex-row justify-center">
             <!-- Image Container -->
             <div class="flex justify-center min-w-fit">
                 <img class="h-[40rem] max-h-[75vh] w-fit object-cover object-center rounded shadow shadow-black" :src="product.imageURL" :alt="product.imageAlt" >
