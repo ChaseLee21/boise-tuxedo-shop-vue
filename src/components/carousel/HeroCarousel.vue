@@ -1,5 +1,5 @@
 <template>
-    <section ref="imageContainer" class="relative flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 py-4 w-full scroll-m-[1rem] md:overflow-hidden">
+    <section ref="imageContainer" class="relative flex flex-row flex-nowrap scroll-smooth my-4 py-4 w-full overflow-hidden">
         <!-- Previous Button -->
         <button class="sticky left-0 top-1/2" @click="scroll(-1)">
             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
@@ -50,5 +50,4 @@ onMounted(async () => {
     });
 });
 
-//TODO: update carousel to use same functionality as featuredProduct.vue
 </script>
