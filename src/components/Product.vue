@@ -1,55 +1,56 @@
 <template>
-    <section v-if="product" class="p-2">
-        <!-- Product Title -->
-        <h2 class="font-bold text-center text-xl py-2"> {{ product.name }} </h2>
-
-        <!-- Product Image -->
-        <div class="flex justify-center align-middle">
-            <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit rounded-2xl" :src="product.imageURL" :alt="product.imageAlt" >
-        </div>
-
-        <!-- Container including: title, style number, and pricing -->
-        <div class="m-1 border border-black rounded border-opacity-50 p-1">
-            <!-- Second Product Title -->
-            <p class="font-bold text-center text-base">{{ product.name }}</p>
-
+    <!-- Container -->
+    <section v-if="product" class="p-2 w-full md:w-[90vw] lg:w-[75vw] xl:w-[60vw]  m-auto">
+        <div>
+            <!-- Product Title -->
+            <h2 class="font-bold text-center text-xl py-2"> {{ product.name }} </h2>
             <!-- Product Style Number -->
             <p class="font-bold text-center text-base">Style #: {{ product.styleNumber }}</p>
-
-            <!-- Pricing -->
-            <div v-if="product.retailPrice && !product.saleRetailPrice && !product.rentalPrice" class="">
-                <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
-            </div>
-            <div v-if="product.retailPrice && product.saleRetailPrice && !product.rentalPrice" class="flex justify-between w-full px-2">
-                <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
-                <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
-            </div>
-            <div v-if="product.retailPrice && !product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2">
-                <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
-                <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
-            </div>
-            <div v-if="product.retailPrice && product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2 text-center">
-                <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
-                <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
-                <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
-            </div>
-            <div v-if="product.rentalPrice && !product.retailPrice && !product.saleRetailPrice">
-                <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
-            </div>
         </div>
 
-        <!-- Product Features -->
-        <div class="m-1 border border-black rounded border-opacity-50 p-1">
-            <h3 class="font-bold text-lg underline">Style Features</h3>
-            <ul class="list-inside list-disc">
-                <li v-for="feature in product.keyFeatures">{{ feature }}</li>
-            </ul>
-        </div>
-
-        <!-- Product Description -->
-        <div class="m-1 border border-black rounded border-opacity-50 p-1">
-            <h3 class="font-bold text-lg underline">Style Description</h3>
-            <p>{{ product.description }}</p>
+        <div class="flex flex-row justify-center">
+            <!-- Image Container -->
+            <div class="flex justify-center min-w-fit">
+                <img class="h-[40rem] max-h-[75vh] w-fit object-cover object-center rounded shadow shadow-black" :src="product.imageURL" :alt="product.imageAlt" >
+            </div>
+            <!-- Details Container -->
+            <div class="flex flex-col border-gray-800 p-2 rounded mx-2">
+                <!-- Product Features -->
+                <div>
+                    <h3 class="font-bold text-lg underline">Style Features</h3>
+                    <ul class="list-inside list-disc">
+                        <li v-for="feature in product.keyFeatures">{{ feature }}</li>
+                    </ul>
+                </div>
+                <!-- Product Description -->
+                <div>
+                    <h3 class="font-bold text-lg underline">Style Description</h3>
+                    <p>{{ product.description }}</p>
+                </div>
+                <!-- Product Pricing -->
+                <div class="my-2">
+                    <!-- Pricing -->
+                    <div v-if="product.retailPrice && !product.saleRetailPrice && !product.rentalPrice" class="">
+                        <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
+                    </div>
+                    <div v-if="product.retailPrice && product.saleRetailPrice && !product.rentalPrice" class="flex justify-between w-full px-2">
+                        <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
+                        <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
+                    </div>
+                    <div v-if="product.retailPrice && !product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2">
+                        <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
+                        <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                    </div>
+                    <div v-if="product.retailPrice && product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2 text-center">
+                        <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
+                        <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
+                        <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                    </div>
+                    <div v-if="product.rentalPrice && !product.retailPrice && !product.saleRetailPrice">
+                        <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Link to category page -->
