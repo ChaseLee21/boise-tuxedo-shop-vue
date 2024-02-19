@@ -1,40 +1,45 @@
 <template>
+    <!-- Container -->
     <section class="m-3">
         <!-- Category Title -->
-        <h2 v-if="props.category == 'TuxedoSuit'" class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> Tuxedos & Suits </h2>
-        <h2 v-else class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> {{ props.category }} </h2>
-        <!-- Products Container -->
-        <div class="grid grid-cols-1 md:grid-cols-4">
-            <div class="flex flex-col m-2 border border-black rounded items-center" v-for="product in filterProducts">
+        <div>
+            <h2 v-if="props.category == 'TuxedoSuit'" class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> Tuxedos & Suits </h2>
+            <h2 v-else class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> {{ props.category }} </h2>
+        </div>
+        <!-- Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <!-- Product Card -->
+            <section class="flex flex-col justify-evenly bg-gray-800 text-white text-center font-bold m-4 px-3 shadow-lg shadow-black rounded items-center" v-for="product in filterProducts">
+
                 <!-- Product Image & Title w/ Router Link -->
-                <router-link 
-                class="text-center font-bold text-xl md:text-2xl lg:text-3xl " 
+                <router-link class="w-full flex flex-col justify-center items-center" 
                 :to="{ name: 'Product', params: {id: product.id } }">
-                    <p class="p-1">{{ product.name }}</p>
-                    <img class="h-auto w-auto object-cover object-center md:h-[35vh] md:w-fit" :src="product.imageURL" :alt="product.imageAlt" >
+                    <p class="p-1 text-lg md:text-xl lg:text-2xl">{{ product.name }}</p>
+                    <img class="h-[40rem] max-h-[75vh] w-fit object-cover object-center rounded shadow shadow-black" :src="product.imageURL" :alt="product.imageAlt" >
                 </router-link>
+
                 <!-- Pricing -->
                 <div v-if="product.retailPrice && !product.saleRetailPrice && !product.rentalPrice" class="">
-                    <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
+                    <p>Purchase Price: ${{ product.retailPrice }}</p>
                 </div>
                 <div v-if="product.retailPrice && product.saleRetailPrice && !product.rentalPrice" class="flex justify-between w-full px-2">
-                    <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
-                    <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
+                    <p>Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
+                    <p class="text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
                 </div>
                 <div v-if="product.retailPrice && !product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2">
-                    <p class="font-bold">Purchase Price: ${{ product.retailPrice }}</p>
-                    <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                    <p>Purchase Price: ${{ product.retailPrice }}</p>
+                    <p>Rental Price: ${{ product.rentalPrice }}</p>
                 </div>
                 <div v-if="product.retailPrice && product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2 text-center">
-                    <p class="font-bold">Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
-                    <p class="font-bold text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
-                    <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                    <p>Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
+                    <p class="text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
+                    <p >Rental Price: ${{ product.rentalPrice }}</p>
                 </div>
                 <div v-if="product.rentalPrice && !product.retailPrice && !product.saleRetailPrice">
-                    <p class="font-bold">Rental Price: ${{ product.rentalPrice }}</p>
+                    <p>Rental Price: ${{ product.rentalPrice }}</p>
                 </div>
                 
-            </div>
+            </section>
         </div>
 
     </section>

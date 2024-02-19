@@ -1,5 +1,5 @@
 <template>
-    <!-- Section Container -->
+    <!-- Container  -->
     <section class="my-3 ">
         <!-- Category Title -->
         <div class="flex flex-row justify-start items-end">
