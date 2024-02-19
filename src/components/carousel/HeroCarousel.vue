@@ -1,23 +1,23 @@
 <template>
-    <section class="flex flex-row">
-        <!-- Carousel -->
-        <div class="flex justify-center items-center flex-row relative h-auto w-auto my-4 mx-auto pt-4 px-2" >
-            <!-- Previous Button -->
-            <button class="absolute left-5 top-1/2" @click="next()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
-                        <line x1="10" y1="25" x2="40" y2="10"></line>
-                        <line x1="10" y1="25" x2="40" y2="40"></line> 
-                </svg>
-            </button>
-            <img class="h-[100%] w-auto object-cover object-center rounded-lg shadow shadow-black" v-if="currentImage" :src="currentImage.url" :alt="currentImage.imageAlt">
-            <!-- Next Button -->
-            <button class="absolute top-1/2 right-5" @click="previous">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
-                        <line x1="40" y1="25" x2="10" y2="10"></line>
-                        <line x1="40" y1="25" x2="10" y2="40"></line> 
-                </svg>
-            </button>
+    <section ref="imageContainer" class="relative flex flex-row flex-nowrap scroll-smooth my-4 py-4 w-full overflow-hidden">
+        <!-- Previous Button -->
+        <button class="sticky left-0 top-1/2" @click="scroll(-1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
+                    <line x1="10" y1="25" x2="40" y2="10"></line>
+                    <line x1="10" y1="25" x2="40" y2="40"></line> 
+            </svg>
+        </button>
+        <!-- Images -->
+        <div v-for="image in images"  class="flex justify-center w-full min-w-fit mx-4">
+            <img class="h-[40rem] max-h-[75vh] min-w-fit object-cover object-center rounded shadow shadow-black" :src="image.url" :alt="image.imageAlt" >
         </div>
+        <!-- Next Button -->
+        <button class="sticky top-1/2 right-0" @click="scroll(1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
+                    <line x1="40" y1="25" x2="10" y2="10"></line>
+                    <line x1="40" y1="25" x2="10" y2="40"></line> 
+            </svg>
+        </button>
     </section>
 </template>
 
@@ -26,18 +26,15 @@ import { ref, onMounted } from 'vue';
 import $ from 'jquery';
 
 let images = ref([]);
-let carouselIndex = ref(0);
-let currentImage = ref(images.value[carouselIndex.value]); // Initialize currentImage as null
 
-const next = () => {
-    carouselIndex.value = (carouselIndex.value + 1) % images.value.length;
-    currentImage.value = images.value[carouselIndex.value];
-};
+const imageContainer = ref(null);
 
-const previous = () => {
-    carouselIndex.value = (carouselIndex.value - 1 + images.value.length) % images.value.length;
-    currentImage.value = images.value[carouselIndex.value];
-}; 
+const scroll = (direction) => {
+    const container = imageContainer.value;
+    const scrollAmount = direction * container.children[2].clientWidth;
+    container.scrollLeft += scrollAmount;
+    console.log(container.children[2].clientWidth);
+}
 
 // USE: this method to retrieve images from the carousel api route
 onMounted(async () => {
@@ -49,10 +46,8 @@ onMounted(async () => {
         },
         success: function (data) {
             images.value = data;
-            currentImage.value = images.value[carouselIndex.value];
         }
     });
 });
 
-//TODO: update carousel to use same functionality as featuredProduct.vue
 </script>
