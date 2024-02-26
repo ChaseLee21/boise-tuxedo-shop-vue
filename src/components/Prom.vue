@@ -53,6 +53,8 @@
     </section>
     <section class="px-2 md:px-4 lg:px-6">
         <h2 class="text-start text-lg md:text-xl lg:text-2xl m-2 font-bold">Prom Dates</h2>
-
+        <ul class="list-disc list-inside indent-2">
+            <li>Placeholder</li>
+        </ul>
     </section>
 </template>
