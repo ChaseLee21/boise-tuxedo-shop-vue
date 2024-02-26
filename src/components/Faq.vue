@@ -1,6 +1,6 @@
 <template>
     <section class="mx-2 text-start md:text-center">
-        <h2 class="text-start md:text-center text-2xl md:text-3xl lg:text-4xl font-bold">FAQ</h2>
+        <h1 class="text-start md:text-center text-2xl md:text-3xl lg:text-4xl font-bold">FAQ</h1>
         <ul class="flex flex-col ms-4 my-3" v-for="faq in faqs">
             <li class="text-2xl text-red-600 font-bold">Q: {{ faq.question }}</li>
             <li class="text-lg">A: {{ faq.answer }}</li>
