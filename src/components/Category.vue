@@ -1,13 +1,13 @@
 <template>
     <!-- Container -->
-    <section class="m-3">
+    <section class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
         <!-- Category Title -->
         <div>
-            <h2 v-if="props.category == 'TuxedoSuit'" class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> Tuxedos & Suits </h2>
+            <h2 v-if="props.category == 'TuxedoSuit'" class="text-center md:text-start text-2xl lg:text-4xl mx-2"> Tuxedos & Suits </h2>
             <h2 v-else class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> {{ props.category }} </h2>
         </div>
         <!-- Grid Container -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             <!-- Product Card -->
             <section class="flex flex-col justify-evenly bg-gray-800 text-white text-center font-bold m-4 px-3 shadow-lg shadow-black rounded items-center" v-for="product in filterProducts">
 
