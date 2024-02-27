@@ -1,9 +1,9 @@
 <template>
-    <section class="mx-2 text-start md:text-center">
-        <h1 class="text-start md:text-center text-2xl md:text-3xl lg:text-4xl font-bold">FAQ</h1>
+    <section class="mx-2 text-start xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
+        <h1 class="text-start underline text-2xl md:text-3xl lg:text-4xl font-bold">FAQ</h1>
         <ul class="flex flex-col ms-4 my-3" v-for="faq in faqs">
-            <li class="text-2xl text-red-600 font-bold">Q: {{ faq.question }}</li>
-            <li class="text-lg">A: {{ faq.answer }}</li>
+            <li class="text-2xl text-red-600 font-bold">{{ faq.question }}</li>
+            <li class="text-lg">{{ faq.answer }}</li>
         </ul>
         <p class="text-lg ms-4 my-3">Not finding the answer you're looking for? Feel free to <router-link class="text-blue-900 font-bold underline" to="/Contact">contact us</router-link></p>
     </section>
