@@ -8,8 +8,8 @@
                 If you still have questions or concerns, please call us or send us an email and we will get back to you as soon as possible!
             </p>
         </header>
-        <section class="flex flex-col">
-            <a class="text-blue-900 font-bold underline px-2" href="tel:208-375-9616" alt="208-375-9616">Call: (208) 375-9616</a>
+        <section role="contentinfo" class="flex flex-col">
+            <a class="text-blue-900 font-bold underline px-2" href="tel:208-375-9616">Call: (208) 375-9616</a>
             <a class="text-blue-900 font-bold underline px-2" href="mailto:boisetuxedoshop@gmail.com" target="_blank">Email: boisetuxedoshop@gmail.com</a>
         </section>
     </main>
