@@ -1,8 +1,8 @@
 <template>
     <!-- Container  -->
-    <section class="my-3 ">
+    <section class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
         <!-- Category Title -->
-        <div class="flex flex-row justify-start items-end">
+        <div class="flex flex-row justify-start items-end mx-3">
             <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">{{props.title}}</h2> 
             <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : props.route } }">View All</router-link>
         </div>
