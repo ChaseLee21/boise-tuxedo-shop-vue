@@ -59,9 +59,44 @@
         </section>
         <section class="">
             <h2 class="text-xl lg:text-2xl font-bold py-2">Prom Dates</h2>
-            <ul class="list-inside indent-3">
-                <li class="indent-6">Placeholder</li>
-            </ul>
+            <article>
+                <h3>April 6th</h3>
+                <ul class="list-inside indent-3">
+                    <li class="indent-6">Capital High School</li>
+                    <li class="indent-6">Bishop Kelly High School</li>
+                </ul>
+            </article>
+            <article>
+                <h3>April 13th</h3>
+                <ul class="list-inside indent-3">
+                    <li class="indent-6">Rocky Mountain High School</li>
+                </ul>
+            </article>
+            <article>
+                <h3>April 20th</h3>
+                <ul class="list-inside indent-3">
+                    <li class="indent-6">Owyhee High School</li>
+                    <li class="indent-6">Boise High School</li>
+                    <li class="indent-6">Borah High School</li>
+                    <li class="indent-6">Timberline High School</li>
+                    <li class="indent-6">Emmett High School</li>
+                    <li class="indent-6">Middleton High School</li>
+                </ul>
+            </article>
+            <article>
+                <h3>April 27th</h3>
+                <ul class="list-inside indent-3">
+                    <li class="indent-6">Centennial High School</li>
+                    <li class="indent-6">Meridian High School</li>
+                    <li class="indent-6">Mountain View High School</li>
+                </ul>
+            </article>         
+            <article>
+                <h3>May 4th</h3>
+                <ul class="list-inside indent-3">
+                    <li class="indent-6">Eagle High School</li>
+                </ul>
+            </article>
         </section>
         <FeaturedProducts :products = promProducts :title = prom.title :route = prom.route />
     </main>    
