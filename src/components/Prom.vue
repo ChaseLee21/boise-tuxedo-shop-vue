@@ -26,7 +26,7 @@
                 </article>
                 <article>
                     <h3 class="text-2xl text-red-600 font-bold">How much does it cost to rent a tuxedo or suit for prom?</h3>
-                    <p class="indent-3">Pricing changes depending on what style you choose but most styles range from $159 - $175.</p>
+                    <p class="indent-3">Please refer to our price chart below for a detailed overview of our prom 2024 pricing</p>
                 </article>
                 <article>
                     <h3 class="text-2xl text-red-600 font-bold">When do I need to pay for my rental?</h3>
@@ -57,8 +57,34 @@
                 </article>
             </div>
         </section>
+        <section>
+            <h2 class="text-xl lg:text-2xl font-bold py-2">Prom 2024 Pricing</h2>
+            <article>
+                <h3 class="text-lg">Prom Tuxedo and Suit Packages</h3>
+                <ul class="list-inside list-disc indent-5">
+                    <li>5 Piece: pants, shirt, vest, tie, and shoes --- <span class="font-bold">$140</span></li>
+                    <li>5 Piece: coat, pants, shirt, vest, and tie (no shoes included)  --- <span class="font-bold">$170</span></li>
+                    <li>6 Piece: coat, pants, shirt, vest, tie, and shoes --- <span class="font-bold">$185</span></li>
+                    <li>9 Piece: full 6 piece package, belt, cufflink set, pocket square, and socks --- <span class="font-bold">$215</span></li>
+                </ul>
+            </article>
+            <article>
+                <h3 class="text-lg">Prom Individual Rental Items</h3>
+                <ul class="list-inside list-disc indent-5">
+                    <li>Coat --- <span class="font-bold">$85</span></li>
+                    <li>Pant --- <span class="font-bold">$45</span></li>
+                    <li>Shirt --- <span class="font-bold">$25</span></li>
+                    <li>Vest --- <span class="font-bold">$30</span></li>
+                    <li>Tie --- <span class="font-bold">$10</span></li>
+                    <li>Shoes --- <span class="font-bold">$30</span></li>
+                    <li>Belt --- <span class="font-bold">$15</span></li>
+                    <li>Stud and Cufflink Set --- <span class="font-bold">$10</span></li>
+                    <li>Pocket Square --- <span class="font-bold">$5</span></li>
+                </ul>
+            </article>
+        </section>
         <section class="">
-            <h2 class="text-xl lg:text-2xl font-bold py-2">Prom Dates</h2>
+            <h2 class="text-xl lg:text-2xl font-bold py-2">Prom 2024 Dates</h2>
             <article>
                 <h3>April 6th</h3>
                 <ul class="list-inside indent-3">
