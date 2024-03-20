@@ -34,13 +34,13 @@
             <ul class="flex flex-row flex-wrap justify-center items-center text-lg p-3">
                 <li class="lg:text-2xl text-xl font-bold hover:text-zinc-300 mx-2"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/Faq">FAQs</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/Prom">Prom</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/Contact">Contact Us</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Prom">Prom 2024</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Shirts">Shirts</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Pants">Pants</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Accessories">Accessories & More</router-link></li>
+                <!-- <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Accessories">Accessories & More</router-link></li> -->
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Faq">FAQs</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Contact">Contact Us</router-link></li>
             </ul>
         </nav>
     </section>
