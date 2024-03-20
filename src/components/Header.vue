@@ -5,7 +5,7 @@
                 <li class="text-red-600">All Tuxedos and Suits in Stock</li>
                 <li>5 Star Customer Services</li>
                 <li>No Appointment Necessary</li>
-                <li>Its Never to Late to Shop for your Prom or Wedding Attire</li>
+                <li>Its Never too Late to Shop for your Prom or Wedding Attire</li>
             </ul>
         </section>
         <section class="md:col-span-1 flex flex-row justify-center">
