@@ -1,5 +1,5 @@
 <template>
-    <section class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
+    <header class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
         <h1 class="my-2 text-start text-2xl md:text-3xl lg:text-4xl mx-2 font-bold underline" >Rent or Buy</h1>
         <p class="text-start md:text-lg lg:text-xl ms-5 my-2">
             Not only do we value helping you look good for your big event but we think it is important to do it your way.
@@ -7,10 +7,12 @@
             Our rental package for both tuxedos and suits includes 5 pieces: jacket, pants, shirt, vest, and your choice of tie, bowtie, or suspenders.
             You may upgrade your rental package to include shoes or cufflinks for an additional fee.
         </p>
-    </section>
-    <FeaturedProducts :products = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
-    <FeaturedProducts :products = shirtProducts :title = shirts.title :route = shirts.route />
-    <FeaturedProducts :products = pantProducts :title = pants.title :route = pants.route />
+    </header>
+    <main>
+        <FeaturedProducts :products = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
+        <FeaturedProducts :products = shirtProducts :title = shirts.title :route = shirts.route />
+        <FeaturedProducts :products = pantProducts :title = pants.title :route = pants.route />
+    </main>
 </template>
 
 <script setup>
