@@ -124,20 +124,19 @@
                 </ul>
             </article>
         </section>
-        <FeaturedProducts :products = promProducts :title = prom.title :route = prom.route />
+        <ImageGallery :products = promProducts :title = prom.title />
     </main>    
 </template>
 
 <script setup>
-import FeaturedProducts from './FeaturedProducts.vue';
+import ImageGallery from './ImageGallery.vue';
 import jQuery from 'jquery';
 import { computed, onMounted, ref } from 'vue';
 
 const $ = jQuery;
 
 const prom = {
-    title: "Popular Tuxedos & Suits for Prom 2024",
-    route: "Prom"
+    title: "Prom 2024 Image Gallery",
 } 
 
 const products = ref([]);
