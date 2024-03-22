@@ -124,7 +124,7 @@
                 </ul>
             </article>
         </section>
-        <ImageGallery :products = promProducts :title = prom.title />
+        <ImageGallery :title = prom.title />
     </main>    
 </template>
 
@@ -138,35 +138,5 @@ const $ = jQuery;
 const prom = {
     title: "Prom 2024 Image Gallery",
 } 
-
-const products = ref([]);
-
-onMounted(() => {
-    getProducts();
-})
-
-async function getProducts() {
-    await $.ajax({
-        url: 'https://boisetuxedoshop.azurewebsites.net/api/products',
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            for (let product of data) {
-                if (product.keyFeatures) {
-                    product.keyFeatures = product.keyFeatures.split(',');
-                }
-            }
-            products.value = data;
-        }
-    })
-}
-
-const promProducts = computed(() => {
-    let arr = products.value.filter(product => product.type === "Prom");
-    while (arr.length > 6) {
-        arr.pop();
-    }
-    return arr;
-})
 
 </script>
