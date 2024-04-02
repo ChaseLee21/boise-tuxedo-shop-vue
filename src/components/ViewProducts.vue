@@ -26,7 +26,7 @@ let specialties = [
     },
     {
         title: 'Prom Tuxedos',
-        text: "We have an update to date selection of prom tuxedos and suits!"
+        text: "We have an up to date selection of prom tuxedos and suits!"
     },
     {
         title: 'All Styles in Store',
