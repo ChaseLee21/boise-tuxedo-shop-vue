@@ -2,10 +2,11 @@
     <header class="flex flex-col md:grid md:grid-cols-3">
         <section class="col-span-1 m-auto">
             <ul class="flex flex-col text-center justify-center m-auto text-lg font-bold">
-                <li class="text-red-600">All Tuxedos and Suits in Stock</li>
-                <li>5 Star Customer Services</li>
+                <li class="text-red-600">Over 4000 Tuxedos and Suits in Stock</li>
+                <li>Open till 7 During Prom</li>
+                <li>5 Star Customer Service</li>
                 <li>No Appointment Necessary</li>
-                <li>Its Never too Late to Shop for your Prom or Wedding Attire</li>
+                <li>Its Never Too Late To Shop For Your Prom Or Wedding Attire</li>
             </ul>
         </section>
         <section class="md:col-span-1 flex flex-row justify-center">
