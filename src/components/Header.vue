@@ -12,18 +12,19 @@
         <section class="md:col-span-1 flex flex-row justify-center">
             <img height="300px" width="252px" src="/src/assets/images/Tuxedo-Shop-Logo-3.webp" alt="Logo including a top hat, part of a suit, and the words Boise Tuxedo Shop." >
         </section>
-        <section class="md:col-span-1 m-auto">
+        <!-- <section class="md:col-span-1 m-auto">
             <div class="flex justify-center">
                 <a class="p-2" href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
-                    <font-awesome-icon class="icon" :icon="['fab', 'facebook']" size="2xl" />
+                    <img width="32px" height="32px" src="/src/assets/images/Facebook_Logo_Primary.webp" alt="Facebook" />
                 </a>
                 <a class="p-2" href="https://www.instagram.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
-                    <font-awesome-icon class="icon" :icon="['fab', 'instagram']" size="2xl" />
+                    <img width="32px" height="32px" src="/src/assets/images/Instagram_Glyph_Gradient.webp" alt="Instagram" />
                 </a>
             </div>
-        </section>
+        </section> -->
     </header>
 </template>
 
-<script setup>
+<script>
+
 </script>

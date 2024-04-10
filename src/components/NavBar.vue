@@ -26,6 +26,16 @@
                     </ul>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Contact">Contact Us</router-link></li>
+                    <li class="md:col-span-1 m-auto">
+                    <div class="flex justify-center">
+                        <a class="p-2" href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
+                            <img width="32px" height="32px" src="/src/assets/images/Facebook_Logo_Primary.webp" alt="Facebook" />
+                        </a>
+                        <a class="p-2" href="https://www.instagram.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
+                            <img width="32px" height="32px" src="/src/assets/images/Instagram_Glyph_Gradient.webp" alt="Instagram" />
+                        </a>
+                    </div>
+                </li>
                 </ul>
             </nav>
         </Transition>
@@ -42,6 +52,16 @@
                 <!-- <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Accessories">Accessories & More</router-link></li> -->
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Faq">FAQs</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Contact">Contact Us</router-link></li>
+                <li class="md:col-span-1 m-auto">
+                    <div class="flex justify-center">
+                        <a class="p-2" href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
+                            <img width="32px" height="32px" src="/src/assets/images/Facebook_Logo_Primary.webp" alt="Facebook" />
+                        </a>
+                        <a class="p-2" href="https://www.instagram.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
+                            <img width="32px" height="32px" src="/src/assets/images/Instagram_Glyph_Gradient.webp" alt="Instagram" />
+                        </a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </section>
