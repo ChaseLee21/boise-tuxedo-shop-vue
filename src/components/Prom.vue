@@ -130,10 +130,6 @@
 
 <script setup>
 import ImageGallery from './ImageGallery.vue';
-import jQuery from 'jquery';
-import { computed, onMounted, ref } from 'vue';
-
-const $ = jQuery;
 
 const prom = {
     title: "Prom 2024 Image Gallery",
