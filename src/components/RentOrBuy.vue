@@ -17,10 +17,7 @@
 
 <script setup>
 import FeaturedProducts from './FeaturedProducts.vue';
-import jQuery from 'jquery';
 import { computed, onMounted, ref } from 'vue';
-
-const $ = jQuery;
 
 const tuxedoAndSuit = {
     title: "Tuxedos & Suits",
@@ -44,19 +41,14 @@ onMounted(() => {
 })
 
 async function getProducts() {
-    await $.ajax({
-        url: 'https://boisetuxedoshop.azurewebsites.net/api/products',
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            for (let product of data) {
-                if (product.keyFeatures) {
-                    product.keyFeatures = product.keyFeatures.split(',');
-                }
-            }
-            products.value = data;
+    const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
+    const data = await reponse.json();
+    for (let product of data) {
+        if (product.keyFeatures) {
+            product.keyFeatures = product.keyFeatures.split(',');
         }
-    })
+    }
+    products.value = data;
 }
 
 const tuxedoAndSuitProducts = computed(() => {
