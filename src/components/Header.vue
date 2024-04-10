@@ -27,6 +27,7 @@
 
 <script setup>
 import { ref } from 'vue';
+
 import facebookIcon from '/src/assets/images/Facebook_Logo_Primary.webp';
 import instagramIcon from '/src/assets/images/Instagram_Glyph_Gradient.webp';
 import logo from '/src/assets/images/Tuxedo-Shop-Logo-3.webp';
