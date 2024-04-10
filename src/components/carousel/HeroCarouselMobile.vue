@@ -11,24 +11,23 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import $ from 'jquery';
 import VLazyImage from 'v-lazy-image';
 
 let images = ref([]);
 let loading = ref(true);
 
-// USE: this method to retrieve images from the carousel api route
 onMounted(async () => {
-    await $.ajax({
-        url: 'https://boisetuxedoshop.azurewebsites.net/api/carousel',
-        type: 'GET',
-        error: function (error) {
-            console.log(error);
-        },
-        success: function (data) {
-            images.value = data;
-            loading.value = false;
+    try {
+        const response = await fetch('https://boisetuxedoshop.azurewebsites.net/api/carousel');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
+        const data = await response.json();
+        images.value = data;
+    } catch (error) {
+        console.log(error);
+    } finally {
+        loading.value = false;
+    }
 });
 </script>
