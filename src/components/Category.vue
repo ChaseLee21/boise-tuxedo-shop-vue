@@ -46,10 +46,7 @@
 </template>
 
 <script setup>
-import jQuery from 'jquery';
 import { onMounted, computed, ref } from 'vue';
-
-const $ = jQuery;
 
 // Props containing category name
 const props = defineProps({
@@ -75,18 +72,13 @@ const filterProducts = computed(() => {
 
 // Get products from API using jQuery ajax call
 async function getProducts() {
-    await $.ajax({
-        url: 'https://boisetuxedoshop.azurewebsites.net/api/products',
-        type: 'GET',
-        dataType: 'json',
-        success: function(data) {
-            for (let product of data) {
-                if (product.keyFeatures) {
-                    product.keyFeatures = product.keyFeatures.split(',');
-                }
-            }
-            products.value = data;
+    const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
+    const data = await reponse.json();
+    for (let product of data) {
+        if (product.keyFeatures) {
+            product.keyFeatures = product.keyFeatures.split(',');
         }
-    })
+    }
+    products.value = data;
 }
 </script>
