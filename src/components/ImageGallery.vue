@@ -20,9 +20,7 @@
 </style>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-
-let isMobile = ref(window.innerWidth < 768);
+import { ref } from 'vue';
 
 const props = defineProps({
     title: {
@@ -59,12 +57,5 @@ const products = [
 ]
 
 const productContainer = ref(null);
-
-const scroll = (direction) => {
-    const container = productContainer.value;
-    const scrollAmount = direction * container.children[2].clientWidth;
-    container.scrollLeft += scrollAmount;
-    console.log(container.children[2].clientWidth);
-}
 
 </script>
