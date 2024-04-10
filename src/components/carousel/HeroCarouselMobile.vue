@@ -4,7 +4,9 @@
     </section>
     <section v-else class="flex flex-row overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
         <div v-for="image of images" class="snap-center flex flex-row flex-grow-0 flex-shrink-0 max-h-[235px]" >
-            <v-lazy-image width="390" height="235" class="object-cover object-center" :src="image.url" :alt="image.imageAlt"></v-lazy-image>
+            <div class="placeholder">
+                <v-lazy-image width="390" height="235" class="object-cover object-center" :src="image.url" :alt="image.imageAlt"></v-lazy-image>
+            </div>
         </div>
     </section>
 </template>
@@ -31,3 +33,10 @@ onMounted(async () => {
     }
 });
 </script>
+<style scoped>
+.placeholder {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5/3;
+}
+</style>
