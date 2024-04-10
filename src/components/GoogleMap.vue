@@ -5,3 +5,11 @@
     loading="lazy">
     </iframe>
 </template>
+<style scoped>
+    iframe {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* For a 16:9 aspect ratio */
+  position: relative;
+}
+</style>
