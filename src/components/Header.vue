@@ -10,15 +10,15 @@
             </ul>
         </section>
         <section class="md:col-span-1 flex flex-row justify-center">
-            <img height="300px" width="252px" src="/src/assets/images/Tuxedo-Shop-Logo-3.webp" alt="Logo including a top hat, part of a suit, and the words Boise Tuxedo Shop." >
+            <img height="300px" width="252px" :src="logo" alt="Logo including a top hat, part of a suit, and the words Boise Tuxedo Shop." >
         </section>
         <section v-if="!isMobile" class="md:col-span-1 m-auto">
             <div class="flex justify-center">
                 <a class="p-2" href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
-                    <img width="32px" height="32px" src="/src/assets/images/Facebook_Logo_Primary.webp" alt="Facebook" />
+                    <img width="32px" height="32px" :src="facebookIcon" alt="Facebook" />
                 </a>
                 <a class="p-2" href="https://www.instagram.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
-                    <img width="32px" height="32px" src="/src/assets/images/Instagram_Glyph_Gradient.webp" alt="Instagram" />
+                    <img width="32px" height="32px" :src="instagramIcon" alt="Instagram" />
                 </a>
             </div>
         </section>
@@ -27,5 +27,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import facebookIcon from '/src/assets/images/Facebook_Logo_Primary.webp';
+import instagramIcon from '/src/assets/images/Instagram_Glyph_Gradient.webp';
+import logo from '/src/assets/images/Tuxedo-Shop-Logo-3.webp';
+
 const isMobile = ref(window.innerWidth <= 768);
 </script>
