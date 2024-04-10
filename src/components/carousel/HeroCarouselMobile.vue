@@ -1,7 +1,10 @@
 <template>
-    <section class="wrapper flex flex-row overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
-        <div v-for="image of images" class="carousel snap-center flex justify-center items-center flex-row flex-nowrap flex-grow-0 flex-shrink-0 flex-auto relative h-auto w-[100vw]" >
-            <v-lazy-image width="390" height="235" class="carousel-image h-[100%] w-auto max-w-[100vw] object-cover object-center" :src="image.url" :alt="image.imageAlt"></v-lazy-image>
+    <section v-if="loading" class="placeholder">
+        <!-- Your placeholder goes here -->
+    </section>
+    <section v-else class="flex flex-row overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
+        <div v-for="image of images" class="snap-center flex flex-row flex-grow-0 flex-shrink-0 max-h-[235px]" >
+            <v-lazy-image width="390" height="235" class="object-cover object-center" :src="image.url" :alt="image.imageAlt"></v-lazy-image>
         </div>
     </section>
 </template>
@@ -12,6 +15,7 @@ import $ from 'jquery';
 import VLazyImage from 'v-lazy-image';
 
 let images = ref([]);
+let loading = ref(true);
 
 // USE: this method to retrieve images from the carousel api route
 onMounted(async () => {
@@ -23,6 +27,7 @@ onMounted(async () => {
         },
         success: function (data) {
             images.value = data;
+            loading.value = false;
         }
     });
 });
