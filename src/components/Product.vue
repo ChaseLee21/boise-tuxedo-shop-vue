@@ -65,10 +65,7 @@
 </template>
 
 <script setup>
-import jQuery from 'jquery';
-import { computed, onMounted, ref } from 'vue';
-
-const $ = jQuery;
+import { onMounted, ref } from 'vue';
 
 const props = defineProps({
     id: {
@@ -80,18 +77,13 @@ const props = defineProps({
 const id = ref(parseInt(props.id));
 const product = ref({});
 
-//TODO: fetch product data from API using id
-onMounted(() => {
-    $.ajax({
-        url: `https://boisetuxedoshop.azurewebsites.net/api/products/${id.value}`,
-        method: 'GET',
-        success: (data) => {
-            if (data.keyFeatures) {
-                data.keyFeatures = data.keyFeatures.split(',');
-            }
-            product.value = data;
-        }
-    })
+onMounted(async () => {
+    const response = await fetch(`https://boisetuxedoshop.azurewebsites.net/api/products/${id.value}`);
+    const data = await response.json();
+    if (data.keyFeatures) {
+        data.keyFeatures = data.keyFeatures.split(',');
+    }
+    product.value = data;
 })
 
 //TODO: add a share button to share product on social media or via message / email
