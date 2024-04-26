@@ -1,5 +1,7 @@
 <template>
-    <ImageGallery images: images />
+    <main>
+        <ImageGallery :images = images />
+    </main>
 </template>
 <script setup>
 import ImageGallery from '../components/ImageGallery.vue';
@@ -32,4 +34,5 @@ const images = [
         alt: "Young man in a navy suit and tie with a white shirt and black shoes posing by his car"
     }
 ]
+
 </script>
