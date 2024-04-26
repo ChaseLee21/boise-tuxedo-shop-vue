@@ -124,7 +124,7 @@
                 </ul>
             </article>
         </section>
-        <ImageGallery :title = prom.title :products = prom.products />
+        <ImageGallery :title = prom.title :images = prom.images />
     </main>    
 </template>
 
@@ -133,7 +133,7 @@ import ImageGallery from './ImageGallery.vue';
 
 const prom = {
     title: "Prom 2024 Image Gallery",
-    products: [
+    images: [
         {
             url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Couple-Orange-Accessories-Navy-Suit-Tangerine-Dress.webp",
             alt: "Prom Couple Orange Accessories Navy Suit Tangerine Dress"
