@@ -9,39 +9,30 @@
                 <a class="text-blue-900 font-bold underline" href="mailto:boisetuxedoshop@gmail.com" target="_blank">boisetuxedoshop@gmail.com</a> 
             </p>
         </header>
-        <ImageGallery :images = images />
+        <ImageGallery v-if="images" :images = images />
     </main>
 </template>
 <script setup>
+import { ref, onMounted } from 'vue';
 import ImageGallery from '../components/ImageGallery.vue';
 
-// hardcoded images for development
-// TODO: fetch images from api
-const images = [
-    {
-        url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Couple-Orange-Accessories-Navy-Suit-Tangerine-Dress.webp",
-        alt: "Prom Couple Orange Accessories Navy Suit Tangerine Dress"
-    },
-    {
-        url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (2).webp",
-        alt: "Young man in a silver black imperial paisley one button shawl tuxedo"
-    },
-    {
-        url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (3).webp",
-        alt: "Prom goers wearing tuxedos with bow ties at the Boise Train Depot"
-    },
-    {
-        url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (4).webp",
-        alt: "Three prom goers in tuxedos and dresses in front of the entrance to their prom venue"
-    },
-    {
-        url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (5).webp",
-        alt: "Teenagers in tuxedos with bow ties and sunglasses posing for a photo at prom"
-    },
-    {
-        url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (6).webp",
-        alt: "Young man in a navy suit and tie with a white shirt and black shoes posing by his car"
+let images = ref([]);
+let loading = ref(true);
+
+onMounted(async () => {
+    try {
+        const response = await fetch('https://boisetuxedoshop.azurewebsites.net/api/gallery');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        images.value = data;
+        console.log(images.value);
+    } catch (error) {
+        console.log(error);
+    } finally {
+        loading.value = false;
     }
-]
+});
 
 </script>
