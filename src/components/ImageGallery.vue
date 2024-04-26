@@ -2,7 +2,7 @@
     <!-- Container  -->
     <section class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
         <!-- Category Title -->
-        <header class="flex flex-row justify-start items-end mx-3">
+        <header v-if="props.title" class="flex flex-row justify-start items-end mx-3">
             <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">{{props.title}}</h2> 
         </header>
         <!-- Product Container -->
@@ -25,7 +25,7 @@ import { ref } from 'vue';
 const props = defineProps({
     title: {
         type: String,
-        required: true
+        required: false
     },
     images: {
         type: Array,

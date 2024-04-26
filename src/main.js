@@ -12,12 +12,14 @@ import Terms from './components/Terms.vue'
 import Disclaimer from './components/Disclaimer.vue'
 import Contact from './components/Contact.vue'
 import Prom from './components/Prom.vue'
+import Gallery from './views/Gallery.vue'
 
 const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', component: Home },
         { path: '/RentOrBuy', component: RentOrBuy, name: 'RentOrBuy' },
+        { path: '/Gallery', component: Gallery, name: 'Gallery' },
         { path: '/Faq', component: Faq, name: 'Faq' },
         { path: '/Product/:id', component: Product, name: 'Product', props: true },
         { path: '/Category/:category', component: Category, name: 'Category', props: true },
