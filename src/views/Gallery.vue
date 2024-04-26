@@ -1,5 +1,8 @@
 <template>
     <main>
+        <header class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
+            <h1 class="my-2 text-start text-2xl md:text-3xl lg:text-4xl mx-2 font-bold underline" >Image Gallery</h1>
+        </header>
         <ImageGallery :images = images />
     </main>
 </template>
