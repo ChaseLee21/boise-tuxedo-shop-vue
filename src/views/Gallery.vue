@@ -26,6 +26,7 @@ onMounted(async () => {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        shuffleArray(data);
         images.value = data;
         console.log(images.value);
     } catch (error) {
@@ -34,5 +35,12 @@ onMounted(async () => {
         loading.value = false;
     }
 });
+
+function shuffleArray(images) {
+    for (let i = images.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [images[i], images[j]] = [images[j], images[i]];
+    }
+}
 
 </script>
