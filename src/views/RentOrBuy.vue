@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import FeaturedProducts from './FeaturedProducts.vue';
+import FeaturedProducts from '../components/FeaturedProducts.vue';
 import { computed, onMounted, ref } from 'vue';
 
 const tuxedoAndSuit = {

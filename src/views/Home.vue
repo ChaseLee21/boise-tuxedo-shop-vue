@@ -8,10 +8,10 @@
 </template>
 
 <script setup>
-import HeroCarouselMobile from './carousel/HeroCarouselMobile.vue';
-import HeroCarousel from './carousel/HeroCarousel.vue';
-import ViewProducts from './ViewProducts.vue';
-import GoogleMap from './GoogleMap.vue';
+import HeroCarouselMobile from '../components/carousel/HeroCarouselMobile.vue';
+import HeroCarousel from '../components/carousel/HeroCarousel.vue';
+import ViewProducts from '../components/ViewProducts.vue';
+import GoogleMap from '../components/GoogleMap.vue';
 
 import { ref } from 'vue';
 

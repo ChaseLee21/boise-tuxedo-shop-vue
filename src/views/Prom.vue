@@ -129,7 +129,7 @@
 </template>
 
 <script setup>
-import ImageGallery from './ImageGallery.vue';
+import ImageGallery from '../components/ImageGallery.vue';
 
 const prom = {
     title: "Prom 2024 Image Gallery",
