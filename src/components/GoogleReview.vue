@@ -15,21 +15,5 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { google } from 'googleapis';
 
-const auth = new google.auth.GoogleAuth({
-    keyFile: 'google-credentials.json',
-    scopes: ['https://www.googleapis.com/auth/business.manage'],
-});
-
-let reviews = ref([]);
-
-onMounted(() => {
-    getGoogleReviews();
-});
-
-async function getGoogleReviews() {
-    console.log('Getting Google Reviews');
-}
 </script>
