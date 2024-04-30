@@ -10,7 +10,7 @@
 <script setup>
 import HeroCarouselMobile from '../components/carousel/HeroCarouselMobile.vue';
 import HeroCarousel from '../components/carousel/HeroCarousel.vue';
-import ViewProducts from '../components/ViewProducts.vue';
+import GoogleReview from '../components/GoogleReview.vue';
 import GoogleMap from '../components/GoogleMap.vue';
 
 import { ref } from 'vue';
