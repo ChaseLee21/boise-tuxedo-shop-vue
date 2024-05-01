@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "googleapis": "^135.0.0",
     "v-lazy-image": "^2.1.1",
     "vue": "^3.3.8",
     "vue-router": "^4.0.13"
