@@ -13,6 +13,7 @@ import Disclaimer from './views/Disclaimer.vue'
 import Contact from './views/Contact.vue'
 import Prom from './views/Prom.vue'
 import Gallery from './views/Gallery.vue'
+import Reviews from './views/Reviews.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -28,6 +29,7 @@ const router = createRouter({
         { path: '/Disclaimer', component: Disclaimer, name: 'Disclaimer' },
         { path: '/Contact', component: Contact, name: 'Contact' },
         { path: '/Prom', component: Prom, name: 'Prom' },
+        { path: '/Reviews', component: Reviews, name: 'Reviews' },
         // other routes...
     ],
     scrollBehavior(to, from, savedPosition) {
