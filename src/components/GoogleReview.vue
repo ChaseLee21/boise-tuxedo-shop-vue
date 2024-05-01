@@ -1,5 +1,5 @@
 <template>
-    <section class="xl:w-[80vw] flex flex-col m-auto">
+    <section class="flex flex-col">
         <article class="m-2 p-2 border-black border shadow-lg rounded" v-for="review in reviews" :key="review.id">
             <p class="text-red-600 text-xl md:text-2xl lg:text-3xl font-bold">{{ review.rating }} Stars, {{ review.relativePublishTimeDescription }}:</p>
             <p class="text-lg md:text-xl lg:text-2xl">{{ review.text.text }}</p>

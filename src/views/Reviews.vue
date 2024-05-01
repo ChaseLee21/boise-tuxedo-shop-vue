@@ -1,7 +1,7 @@
 <template>
-    <main>
+    <main class="xl:w-[80vw] m-auto">
         <header>
-            
+
         </header>
         <GoogleReview />
     </main>
