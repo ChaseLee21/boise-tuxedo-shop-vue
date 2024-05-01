@@ -2,7 +2,7 @@
     <div>
         <HeroCarouselMobile v-if="isMobile" />
         <HeroCarousel v-else />
-        <GoogleReview />
+        <Experience />
         <GoogleMap />
     </div>
 </template>
@@ -10,7 +10,7 @@
 <script setup>
 import HeroCarouselMobile from '../components/carousel/HeroCarouselMobile.vue';
 import HeroCarousel from '../components/carousel/HeroCarousel.vue';
-import GoogleReview from '../components/GoogleReview.vue';
+import Experience from '../components/Experience.vue';
 import GoogleMap from '../components/GoogleMap.vue';
 
 import { ref } from 'vue';
