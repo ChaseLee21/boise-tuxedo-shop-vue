@@ -20,23 +20,28 @@ import { ref, onMounted } from 'vue';
 const reviews = ref([]);
 
 onMounted(async () => {
-    await getGoogleReviews();
+    reviews.value = await setGoogleReviews();
     console.log(reviews.value);
 });
 
-async function getGoogleReviews() {
+async function setGoogleReviews() {
     if (localStorage.getItem('BTSReviews')) {
-        reviews.value = JSON.parse(localStorage.getItem('BTSReviews'));
+        return JSON.parse(localStorage.getItem('BTSReviews'));
     }
     else {
-        try {
-            const response = await fetch('https://www.boisetuxedoshop.com/api/Reviews');
-            let reviewData = await response.json();
-            reviews.value = filterReviews(reviewData);
-            localStorage.setItem('BTSReviews', JSON.stringify(reviews.value));
-        } catch (error) {
-            console.error(error);
-        }
+        return getGoogleReviews();
+    }
+}
+
+async function getGoogleReviews() {
+    try {
+        const response = await fetch('https://www.boisetuxedoshop.com/api/Reviews');
+        let reviewData = await response.json();
+        reviewData = filterReviews(reviewData);
+        localStorage.setItem('BTSReviews', JSON.stringify(reviewData));
+        return reviewData;
+    } catch (error) {
+        console.error(error);
     }
 }
 
