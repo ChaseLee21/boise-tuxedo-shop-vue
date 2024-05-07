@@ -3,7 +3,6 @@
         <section class="col-span-1 m-auto">
             <ul class="flex flex-col text-center justify-center m-auto text-xl font-bold">
                 <li class="text-red-600">Over 4000 Tuxedo and Suit Styles in Stock</li>
-                <li>Open till 7 During Prom</li>
                 <li>5 Star Customer Service</li>
                 <li>No Appointment Necessary</li>
                 <li>Guaranteed Best Prices In The Treasure Valley</li>
