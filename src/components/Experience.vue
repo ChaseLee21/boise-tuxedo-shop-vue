@@ -1,24 +1,25 @@
 <template>
-    <header class="text-center">
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600">The Boise Tuxedo Shop Experience</h1>
-        <ul class="flex flex-col text-center justify-center m-auto text-xl font-bold">
-            <li>Over 4000 Tuxedo and Suit Styles in Stock</li>
-            <li>No Appointment Necessary</li>
-            <li>Guaranteed Best Prices In The Treasure Valley</li>
-            <li>5 Star Customer Service</li>
-        </ul>
-    </header>
-    <section class="flex flex-col md:grid md:grid-flow-row md:grid-cols-4 md:w-[80%] md:mx-auto mb-10">
-        <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
-            <figure class="relative text-white text-center">
-                <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-3xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
-                <img :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
-                <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl rounded bg-opacity-60 m-auto bg-black">{{ experience.text }}</figcaption>
-            </figure>
-            <a :href="experience.link" class="bg-slate-800 underline text-white rounded p-1 text-xl -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
-        </article>
-    </section>
-    
+    <div class="min-h-screen">
+        <header class="text-center mt-5">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600">The Boise Tuxedo Shop Experience</h1>
+            <ul class="flex flex-col text-center justify-center m-auto text-xl font-bold">
+                <li>Over 4000 Tuxedo and Suit Styles in Stock</li>
+                <li>No Appointment Necessary</li>
+                <li>Guaranteed Best Prices In The Treasure Valley</li>
+                <li>5 Star Customer Service</li>
+            </ul>
+        </header>
+        <section class="flex flex-col md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] lg:grid-cols-4 md:mx-auto mb-8">
+            <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
+                <figure class="relative text-white text-center">
+                    <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-3xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
+                    <img :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
+                    <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl rounded bg-opacity-60 m-auto bg-black">{{ experience.text }}</figcaption>
+                </figure>
+                <a :href="experience.link" class="bg-slate-800 underline text-white rounded p-1 text-xl -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
+            </article>
+        </section>
+    </div>
 </template>
 
 <script setup>
