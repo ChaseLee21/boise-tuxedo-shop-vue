@@ -27,7 +27,7 @@ let experiences = [
     {
         title: 'Rent or Purchase',
         text: 'Rent your style or make it your own with our large selection of suits and tuxedos!',
-        image: 'https://www.placeholder.com/300x500',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/921_burgundy_floral_tie-19.webp',
         alt: 'placeholder',
         linkText: 'Rent or Buy!',
         link: 'https://www.boisetuxedoshop.com/RentOrBuy'
@@ -35,7 +35,7 @@ let experiences = [
     {
         title: 'Local and Family Owned',
         text: 'Located on U-Stick and Eagle Road next to Kohls!',
-        image: 'https://www.placeholder.com/300x500',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/groom-bride-wedding-tuxedo-black-bow-tie.webp',
         alt: 'placeholder',
         linkText: 'Our Location',
         link: '#googleMaps'
@@ -43,7 +43,7 @@ let experiences = [
     {
         title: 'Weddings',
         text: 'Out of town groomsmen, large or small weddings, we have you covered!',
-        image: 'https://www.placeholder.com/300x500',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/boise-tuxedo-shop-weddings-suits-groom-rental (1).webp',
         alt: 'placeholder',
         linkText: 'Image Gallery',
         link: 'https://www.boisetuxedoshop.com/Gallery'
@@ -51,7 +51,7 @@ let experiences = [
     {
         title: 'Best Reviews in the Valley',
         text: 'Check out our reviews on Google!',
-        image: 'https://www.placeholder.com/300x500',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/Burgundy-Shawl-Tuxedo-Black-Accents-Photo-1.webp',
         alt: 'placeholder',
         linkText: 'Our Reviews',
         link: 'https://www.boisetuxedoshop.com/Reviews'
