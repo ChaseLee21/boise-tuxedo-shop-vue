@@ -1,25 +1,29 @@
 <template>
-    <section ref="imageContainer" class="relative flex flex-row flex-nowrap scroll-smooth my-4 py-4 w-full overflow-hidden">
+    <header class="flex flex-row justify-start items-end m-3">
+        <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">Image Gallery</h2> 
+        <router-link class="text-base underline button-class" :to="{ name: 'Gallery' }">View More</router-link>
+    </header>
+    <section ref="imageContainer" class="relative mb-10">
         <!-- Previous Button -->
-        <button class="sticky left-0 top-1/2" @click="scroll(-1)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-slate-800 stroke-2 ml-2 bg-white rounded-full bg-opacity-50 opacity-100 hover:opacity-75">
-                    <line x1="10" y1="25" x2="40" y2="10"></line>
-                    <line x1="10" y1="25" x2="40" y2="40"></line> 
+        <button class="absolute left-0 top-1/2" @click="scroll(-1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-slate-800 stroke-2 bg-white rounded-full bg-opacity-50 opacity-100 hover:opacity-75">
+                <line x1="10" y1="25" x2="40" y2="10"></line>
+                <line x1="10" y1="25" x2="40" y2="40"></line> 
             </svg>
         </button>
-        <!-- Images -->
-        <div v-for="image in images"  class="flex justify-center w-full min-w-fit mx-4 p-2">
-            <div class="placeholder">
-                <v-lazy-image width="1100" height="640" class="h-[40rem] max-h-[75vh] min-w-fit object-cover object-center rounded shadow shadow-black" :src="image.url" :alt="image.imageAlt"></v-lazy-image>
-            </div>
-        </div>
         <!-- Next Button -->
-        <button class="sticky top-1/2 right-0" @click="scroll(1)">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-slate-800 mr-2 bg-white rounded-full bg-opacity-50 stroke-2 opacity-100 hover:opacity-75">
-                    <line x1="40" y1="25" x2="10" y2="10"></line>
-                    <line x1="40" y1="25" x2="10" y2="40"></line> 
+        <button class="absolute top-1/2 right-0" @click="scroll(1)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-slate-800 bg-white rounded-full bg-opacity-50 stroke-2 opacity-100 hover:opacity-75">
+                <line x1="40" y1="25" x2="10" y2="10"></line>
+                <line x1="40" y1="25" x2="10" y2="40"></line> 
             </svg>
         </button>
+
+        <!-- Images -->
+        <div v-if="images.length > 0" class="flex min-w-full ">
+            <v-lazy-image width="1100" height="640" class="w-fit h-auto m-auto shadow-2xl rounded transition-all ease-in-out duration-300" :src="images[currentImage].url" :alt="images[currentImage].imageAlt"></v-lazy-image>
+        </div>
+
     </section>
 </template>
 
@@ -29,14 +33,18 @@ import VLazyImage from 'v-lazy-image';
 
 let images = ref([]);
 let loading = ref(true);
+let currentImage = ref(0);
 
 const imageContainer = ref(null);
 
-const scroll = (direction) => {
-    const container = imageContainer.value;
-    const scrollAmount = direction * container.children[2].clientWidth;
-    container.scrollLeft += scrollAmount;
-    console.log(container.children[2].clientWidth);
+const scroll = (indexChange) => {
+    let newIndex = currentImage.value + indexChange;
+    if (newIndex < 0) {
+        newIndex = images.value.length - 1;
+    } else if (newIndex >= images.value.length) {
+        newIndex = 0;
+    }
+    currentImage.value = newIndex;
 }
 
 // USE: this method to retrieve images from the carousel api route
@@ -56,10 +64,3 @@ onMounted(async () => {
 });
 
 </script>
-<style scoped>
-.placeholder {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 5/3;
-}
-</style>
