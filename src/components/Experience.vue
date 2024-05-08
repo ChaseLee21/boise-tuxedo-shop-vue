@@ -1,54 +1,62 @@
 <template>
-    <section class="bg-gray-800 text-white p-10   text-center">
-            <p class="text-3xl md:text-4xl lg:text-5xl font-bold">The Boise Tuxedo Shop Experience:</p>
-            <br class="line-through" />
-            <ul class="flex flex-row overflow-x-auto md:grid md:grid-flow-row md:grid-cols-2 lg:grid-cols-4 ">
-                <li class="bg-white border rounded m-2 p-4 md:row-span-1 md:hover:drop-shadow-xl" v-for="specialty in specialties" :key="specialty.id">
-                    <div class="w-52 md:w-auto ">
-                        <p class="text-red-600 text-xl md:text-2xl lg:text-3xl font-bold">{{ specialty.title }}</p>
-                        <br />
-                        <p class="text-black text-lg md:text-xl lg:text-2xl">{{ specialty.text }}</p>
-                    </div>
-                </li>
+    <div class="min-h-screen flex flex-col justify-around">
+        <header class="text-center">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600">The Boise Tuxedo Shop Experience</h1>
+            <ul class="flex flex-col text-center justify-center m-auto text-xl font-bold">
+                <li>Over 4000 Tuxedo and Suit Styles in Stock</li>
+                <li>No Appointment Necessary</li>
+                <li>Guaranteed Best Prices In The Treasure Valley</li>
+                <li>5 Star Customer Service</li>
             </ul>
-    </section>
+        </header>
+        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
+            <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
+                <figure class="relative text-white text-center">
+                    <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-2xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
+                    <v-lazy-image width="720" height="1200" :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
+                    <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl rounded bg-opacity-60 m-auto bg-black">{{ experience.text }}</figcaption>
+                </figure>
+                <a :href="experience.link" class="bg-slate-800 underline text-white rounded p-1 text-xl -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
+            </article>
+        </section>
+    </div>
 </template>
 
 <script setup>
-let specialties = [
+import VLazyImage from 'v-lazy-image';
+
+let experiences = [
     {
-        title: 'Local and Family Owned',
-        text: 'Located on U-Stick and Eagle Road next to Kohls!'
+        title: 'Rent or Purchase',
+        text: 'Rent your style or make it your own with our large selection of suits and tuxedos!',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/921_burgundy_floral_tie-19.webp',
+        alt: 'Young couple dress in all black formal attire with burgundy floral accessories ready for prom',
+        linkText: 'Rent or Buy',
+        link: 'https://www.boisetuxedoshop.com/RentOrBuy'
     },
     {
         title: 'Weddings',
-        text: 'Out of town groomsmen, large or small weddings, we have you covered!'
+        text: 'Out of town groomsmen, large or small weddings, we have you covered!',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/boise-tuxedo-shop-weddings-suits-groom-rental (1).webp',
+        alt: 'Groom and bride together with groom in a tan wedding suit and bride in a white wedding dress with flowers',
+        linkText: 'Tuxedos and Suits',
+        link: 'https://www.boisetuxedoshop.com/Category/TuxedoSuit'
     },
     {
-        title: 'Prom Tuxedos',
-        text: "We have an up to date selection of prom tuxedos and suits!"
-    },
-    {
-        title: 'All Styles in Store',
-        text: 'Unlike big retail stores, we carry all our styles in store for you to try on today!'
+        title: 'Local and Family Owned',
+        text: 'Located on U-Stick and Eagle Road next to Kohls!',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/groom-bride-wedding-tuxedo-black-bow-tie.webp',
+        alt: 'Groom and bride together with groom in a traditional black tuxedo with black bow tie and bride in a white wedding dress',
+        linkText: 'Google Maps',
+        link: '#googleMaps'
     },
     {
         title: 'Best Reviews in the Valley',
-        text: 'Don\'t take our word for it, check out our reviews on Google and Facebook!'
+        text: 'Check out our reviews on Google!',
+        image: 'https://btsimagestorage.blob.core.windows.net/product-images/Burgundy-Shawl-Tuxedo-Black-Accents-Photo-1.webp',
+        alt: 'Man dressing in a burgundy shawl tuxedo with black accents and black bow tie in front of a dark background',
+        linkText: 'Google Reviews',
+        link: 'https://www.boisetuxedoshop.com/Reviews'
     },
-    {
-        title: 'Same Day Rentals',
-        text: 'We offer same day rentals for all your last minute needs!'
-    },
-    {
-        title: 'Rent or Purchase',
-        text: 'We offer both rentals and purchases! View our products to see what we have in store!'
-    },
-    {
-        title: 'No Appointment Needed',
-        text: 'We are open Monday - Saturday. No appointment required!'
-    }
 ]
-
-// TODO: replace with google reviews component
 </script>
