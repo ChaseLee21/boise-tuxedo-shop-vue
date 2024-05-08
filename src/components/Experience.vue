@@ -8,14 +8,14 @@
             <li>5 Star Customer Service</li>
         </ul>
     </header>
-    <section class="flex flex-col">
+    <section class="flex flex-col my-2">
         <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
             <figure class="relative text-white text-center">
-                <h2 class="text-3xl lg:text-5xl font-bold absolute top-3 w-full">{{ experience.title }}</h2>
+                <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-3xl lg:text-5xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
                 <img :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
-                <figcaption class="text-xl absolute bottom-10 inset-x-0">{{ experience.text }}</figcaption>
+                <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl lg:text-2xl rounded bg-opacity-60 m-auto bg-black">{{ experience.text }}</figcaption>
             </figure>
-            <a :href="experience.link" class="bg-slate-800 text-red-600 rounded p-1 text-xl font-bold -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
+            <a :href="experience.link" class="bg-slate-800 underline text-white rounded p-1 text-xl -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
         </article>
     </section>
     
@@ -36,8 +36,8 @@ let experiences = [
         text: 'Located on U-Stick and Eagle Road next to Kohls!',
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
-        linkText: 'Google Maps',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
+        linkText: 'Our Location',
+        link: '#googleMaps'
     },
     {
         title: 'Best Reviews in the Valley',
