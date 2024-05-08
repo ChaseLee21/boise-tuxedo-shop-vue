@@ -1,14 +1,21 @@
 <template>
     <header class="text-center">
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold">The Boise Tuxedo Shop Experience</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600">The Boise Tuxedo Shop Experience</h1>
+        <ul class="flex flex-col text-center justify-center m-auto text-xl font-bold">
+            <li>Over 4000 Tuxedo and Suit Styles in Stock</li>
+            <li>No Appointment Necessary</li>
+            <li>Guaranteed Best Prices In The Treasure Valley</li>
+            <li>5 Star Customer Service</li>
+        </ul>
     </header>
-    <section class="flex flex-row overflow-y-hidden overflow-scroll scroll-smooth snap-x snap-mandatory m-0 scroll-m-[1rem]">
-        <article v-for="experience in experiences" class="min-w-full bg-slate-800 p-2 my-1 me-2 rounded-md snap-center">
+    <section class="flex flex-col">
+        <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
             <figure class="relative text-white text-center">
                 <h2 class="text-3xl lg:text-5xl font-bold absolute top-3 w-full">{{ experience.title }}</h2>
                 <img :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
-                <figcaption class="text-xl absolute bottom-3 w-full">{{ experience.text }}</figcaption>
+                <figcaption class="text-xl absolute bottom-10 inset-x-0">{{ experience.text }}</figcaption>
             </figure>
+            <a :href="experience.link" class="bg-slate-800 text-red-600 rounded p-1 text-xl font-bold -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
         </article>
     </section>
     
@@ -17,60 +24,68 @@
 <script setup>
 let experiences = [
     {
+        title: 'Rent or Purchase',
+        text: 'Rent your style or make it your own with our large selection of suits and tuxedos!',
+        image: 'https://www.placeholder.com/300x500',
+        alt: 'placeholder',
+        linkText: 'Rent or Buy!',
+        link: 'https://www.boisetuxedoshop.com/RentOrBuy'
+    },
+    {
         title: 'Local and Family Owned',
         text: 'Located on U-Stick and Eagle Road next to Kohls!',
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
+        linkText: 'Google Maps',
         link: 'https://www.boisetuxedoshop.com/#googleMaps'
     },
     {
-        title: 'Rent or Purchase',
-        text: 'We offer both rentals and purchases! View our products to see what we have in store!',
+        title: 'Best Reviews in the Valley',
+        text: 'Check out our reviews on Google!',
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
+        linkText: 'Our Reviews',
+        link: 'https://www.boisetuxedoshop.com/Reviews'
     },
     {
         title: 'Weddings',
         text: 'Out of town groomsmen, large or small weddings, we have you covered!',
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
+        linkText: 'Image Gallery',
+        link: 'https://www.boisetuxedoshop.com/Gallery'
     },
     {
         title: 'Prom Tuxedos',
         text: "We have an up to date selection of prom tuxedos and suits!",
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
+        linkText: 'Prom Info!',
+        link: 'https://www.boisetuxedoshop.com/Prom'
     },
     {
         title: 'All Styles in Store',
         text: 'Unlike big retail stores, we carry all our styles in store for you to try on today!',
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
-    },
-    {
-        title: 'Best Reviews in the Valley',
-        text: 'Don\'t take our word for it, check out our reviews on Google and Facebook!',
-        image: 'https://www.placeholder.com/300x500',
-        alt: 'placeholder',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
+        linkText: 'Our Selection',
+        link: 'https://www.boisetuxedoshop.com/Category/TuxedoSuit'
     },
     {
         title: 'Same Day Rentals',
-        text: 'We offer same day rentals for all your last minute needs!',
+        text: 'We offer same day rentals for all your last minute needs! Questions? Contact us!',
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
+        linkText: 'Contact Us!',
+        link: 'https://www.boisetuxedoshop.com/Contact'
     },
     {
         title: 'No Appointment Needed',
         text: 'We are open Monday - Saturday. No appointment required!',
         image: 'https://www.placeholder.com/300x500',
         alt: 'placeholder',
-        link: 'https://www.boisetuxedoshop.com/#googleMaps'
+        linkText: 'Frequently Asked Questions',
+        link: 'https://www.boisetuxedoshop.com/Faq'
     }
 ]
 
