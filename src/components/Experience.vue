@@ -1,6 +1,6 @@
 <template>
-    <div class="min-h-screen">
-        <header class="text-center mt-5">
+    <div class="min-h-screen flex flex-col justify-around">
+        <header class="text-center">
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600">The Boise Tuxedo Shop Experience</h1>
             <ul class="flex flex-col text-center justify-center m-auto text-xl font-bold">
                 <li>Over 4000 Tuxedo and Suit Styles in Stock</li>
@@ -9,7 +9,7 @@
                 <li>5 Star Customer Service</li>
             </ul>
         </header>
-        <section class="flex flex-col md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
+        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
             <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
                 <figure class="relative text-white text-center">
                     <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-2xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
