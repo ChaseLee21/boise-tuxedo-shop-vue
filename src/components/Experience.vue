@@ -13,7 +13,7 @@
             <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
                 <figure class="relative text-white text-center">
                     <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-2xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
-                    <v-lazy-image :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
+                    <v-lazy-image width="720" height="1200" :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
                     <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl rounded bg-opacity-60 m-auto bg-black">{{ experience.text }}</figcaption>
                 </figure>
                 <a :href="experience.link" class="bg-slate-800 underline text-white rounded p-1 text-xl -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
