@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <main>
+        <Experience />
         <HeroCarouselMobile v-if="isMobile" />
         <HeroCarousel v-else />
-        <Experience />
-        <GoogleMap />
-    </div>
+        <GoogleMap id="googleMaps" />
+    </main>
 </template>
 
 <script setup>
