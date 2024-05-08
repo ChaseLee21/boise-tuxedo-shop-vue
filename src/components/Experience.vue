@@ -9,10 +9,10 @@
                 <li>5 Star Customer Service</li>
             </ul>
         </header>
-        <section class="flex flex-col md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] lg:grid-cols-4 md:mx-auto mb-8">
+        <section class="flex flex-col md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
             <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
                 <figure class="relative text-white text-center">
-                    <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-3xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
+                    <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-2xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
                     <img :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
                     <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl rounded bg-opacity-60 m-auto bg-black">{{ experience.text }}</figcaption>
                 </figure>
