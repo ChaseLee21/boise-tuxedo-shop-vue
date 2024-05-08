@@ -1,8 +1,9 @@
 <template>
     <main>
+        <!-- <HeroCarouselMobile v-if="isMobile" />
+        <HeroCarousel v-else /> -->
         <Experience />
-        <HeroCarouselMobile v-if="isMobile" />
-        <HeroCarousel v-else />
+        <HeroCarousel v-if="!isMobile"/>
         <GoogleMap id="googleMaps" />
     </main>
 </template>
