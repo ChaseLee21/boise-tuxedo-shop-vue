@@ -18,7 +18,7 @@ const headerProps = {
     If you are a part of a wedding party and are ready to give us your measurements, please send us an email with your name, wedding date, groom's name, and your measurements.
     If you still have questions or concerns, please call us or send us an email and we will get back to you as soon as possible!`,
     links: [
-        { url: '/Faq', text: 'FAQ\'s' }
+        { url: '/Faq', text: 'Frequently Asked Questions' }
     ]
 }
 </script>
