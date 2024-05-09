@@ -1,13 +1,5 @@
 <template>
-    <header class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
-        <h1 class="my-2 text-start text-2xl md:text-3xl lg:text-4xl mx-2 font-bold underline" >Rent or Buy</h1>
-        <p class="text-start md:text-lg lg:text-xl ms-5 my-2">
-            Not only do we value helping you look good for your big event but we think it is important to do it your way.
-            Whether you are wanting to rent or buy your outfit, we have you covered at Boise Tuxedo Shop.
-            Our rental package for both tuxedos and suits includes 5 pieces: jacket, pants, shirt, vest, and your choice of tie, bowtie, or suspenders.
-            You may upgrade your rental package to include shoes or cufflinks for an additional fee.
-        </p>
-    </header>
+    <Header :title = headerProps.title :content = headerProps.content />
     <main>
         <FeaturedProducts :products = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
         <FeaturedProducts :products = shirtProducts :title = shirts.title :route = shirts.route />
@@ -18,6 +10,7 @@
 <script setup>
 import FeaturedProducts from '../components/FeaturedProducts.vue';
 import { computed, onMounted, ref } from 'vue';
+import Header from '../components/Header.vue';
 
 const tuxedoAndSuit = {
     title: "Tuxedos & Suits",
@@ -33,6 +26,11 @@ const pants = {
     title: "Pants",
     route: "Pants"
 } 
+
+const headerProps = {
+    title: "Rent or Buy",
+    content: "Not only do we value helping you look good for your big event but we think it is important to do it your way. Whether you are wanting to rent or buy your outfit, we have you covered at Boise Tuxedo Shop. Our rental package for both tuxedos and suits includes 5 pieces: jacket, pants, shirt, vest, and your choice of tie, bowtie, or suspenders. You may upgrade your rental package to include shoes or cufflinks for an additional fee."
+}
 
 const products = ref([]);
 

@@ -1,17 +1,10 @@
 <template>
-    <!-- Container -->
+    <Header v-if="props.category === 'TuxedoSuit'" title="Tuxedos & Suits" />
+    <Header v-else :title="props.category" />
     <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
-        <!-- Category Title -->
-        <header>
-            <h1 v-if="props.category == 'TuxedoSuit'" class="text-center md:text-start text-2xl lg:text-4xl mx-2"> Tuxedos & Suits </h1>
-            <h1 v-else class="text-center md:text-start text-4xl md:text-5xl lg:text-6xl mx-2 "> {{ props.category }} </h1>
-        </header>
-        <!-- Grid Container -->
         <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
             <!-- Product Card -->
             <article class="flex flex-col justify-evenly bg-gray-800 text-white text-center font-bold m-4 px-3 shadow-lg shadow-black rounded items-center" v-for="product in filterProducts">
-
-                <!-- Product Image & Title w/ Router Link -->
                 <router-link class="w-full flex flex-col justify-center items-center" 
                 :to="{ name: 'Product', params: {id: product.id } }">
                     <p class="p-1 text-lg md:text-xl lg:text-2xl">{{ product.name }}</p>
@@ -38,17 +31,15 @@
                 <div v-if="product.rentalPrice && !product.retailPrice && !product.saleRetailPrice">
                     <p>Rental Price: ${{ product.rentalPrice }}</p>
                 </div>
-                
             </article>
         </section>
-
     </main>
 </template>
 
 <script setup>
 import { onMounted, computed, ref } from 'vue';
+import Header from '../components/Header.vue';
 
-// Props containing category name
 const props = defineProps({
     category: {
         type: String,
@@ -56,21 +47,17 @@ const props = defineProps({
     }
 })
 
-// On mount, get products from API
 onMounted(() => {
     getProducts();
 })
 
-// Holds all products and is used to filter products by category
 const products = ref([]);
 
-// property that holds all products that match the current category [props.category]
 const filterProducts = computed(() => { 
     if (products.length === 0) return;
     else return products.value.filter(product => product.type === props.category);
 });
 
-// Get products from API using jQuery ajax call
 async function getProducts() {
     const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
     const data = await reponse.json();

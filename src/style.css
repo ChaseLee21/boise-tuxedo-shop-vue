@@ -8,3 +8,9 @@ body {
     font-weight: 400;
     font-style: normal;
   }
+
+.link {
+  color: rgb(30 64 175);
+  text-decoration: underline;
+  font-weight: bold;
+}
