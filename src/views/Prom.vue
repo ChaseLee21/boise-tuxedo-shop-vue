@@ -1,18 +1,19 @@
 <template>
+    <!-- <header class="mb-2">
+        <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold underline py-2">Prom 2024</h1>
+        <p class="md:text-lg lg:text-xl px-2">
+            Prom 2024 season has arrived and Boise Tuxedo Shop is here to help.
+            We understand that prom can be stressful, expensive, and time-consuming, but we are here to make it as easy as possible.
+            Listed here are some FAQs that are related specifically to prom as well as the dates of proms in the area. 
+        </p>
+        <p class="md:text-lg lg:text-xl px-2">
+            If you have any other questions, feel free to
+            <router-link class="text-blue-900 font-bold underline" to="/Contact">contact us</router-link> or 
+            <router-link class="text-blue-900 font-bold underline" to="/Faq">view our general FAQs</router-link>.
+        </p>
+    </header> -->
+    <Header :title = headerProps.title :content = headerProps.content />
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
-        <header class="mb-2">
-            <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold underline py-2">Prom 2024</h1>
-            <p class="md:text-lg lg:text-xl px-2">
-                Prom 2024 season has arrived and Boise Tuxedo Shop is here to help.
-                We understand that prom can be stressful, expensive, and time-consuming, but we are here to make it as easy as possible.
-                Listed here are some FAQs that are related specifically to prom as well as the dates of proms in the area. 
-            </p>
-            <p class="md:text-lg lg:text-xl px-2">
-                If you have any other questions, feel free to
-                <router-link class="text-blue-900 font-bold underline" to="/Contact">contact us</router-link> or 
-                <router-link class="text-blue-900 font-bold underline" to="/Faq">view our general FAQs</router-link>.
-            </p>
-        </header>
         <section>
             <h2 class="text-xl lg:text-2xl font-bold py-2">Prom FAQs</h2>
             <div class="px-2">
@@ -130,6 +131,19 @@
 
 <script setup>
 import ImageGallery from '../components/ImageGallery.vue';
+import Header from '../components/Header.vue';
+
+const year = new Date().getFullYear();
+
+const headerProps = {
+    title: `Prom ${year}`,
+    content: `Prom ${year} season has arrived and Boise Tuxedo Shop is here to help. 
+    We understand that prom can be stressful, expensive, and time-consuming, but we are here to make it as easy as possible. 
+    Listed here are some FAQs that are related specifically to prom as well as the dates of proms in the area. 
+    If you have any other questions, feel free to
+    <router-link to="/Contact">contact us</router-link> or 
+    <router-link to="/Faq">view our general FAQs</router-link>.`
+}
 
 const prom = {
     title: "Prom 2024 Image Gallery",
