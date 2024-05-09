@@ -1,14 +1,5 @@
 <template>
-    <div class="min-h-screen flex flex-col justify-around">
-        <header class="text-center">
-            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-red-600">The Boise Tuxedo Shop Experience</h1>
-            <ul class="flex flex-col text-center justify-center m-auto text-xl font-bold">
-                <li>Over 4000 Tuxedo and Suit Styles in Stock</li>
-                <li>No Appointment Necessary</li>
-                <li>Guaranteed Best Prices In The Treasure Valley</li>
-                <li>5 Star Customer Service</li>
-            </ul>
-        </header>
+    <main class=" flex flex-col justify-around">
         <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
             <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
                 <figure class="relative text-white text-center">
@@ -19,7 +10,7 @@
                 <a :href="experience.link" class="bg-slate-800 underline text-white rounded p-1 text-xl -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </a>
             </article>
         </section>
-    </div>
+    </main>
 </template>
 
 <script setup>
