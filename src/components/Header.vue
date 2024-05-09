@@ -1,13 +1,21 @@
 <template>
-    <header class="flex flex-col md:grid md:grid-cols-3">
-        <section class="md:col-span-1 flex flex-row justify-center">
-            <img height="200px" width="168px" src="/Tuxedo-Shop-Logo-3.webp" alt="Logo including a top hat, part of a suit, and the words Boise Tuxedo Shop." >
-        </section>
+    <header class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
+        <h1 class="my-2 text-start text-2xl md:text-3xl lg:text-4xl mx-2 font-bold underline" >{{ props.title }}</h1>
+        <p class="text-start md:text-lg lg:text-xl ms-5 my-2">
+            {{ props.content }}
+        </p>
     </header>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-
-const isMobile = ref(window.innerWidth <= 768);
+    const props = defineProps({
+        title: {
+            type: String,
+            required: true
+        },
+        content: {
+            type: String,
+            required: false
+        }
+    });
 </script>
