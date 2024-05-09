@@ -1,6 +1,6 @@
 <template>
     <Header :title = headerProps.title :content = headerProps.content :links = headerProps.links />
-    <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
+    <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto mx-2">
         <section>
             <h2 class="text-xl lg:text-2xl font-bold py-2">Prom FAQs</h2>
             <div class="px-2">
