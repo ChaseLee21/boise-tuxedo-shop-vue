@@ -32,7 +32,7 @@
             <p v-html="props.content" class="text-start md:text-lg lg:text-xl mx-2"></p>
             <nav>
                 <ul>
-                    <li class="list-inside list-disc mx-2 indent-2" v-for="link in props.links">
+                    <li class="text-lg list-inside list-disc mx-2 indent-2" v-for="link in props.links">
                         <router-link class="link" :to="link.url">{{ link.text }}</router-link>
                     </li>
                 </ul>
