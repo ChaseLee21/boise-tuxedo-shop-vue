@@ -30,13 +30,18 @@
         <h1 class="text-start text-3xl lg:text-4xl xl:text-5x font-bold" >{{ props.title }}</h1>
         <article>
             <p v-html="props.content" class="text-start md:text-lg lg:text-xl mx-2"></p>
-            <nav>
+            <nav v-if="props.links">
                 <ul>
                     <li class="text-lg list-inside list-disc mx-2 indent-2" v-for="link in props.links">
                         <router-link class="link" :to="link.url">{{ link.text }}</router-link>
                     </li>
                 </ul>
             </nav>
+            <ul v-if="props.externalLinks">
+                <li class="text-lg list-inside list-disc mx-2 indent-2" v-for="link in props.externalLinks">
+                    <a class="link" :href="link.url">{{ link.text }}</a>
+                </li>
+            </ul>
         </article>
     </header>
 </template>
@@ -56,6 +61,10 @@ const props = defineProps({
         required: false
     },
     links: {
+        type: Array,
+        required: false
+    },
+    externalLinks: {
         type: Array,
         required: false
     }
