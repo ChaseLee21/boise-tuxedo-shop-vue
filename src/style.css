@@ -9,7 +9,7 @@ body {
     font-style: normal;
   }
 
-router-link {
+.link {
   color: rgb(30 64 175);
   text-decoration: underline;
   font-weight: bold;
