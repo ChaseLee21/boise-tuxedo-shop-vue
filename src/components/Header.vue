@@ -54,7 +54,7 @@ let isMobile = ref(window.innerWidth < 768);
 const props = defineProps({
     title: {
         type: String,
-        required: true
+        required: false
     },
     content: {
         type: String,
