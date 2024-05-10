@@ -1,16 +1,18 @@
 <template>
     <section id="navMenu" class="sticky top-0 w-full">
-        <nav class="bg-gray-800 text-white">
+        <nav class="bg-slate-800 text-white">
             <ul class="flex flex-row flex-wrap justify-center items-center text-lg p-3">
                 <li class="lg:text-2xl text-xl font-bold hover:text-zinc-300 mx-2"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
-                <div class="relative" >
+                <div class="relative">
                     <li id="rentOrBuyLink" class="hover:text-zinc-300 mx-2" ><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
-                    <ul id="rentOrBuyNavList" v-show="rentOrBuyNavOpen" class="absolute bg-slate-800 p-2 rounded w-48">
-                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
-                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Shirts">Shirts</router-link></li>
-                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Pants">Pants</router-link></li>
-                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Accessories">Accessories</router-link></li>
-                    </ul>
+                    <Transition>
+                        <ul id="rentOrBuyNavList" v-show="rentOrBuyNavOpen" class="absolute bg-slate-800 p-2 rounded w-48">
+                            <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
+                            <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Shirts">Shirts</router-link></li>
+                            <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Pants">Pants</router-link></li>
+                            <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Accessories">Accessories</router-link></li>
+                        </ul>
+                    </Transition>
                 </div>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Gallery">Image Gallery</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Reviews">Google Reviews</router-link></li>
