@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <NavBar />
-    <!-- <Header /> -->
+    <NavBar v-if="!isMobile" />
+    <NavBarMobile v-else="!isMobile" />
     <router-view />
     <Footer />
   </div>
 </template>
 
 <script setup>
-import NavBar from './components/NavBar.vue';
+import NavBar from './components/Navigation Bar/NavBar.vue';
+import NavBarMobile from './components/Navigation Bar/NavBarMobile.vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
-//TODO: add icon to tab
+import { ref } from 'vue';
+
+const isMobile = ref(window.innerWidth < 768);
 </script>
 
 <style scoped>
