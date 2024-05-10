@@ -6,11 +6,9 @@
         <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
             <article v-for="product in filterProducts" class="min-w-fit my-5 mx-1 rounded-md snap-center relative">
                 <figure class=" text-white text-center h-full">
-                    <!-- Image -->
                     <v-lazy-image width="720" height="1200" :src="product.imageURL" :alt="product.imageAlt" class="m-auto min-w-full min-h-full rounded object-cover" />
-                    <!-- Title -->
                     <figcaption class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.name }}</figcaption>
-                    <router-link :to="{ name: 'Product', params: {id: product.id } }" class="absolute bottom-0 inset-x-0 w-full p-0.5 rounded-b bg-opacity-30 m-auto bg-black">View Style Details</router-link>
+                    <router-link :to="{ name: 'Product', params: {id: product.id } }" class="absolute bottom-0 inset-x-0 w-full p-0.5 rounded-b bg-opacity-30 m-auto bg-black hover:text-lg hover:ease-in-out hover:duration-500">View Style Details</router-link>
                 </figure>
             </article>
         </section>
@@ -29,21 +27,36 @@ const props = defineProps({
     }
 })
 
+const isMobile = ref(window.innerWidth < 768);
+const products = ref([]);
+
 onMounted(() => {
     getProducts();
 })
 
-const products = ref([]);
-
 const filterProducts = computed(() => { 
     if (products.length === 0) return;
-    else return products.value.filter(product => product.type === props.category);
+    return products.value.filter(product => product.type === props.category);
 });
+
+function formatProductName(tuxedoSuitName) {
+    let [firstPart, secondPart] = tuxedoSuitName.split('(');
+    if (secondPart) {
+        [tuxedoSuitName] = secondPart.split(')');
+        tuxedoSuitName = 'The ' + tuxedoSuitName;
+    } else {
+        tuxedoSuitName = '';
+    }
+    return tuxedoSuitName;
+}
 
 async function getProducts() {
     const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
     const data = await reponse.json();
     for (let product of data) {
+        if (product.type === 'TuxedoSuit') {
+            product.name = formatProductName(product.name);
+        }
         if (product.keyFeatures) {
             product.keyFeatures = product.keyFeatures.split(',');
         }
@@ -52,6 +65,7 @@ async function getProducts() {
 }
 </script>
 <script>
+        // Old product card template
         // <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         //     <!-- Product Card -->
         //     <article class="flex flex-col justify-evenly bg-gray-800 text-white text-center font-bold m-4 px-3 shadow-lg shadow-black rounded items-center" v-for="product in filterProducts">
