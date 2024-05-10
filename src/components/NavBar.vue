@@ -24,7 +24,7 @@
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Shirts">Shirts</router-link></li>
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Pants">Pants</router-link></li>
-                        <!-- <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Accessories">Accessories & More</router-link></li> -->
+                        <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Accessories">Accessories</router-link></li>
                     </ul>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Contact">Contact Us</router-link></li>
@@ -46,14 +46,18 @@
         <nav class="bg-gray-800 text-white">
             <ul class="flex flex-row flex-wrap justify-center items-center text-lg p-3">
                 <li class="lg:text-2xl text-xl font-bold hover:text-zinc-300 mx-2"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
+                <div class="relative" >
+                    <li id="rentOrBuyLink" class="hover:text-zinc-300 mx-2" ><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
+                    <ul id="rentOrBuyNavList" v-show="rentOrBuyNavOpen" class="absolute bg-slate-800 p-2 rounded w-48">
+                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
+                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Shirts">Shirts</router-link></li>
+                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Pants">Pants</router-link></li>
+                        <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Accessories">Accessories</router-link></li>
+                    </ul>
+                </div>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Gallery">Image Gallery</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Reviews">Google Reviews</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Prom">Prom 2024</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Shirts">Shirts</router-link></li>
-                <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Pants">Pants</router-link></li>
-                <!-- <li class="hover:text-zinc-300 mx-2"><router-link to="/Category/Accessories">Accessories & More</router-link></li> -->
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Faq">FAQs</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Contact">Contact Us</router-link></li>
                 <div class="flex justify-center">
@@ -73,8 +77,21 @@
 import { ref, onMounted } from 'vue';
 
 let navOpen = ref(false);
+let rentOrBuyNavOpen = ref(false);
 
 let isMobile = ref(window.innerWidth <= 768);
+
+const handleRentOrBuyNavOpen = (e) => {
+    rentOrBuyNavOpen.value = true;
+    document.addEventListener('click', handleRentOrBuyNavClose);
+    document.getElementById('rentOrBuyNavList').addEventListener('mouseleave', handleRentOrBuyNavClose);
+    document.getElementById('navMenu').addEventListener('mouseleave', handleRentOrBuyNavClose);
+}
+
+const handleRentOrBuyNavClose = (e) => {
+    rentOrBuyNavOpen.value = false;
+    console.log('handleRentOrBuyNavClose fired off');
+}
 
 const handleNavMenuOpen = (e) => {
     if (e.target.closest('#navButton')) {
@@ -95,6 +112,7 @@ const handleNavMenuClose = (e) => {
     
 onMounted(() => {
     document.addEventListener('click', handleNavMenuOpen);
+    document.getElementById('rentOrBuyLink').addEventListener('mouseenter', handleRentOrBuyNavOpen);
 })
 </script>
 
