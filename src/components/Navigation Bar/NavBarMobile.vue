@@ -24,7 +24,7 @@
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Shirts">Shirts</router-link></li>
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Pants">Pants</router-link></li>
-                        <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Accessories">Accessories</router-link></li>
+                        <li class="p-2 hover:text-zinc-300"><router-link to="/Accessories">Accessories</router-link></li>
                     </ul>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
                     <li class="p-2 hover:text-zinc-300"><router-link to="/Contact">Contact Us</router-link></li>

@@ -26,7 +26,7 @@
                             <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
                             <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Shirts">Shirts</router-link></li>
                             <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Pants">Pants</router-link></li>
-                            <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Category/Accessories">Accessories</router-link></li>
+                            <li class="hover:text-zinc-300 w-full"><router-link class="block w-full" to="/Accessories">Accessories</router-link></li>
                         </ul>
                     </Transition>
                 </div>
