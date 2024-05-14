@@ -8,7 +8,6 @@
         <input id="filterCheckBox" type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
         <input id="usersColor" type="color" >
       </section>
-      <AccessoryInformation v-if="userSelectedColor" :color = "userSelectedColor" />
       <ColorSwatches class="border border-black" :colorSwatches="filteredColorSwatches" @swatch-clicked="handleSwatchClicked" />
     </div>
   </main>
@@ -33,7 +32,6 @@ onMounted(() => {
 
 let userWantsFilter = ref(false);
 let userColorInput = ref();
-let userSelectedColor = ref();
 
 function handleSwatchClicked(swatch) {
   userSelectedColor.value = swatch;
@@ -79,60 +77,54 @@ const headerProps = {
   If you are interested in another accessory, such as our cufflinks or pocket handkerchiefs, we do have those options availble to add on to your rental or purchase.`
 }
 
+const availble = ['self tie neck tie', 'self tie bow tie', 'pre tied bow tie', 'suspenders', 'pocket handkerchief'];
+
+
 const colorSwatches = ref([
   {
     color: 'Black',
     hexCode: '#000000',
     position: 1,
-    tags: ['black', 'bold', 'dark'],
   },
   {
     color: 'White',
     hexCode: '#FFFFFF',
     position: 1,
-    tags: ['white', 'light'],
   },
   {
     color: 'Red',
     hexCode: '#FF0000',
     position: 2,
-    tags: ['red', 'bold'],
   },
   {
     color: 'Green',
     hexCode: '#00FF00',
     position: 2,
-    tags: ['green', 'bold'],
   },
   {
     color: 'Blue',
     hexCode: '#0000FF',
     position: 2,
-    tags: ['blue', 'bold'],
   },
   {
     color: 'Yellow',
     hexCode: '#FFFF00',
     position: 3,
-    tags: ['yellow', 'bright'],
   },
   {
     color: 'Cyan',
     hexCode: '#00FFFF',
     position: 4,
-    tags: ['blue', 'light'],
   },
   {
     color: 'Magenta',
     hexCode: '#FF00FF',
     position: 5,
-    tags: ['pink', 'light'],
   },
   {
     color: 'Gray',
     hexCode: '#808080',
     position: 1,
-    tags: ['gray', 'neutral'],
   }
 ]);
 
