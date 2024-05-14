@@ -7,10 +7,12 @@
         <p>
           Below are a list of accessories that we offer in our large selection of colors and patterns:  
         </p>
-        <ul>
-          <li v-for="item in availble" :key="item" class="list-disc list-inside">
-            {{ item }}
-          </li>
+        <ul class="list-disc list-inside">
+          <li>Self Tie Neck Tie</li>
+          <li>Self Tie Bow Tie</li>
+          <li>Pre Tied Bow Tie</li>
+          <li>Suspenders</li>
+          <li>Pocket Handkerchief</li>
         </ul>
       </article>
     </section>
@@ -33,7 +35,7 @@
           <input id="usersColor" type="color" >
         </div>
       </div>
-      <ColorSwatches :colorSwatches="filteredColorSwatches" @swatch-clicked="handleSwatchClicked" />
+      <ColorSwatches :colorSwatches="filteredColorSwatches" />
     </section>
   </main>
 </template>
@@ -43,50 +45,7 @@ import { ref, onMounted, computed } from 'vue';
 import { sortColorSwatchArray } from '../utils/helpers.js';
 import ColorSwatches from '../components/ColorSwatches.vue';
 
-onMounted(() => {
-  document.title = 'Accessories | Boise Tuxedo Shop';
-  sortColorSwatchArray(colorSwatches.value);
-  document.getElementById('usersColor').addEventListener('change', (event) => {
-    document.getElementById('filterCheckBox').checked = true;
-    userWantsFilter.value = true;
-    userColorInput.value = event.target.value;
-  })
-  userColorInput.value = colorSwatches.value[0].hexCode;
-})
-
-let userWantsFilter = ref(false);
-let userColorInput = ref();
-
-let userColorInputUpperLimit = computed(() => {
-  return {
-    r: parseInt(userColorInput.value.slice(1, 3), 16) + 75,
-    g: parseInt(userColorInput.value.slice(3, 5), 16) + 75,
-    b: parseInt(userColorInput.value.slice(5, 7), 16) + 75
-  }
-});
-let userColorInputLowerLimit = computed(() => {
-  return {
-    r: parseInt(userColorInput.value.slice(1, 3), 16) - 75,
-    g: parseInt(userColorInput.value.slice(3, 5), 16) - 75,
-    b: parseInt(userColorInput.value.slice(5, 7), 16) - 75
-  }
-});
-
-let filteredColorSwatches = computed(() => {
-  if (userWantsFilter.value) {
-    return colorSwatches.value.filter((swatch) => {
-      let swatchR = parseInt(swatch.hexCode.slice(1, 3), 16);
-      let swatchG = parseInt(swatch.hexCode.slice(3, 5), 16);
-      let swatchB = parseInt(swatch.hexCode.slice(5, 7), 16);
-      return (swatchR >= userColorInputLowerLimit.value.r && swatchR <= userColorInputUpperLimit.value.r) &&
-        (swatchG >= userColorInputLowerLimit.value.g && swatchG <= userColorInputUpperLimit.value.g) &&
-        (swatchB >= userColorInputLowerLimit.value.b && swatchB <= userColorInputUpperLimit.value.b);
-    })
-  } else {
-    return colorSwatches.value;
-  }
-})
-
+// variables
 const headerProps = {
   title: 'Accessories',
   content: `Boise Tuxedo Shop believes that finding the perfect accessory is what makes your outfit truly unique. 
@@ -95,8 +54,7 @@ const headerProps = {
   We also offer other accessories, such as our cufflinks or tie clips, that you can add to your rental or purchase.`
 }
 
-const availble = ['Self Tie Neck Tie', 'Self Tie Bow Tie', 'Pre Tied Bow Tie', 'Suspenders', 'Pocket Handkerchief'];
-
+// TODO: fetch color swatches from api
 const colorSwatches = ref([
   {
     color: 'Black',
@@ -144,5 +102,51 @@ const colorSwatches = ref([
     position: 1,
   }
 ]);
+
+let userWantsFilter = ref(false);
+let userColorInput = ref();
+
+// computed properties
+let userColorInputUpperLimit = computed(() => {
+  return {
+    r: parseInt(userColorInput.value.slice(1, 3), 16) + 75,
+    g: parseInt(userColorInput.value.slice(3, 5), 16) + 75,
+    b: parseInt(userColorInput.value.slice(5, 7), 16) + 75
+  }
+});
+let userColorInputLowerLimit = computed(() => {
+  return {
+    r: parseInt(userColorInput.value.slice(1, 3), 16) - 75,
+    g: parseInt(userColorInput.value.slice(3, 5), 16) - 75,
+    b: parseInt(userColorInput.value.slice(5, 7), 16) - 75
+  }
+});
+let filteredColorSwatches = computed(() => {
+  if (userWantsFilter.value) {
+    return colorSwatches.value.filter((swatch) => {
+      let swatchR = parseInt(swatch.hexCode.slice(1, 3), 16);
+      let swatchG = parseInt(swatch.hexCode.slice(3, 5), 16);
+      let swatchB = parseInt(swatch.hexCode.slice(5, 7), 16);
+      return (swatchR >= userColorInputLowerLimit.value.r && swatchR <= userColorInputUpperLimit.value.r) &&
+        (swatchG >= userColorInputLowerLimit.value.g && swatchG <= userColorInputUpperLimit.value.g) &&
+        (swatchB >= userColorInputLowerLimit.value.b && swatchB <= userColorInputUpperLimit.value.b);
+    })
+  } else {
+    return colorSwatches.value;
+  }
+})
+
+// lifecycle hooks
+onMounted(() => {
+  document.title = 'Accessories | Boise Tuxedo Shop';
+  sortColorSwatchArray(colorSwatches.value);
+  // color picker event listener
+  document.getElementById('usersColor').addEventListener('change', (event) => {
+    document.getElementById('filterCheckBox').checked = true;
+    userWantsFilter.value = true;
+    userColorInput.value = event.target.value;
+  })
+  userColorInput.value = colorSwatches.value[0].hexCode;
+})
 
 </script>
