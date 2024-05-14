@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <article>
         <ul>
             <li v-for="swatch in props.colorSwatches" class="w-fit flex items-center" :key="swatch.color">
                 <svg class="w-12 h-12">
@@ -9,7 +9,7 @@
                 <span>{{ swatch.color }}</span>
             </li>
         </ul>
-    </section>
+    </article>
 </template>
 <script setup>
 const props = defineProps({
