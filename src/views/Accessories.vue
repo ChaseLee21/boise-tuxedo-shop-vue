@@ -17,7 +17,6 @@ import Header from '../components/Header.vue';
 import { ref, onMounted, computed } from 'vue';
 import { sortColorSwatchArray } from '../utils/helpers.js';
 import ColorSwatches from '../components/ColorSwatches.vue';
-import AccessoryInformation from '../components/AccessoryInformation.vue';
 
 onMounted(() => {
   document.title = 'Accessories | Boise Tuxedo Shop';
@@ -78,7 +77,6 @@ const headerProps = {
 }
 
 const availble = ['self tie neck tie', 'self tie bow tie', 'pre tied bow tie', 'suspenders', 'pocket handkerchief'];
-
 
 const colorSwatches = ref([
   {
