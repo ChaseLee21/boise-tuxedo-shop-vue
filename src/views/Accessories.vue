@@ -8,6 +8,7 @@
         <input id="filterCheckBox" type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
         <input id="usersColor" type="color" >
       </section>
+      <AccessoryInformation v-if="userSelectedColor" :color = "userSelectedColor" />
       <ColorSwatches class="border border-black" :colorSwatches="filteredColorSwatches" />
     </div>
   </main>
@@ -17,6 +18,7 @@ import Header from '../components/Header.vue';
 import { ref, onMounted, computed } from 'vue';
 import { sortColorSwatchArray } from '../utils/helpers.js';
 import ColorSwatches from '../components/ColorSwatches.vue';
+import AccessoryInformation from '../components/AccessoryInformation.vue';
 
 onMounted(() => {
   document.title = 'Accessories | Boise Tuxedo Shop';
@@ -31,6 +33,7 @@ onMounted(() => {
 
 let userWantsFilter = ref(false);
 let userColorInput = ref();
+let userSelectedColor = ref();
 
 let userColorInputUpperLimit = computed(() => {
   return {
