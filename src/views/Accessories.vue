@@ -1,11 +1,15 @@
 <template>
   <Header :title = "headerProps.title" :content = "headerProps.content" />
   <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
-    <section>
-      <input type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
-      <input id="usersColor" type="color" >
-    </section>
-    <ColorSwatches :colorSwatches="filteredColorSwatches" />
+    <div>
+      <!-- hiding these inputs for now until ready for implementation -->
+      <!-- TODO: implement these filters -->
+      <section v-show="userWantsFilter" class="border border-black">
+        <input id="filterCheckBox" type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
+        <input id="usersColor" type="color" >
+      </section>
+      <ColorSwatches class="border border-black" :colorSwatches="filteredColorSwatches" />
+    </div>
   </main>
 </template>
 <script setup>
@@ -18,6 +22,8 @@ onMounted(() => {
   document.title = 'Accessories | Boise Tuxedo Shop';
   sortColorSwatchArray(colorSwatches.value);
   document.getElementById('usersColor').addEventListener('change', (event) => {
+    document.getElementById('filterCheckBox').checked = true;
+    userWantsFilter.value = true;
     userColorInput.value = event.target.value;
   })
   userColorInput.value = colorSwatches.value[0].hexCode;
@@ -25,6 +31,7 @@ onMounted(() => {
 
 let userWantsFilter = ref(false);
 let userColorInput = ref();
+
 let userColorInputUpperLimit = computed(() => {
   return {
     r: parseInt(userColorInput.value.slice(1, 3), 16) + 75,
