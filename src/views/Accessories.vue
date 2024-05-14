@@ -2,24 +2,58 @@
   <Header :title = "headerProps.title" :content = "headerProps.content" />
   <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
     <section>
-      
+      <input type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
+      <input id="usersColor" type="color" >
     </section>
-    <ColorSwatches :colorSwatches="colorSwatches" />
+    <ColorSwatches :colorSwatches="filteredColorSwatches" />
   </main>
 </template>
 <script setup>
 import Header from '../components/Header.vue';
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import { sortColorSwatchArray } from '../utils/helpers.js';
 import ColorSwatches from '../components/ColorSwatches.vue';
 
 onMounted(() => {
   document.title = 'Accessories | Boise Tuxedo Shop';
   sortColorSwatchArray(colorSwatches.value);
+  document.getElementById('usersColor').addEventListener('change', (event) => {
+    userColorInput.value = event.target.value;
+  })
+  userColorInput.value = colorSwatches.value[0].hexCode;
 })
 
+let userWantsFilter = ref(false);
+let userColorInput = ref();
+let userColorInputUpperLimit = computed(() => {
+  return {
+    r: parseInt(userColorInput.value.slice(1, 3), 16) + 75,
+    g: parseInt(userColorInput.value.slice(3, 5), 16) + 75,
+    b: parseInt(userColorInput.value.slice(5, 7), 16) + 75
+  }
+});
+let userColorInputLowerLimit = computed(() => {
+  return {
+    r: parseInt(userColorInput.value.slice(1, 3), 16) - 75,
+    g: parseInt(userColorInput.value.slice(3, 5), 16) - 75,
+    b: parseInt(userColorInput.value.slice(5, 7), 16) - 75
+  }
+});
 
-
+let filteredColorSwatches = computed(() => {
+  if (userWantsFilter.value) {
+    return colorSwatches.value.filter((swatch) => {
+      let swatchR = parseInt(swatch.hexCode.slice(1, 3), 16);
+      let swatchG = parseInt(swatch.hexCode.slice(3, 5), 16);
+      let swatchB = parseInt(swatch.hexCode.slice(5, 7), 16);
+      return (swatchR >= userColorInputLowerLimit.value.r && swatchR <= userColorInputUpperLimit.value.r) &&
+        (swatchG >= userColorInputLowerLimit.value.g && swatchG <= userColorInputUpperLimit.value.g) &&
+        (swatchB >= userColorInputLowerLimit.value.b && swatchB <= userColorInputUpperLimit.value.b);
+    })
+  } else {
+    return colorSwatches.value;
+  }
+})
 
 const headerProps = {
   title: 'Accessories',
