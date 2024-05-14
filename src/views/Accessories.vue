@@ -1,15 +1,38 @@
 <template>
   <Header :title = "headerProps.title" :content = "headerProps.content" />
   <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
-    <div>
-      <!-- hiding these inputs for now until ready for implementation -->
-      <!-- TODO: implement these filters -->
-      <section v-show="userWantsFilter" class="border border-black">
-        <input id="filterCheckBox" type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
-        <input id="usersColor" type="color" >
-      </section>
+    <section>
+      <h2 class="text-2xl font-bold">Available Accessories</h2>
+      <article>
+        <p>
+        Below are a list of accessories that we offer:  
+        </p>
+        <ul>
+          <li v-for="item in availble" :key="item" class="list-disc list-inside">
+            {{ item }}
+          </li>
+        </ul>
+      </article>
+    </section>
+    <section class="border border-black">
+      <h2 class="text-2xl font-bold">Available Colors</h2>
+      <p>
+        We have over 100 different colors and patterns to choose from. 
+        In order to help you find the perfect accessory, we have provided a color swatch for each color we offer.
+        If you already have a color in mind, you can use the color picker below and we will find colors that are a close match.
+      </p>
+      <div class="flex flex-col justify-center items-start">
+        <div>
+          <label for="filterCheckBox" class="mx-2 ">Enable Color Filter:</label>
+          <input id="filterCheckBox" type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
+        </div>
+        <div>
+          <label for="usersColor" class="mx-2" >Color:</label>
+          <input id="usersColor" type="color" >
+        </div>
+      </div>
       <ColorSwatches class="border border-black" :colorSwatches="filteredColorSwatches" @swatch-clicked="handleSwatchClicked" />
-    </div>
+    </section>
   </main>
 </template>
 <script setup>
