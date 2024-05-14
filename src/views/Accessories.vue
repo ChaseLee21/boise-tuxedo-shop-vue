@@ -57,11 +57,6 @@ onMounted(() => {
 let userWantsFilter = ref(false);
 let userColorInput = ref();
 
-function handleSwatchClicked(swatch) {
-  userSelectedColor.value = swatch;
-  console.log("handleSwatchClicked: ", swatch.color);
-}
-
 let userColorInputUpperLimit = computed(() => {
   return {
     r: parseInt(userColorInput.value.slice(1, 3), 16) + 75,
