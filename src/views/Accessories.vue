@@ -9,7 +9,7 @@
         <input id="usersColor" type="color" >
       </section>
       <AccessoryInformation v-if="userSelectedColor" :color = "userSelectedColor" />
-      <ColorSwatches class="border border-black" :colorSwatches="filteredColorSwatches" />
+      <ColorSwatches class="border border-black" :colorSwatches="filteredColorSwatches" @swatch-clicked="handleSwatchClicked" />
     </div>
   </main>
 </template>
@@ -34,6 +34,12 @@ onMounted(() => {
 let userWantsFilter = ref(false);
 let userColorInput = ref();
 let userSelectedColor = ref();
+
+function handleSwatchClicked(swatch) {
+  userSelectedColor.value = swatch;
+  console.log("handleSwatchClicked: ", swatch.color);
+}
+
 
 let userColorInputUpperLimit = computed(() => {
   return {
