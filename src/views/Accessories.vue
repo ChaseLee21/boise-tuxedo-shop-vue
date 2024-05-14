@@ -1,11 +1,11 @@
 <template>
   <Header :title = "headerProps.title" :content = "headerProps.content" />
   <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
-    <section>
-      <h2 class="text-2xl font-bold">Available Accessories</h2>
+    <section >
+      <h2 class="text-xl lg:text-2xl font-bold py-2">Available Accessories</h2>
       <article>
         <p>
-        Below are a list of accessories that we offer:  
+          Below are a list of accessories that we offer in our large selection of colors and patterns:  
         </p>
         <ul>
           <li v-for="item in availble" :key="item" class="list-disc list-inside">
@@ -14,8 +14,8 @@
         </ul>
       </article>
     </section>
-    <section class="border border-black">
-      <h2 class="text-2xl font-bold">Available Colors</h2>
+    <section>
+      <h2 class="text-xl lg:text-2xl font-bold py-2">Available Colors</h2>
       <p>
         We have over 100 different colors and patterns to choose from. 
         In order to help you find the perfect accessory, we have provided a color swatch for each color we offer.
@@ -23,7 +23,7 @@
       </p>
       <div class="flex flex-col justify-center items-start">
         <div>
-          <label for="filterCheckBox" class="mx-2 ">Enable Color Filter:</label>
+          <label for="filterCheckBox" class="mx-2">Enable Color Filter:</label>
           <input id="filterCheckBox" type="checkbox" v-on:click="userWantsFilter = !userWantsFilter">
         </div>
         <div>
@@ -31,7 +31,7 @@
           <input id="usersColor" type="color" >
         </div>
       </div>
-      <ColorSwatches class="border border-black" :colorSwatches="filteredColorSwatches" @swatch-clicked="handleSwatchClicked" />
+      <ColorSwatches :colorSwatches="filteredColorSwatches" @swatch-clicked="handleSwatchClicked" />
     </section>
   </main>
 </template>
@@ -96,10 +96,10 @@ const headerProps = {
   content: `Boise Tuxedo Shop believes that finding the perfect accessory is what makes your outfit truly unique. 
   That is why we offer a wide selection of formal accessories to complement your tuxedo or suit package. 
   Included in your rental is your choice of neckwear or suspenders.
-  If you are interested in another accessory, such as our cufflinks or pocket handkerchiefs, we do have those options availble to add on to your rental or purchase.`
+  We also offer other accessories, such as our cufflinks or tie clips, that you can add to your rental or purchase.`
 }
 
-const availble = ['self tie neck tie', 'self tie bow tie', 'pre tied bow tie', 'suspenders', 'pocket handkerchief'];
+const availble = ['Self Tie Neck Tie', 'Self Tie Bow Tie', 'Pre Tied Bow Tie', 'Suspenders', 'Pocket Handkerchief'];
 
 const colorSwatches = ref([
   {
