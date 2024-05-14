@@ -16,11 +16,13 @@
     </section>
     <section>
       <h2 class="text-xl lg:text-2xl font-bold py-2">Available Colors</h2>
-      <p>
-        We have over 100 different colors and patterns to choose from. 
-        In order to help you find the perfect accessory, we have provided a color swatch for each color we offer.
-        If you already have a color in mind, you can use the color picker below and we will find colors that are a close match.
-      </p>
+      <article>
+        <p>
+          We have over 100 different colors and patterns to choose from. 
+          In order to help you find the perfect accessory, we have provided a color swatch for each color we offer.
+          If you already have a color in mind, you can use the color picker below and we will find colors that are a close match.
+        </p>
+      </article>
       <div class="flex flex-col justify-center items-start">
         <div>
           <label for="filterCheckBox" class="mx-2">Enable Color Filter:</label>
@@ -59,7 +61,6 @@ function handleSwatchClicked(swatch) {
   userSelectedColor.value = swatch;
   console.log("handleSwatchClicked: ", swatch.color);
 }
-
 
 let userColorInputUpperLimit = computed(() => {
   return {
