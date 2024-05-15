@@ -14,6 +14,7 @@ import Contact from './views/Contact.vue'
 import Prom from './views/Prom.vue'
 import Gallery from './views/Gallery.vue'
 import Reviews from './views/Reviews.vue'
+import Accessories from './views/Accessories.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -23,6 +24,7 @@ const router = createRouter({
         { path: '/Gallery', component: Gallery, name: 'Gallery' },
         { path: '/Faq', component: Faq, name: 'Faq' },
         { path: '/Product/:id', component: Product, name: 'Product', props: true },
+        { path: '/Accessories', component: Accessories, name: 'Accessories' },
         { path: '/Category/:category', component: Category, name: 'Category', props: true },
         { path: '/Privacy', component: Privacy, name: 'Privacy' },
         { path: '/Terms', component: Terms, name: 'Terms' },
