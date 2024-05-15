@@ -1,9 +1,9 @@
 <template>
   <Header :title = "headerProps.title" :content = "headerProps.content" />
   <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
-    <section >
-      <h2 class="text-xl lg:text-2xl font-bold py-2">Available Accessories</h2>
+    <section class="mb-4">
       <article>
+        <h2 class="text-xl lg:text-2xl font-bold py-2">Available Accessories</h2>
         <p>
           Below are a list of accessories that we offer in our large selection of colors and patterns:  
         </p>
@@ -15,16 +15,36 @@
           <li>Pocket Handkerchief</li>
         </ul>
       </article>
-    </section>
-    <section>
-      <h2 class="text-xl lg:text-2xl font-bold py-2">Available Colors</h2>
       <article>
+        <h2 class="text-xl lg:text-2xl font-bold py-2">Available Colors</h2>
         <p>
           We have over 100 different colors and patterns to choose from. 
           In order to help you find the perfect accessory, we have provided a color swatch for each color we offer.
           If you already have a color in mind, you can use the color picker below and we will find colors that are a close match.
+          New patterns, styles, and colors are added frequently and this list may not be 100% accurate.
         </p>
       </article>
+      <article>
+        <h2 class="text-xl lg:text-2xl font-bold py-2">Available Patterns</h2>
+        <p>
+           Colors that contain the below names in them are patterns that we offer.
+           Not all patterns that we carry in store are included in our color list yet.
+        </p>
+        <ul class="list-disc list-inside">
+          <li>Imperial</li>
+          <li>Paisley</li>
+          <li>Stardust</li>
+        </ul>
+      </article>
+      <article>
+        <h2 class="text-xl lg:text-2xl font-bold py-2">Disclaimer</h2>
+        <p>
+          Colors may vary slight from the actual accessory color due to the lighting in the photo, the screen you are viewing it on, and the dye lot of the fabric.
+          We try to provide the most accurate representation of the color as possible but we recommend coming into the store to see the color in person.
+        </p>
+      </article>
+    </section>
+    <section>
       <div class="flex flex-col justify-center items-start">
         <div>
           <label for="filterCheckBox" class="mx-2">Enable Color Filter:</label>
