@@ -54,57 +54,17 @@ const headerProps = {
   We also offer other accessories, such as our cufflinks or tie clips, that you can add to your rental or purchase.`
 }
 
-// TODO: fetch color swatches from api
-const colorSwatches = ref([
-  {
-    color: 'Black',
-    hexCode: '#000000',
-    position: 1,
-  },
-  {
-    color: 'White',
-    hexCode: '#FFFFFF',
-    position: 1,
-  },
-  {
-    color: 'Red',
-    hexCode: '#FF0000',
-    position: 2,
-  },
-  {
-    color: 'Green',
-    hexCode: '#00FF00',
-    position: 2,
-  },
-  {
-    color: 'Blue',
-    hexCode: '#0000FF',
-    position: 2,
-  },
-  {
-    color: 'Yellow',
-    hexCode: '#FFFF00',
-    position: 3,
-  },
-  {
-    color: 'Cyan',
-    hexCode: '#00FFFF',
-    position: 4,
-  },
-  {
-    color: 'Magenta',
-    hexCode: '#FF00FF',
-    position: 5,
-  },
-  {
-    color: 'Gray',
-    hexCode: '#808080',
-    position: 1,
-  }
-]);
-
+let colorSwatches = ref([]);
 let userWantsFilter = ref(false);
 let userColorInput = ref();
+
+// methods
+async function getAllColors() {
+  await fetch('https://www.boisetuxedoshop.com/api/color')
+    .then(response => response.json())
+    .then(data => colorSwatches.value = data)
+    .catch(error => console.error(error))
+}
 
 // computed properties
 let userColorInputUpperLimit = computed(() => {
@@ -137,16 +97,17 @@ let filteredColorSwatches = computed(() => {
 })
 
 // lifecycle hooks
-onMounted(() => {
+onMounted(async () => {
   document.title = 'Accessories | Boise Tuxedo Shop';
+  await getAllColors();
   sortColorSwatchArray(colorSwatches.value);
+  if (colorSwatches.value && colorSwatches.value.length > 0) userColorInput.value = colorSwatches.value[0].hexCode;
   // color picker event listener
   document.getElementById('usersColor').addEventListener('change', (event) => {
     document.getElementById('filterCheckBox').checked = true;
     userWantsFilter.value = true;
     userColorInput.value = event.target.value;
   })
-  userColorInput.value = colorSwatches.value[0].hexCode;
 })
 
 </script>
