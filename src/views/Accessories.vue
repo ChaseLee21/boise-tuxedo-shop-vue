@@ -60,10 +60,26 @@ let userColorInput = ref();
 
 // methods
 async function getAllColors() {
+  getColorsFromLocalStorage();
+  if (colorSwatches.value.length > 0) return;
+  await getColorsFromApi();
+  saveColorsToLocalStorage();
+}
+
+async function getColorsFromApi() {
   await fetch('https://www.boisetuxedoshop.com/api/color')
     .then(response => response.json())
     .then(data => colorSwatches.value = data)
     .catch(error => console.error(error))
+}
+
+function saveColorsToLocalStorage() {
+  localStorage.setItem('colorSwatches', JSON.stringify(colorSwatches.value));
+}
+
+function getColorsFromLocalStorage() {
+  let colors = localStorage.getItem('colorSwatches');
+  if (colors) colorSwatches.value = JSON.parse(colors);
 }
 
 // computed properties
