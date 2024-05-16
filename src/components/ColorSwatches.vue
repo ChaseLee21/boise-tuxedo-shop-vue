@@ -26,7 +26,6 @@ const props = defineProps({
 })
 
 function openPopUp() {
-    console.log('openPopUp', popUpOpen);
     popUpOpen.value = !popUpOpen.value;
 }
 

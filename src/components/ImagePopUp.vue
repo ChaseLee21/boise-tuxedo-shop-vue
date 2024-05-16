@@ -1,5 +1,5 @@
 <template>
-    <section v-if="popUpOpen" class="fixed inset-0 bg-slate-800 bg-opacity-30 rounded m-auto h-screen w-fit px-8 pb-10 flex justify-center items-center">
+    <section v-if="popUpOpen" class="fixed inset-0 bg-slate-800 bg-opacity-30 rounded m-auto h-screen w-screen px-8 pb-10 flex justify-center items-center">
         <figure class="max-h-[600px] w-auto flex flex-col items-center shadow-xl rounded border border-black relative" >
             <svg v-on:click="handlePopUpClose()" xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 absolute right-0 top-0 cursor-pointer hover:stroke-[3px]">
                     <line x1="13" y1="15" x2="32" y2="30"></line>
