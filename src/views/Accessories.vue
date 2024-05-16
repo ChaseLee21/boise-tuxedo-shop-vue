@@ -80,10 +80,16 @@ let userColorInput = ref();
 
 // methods
 async function getAllColors() {
-  getColorsFromLocalStorage();
-  if (colorSwatches.value.length > 0) return;
-  await getColorsFromApi();
-  saveColorsToLocalStorage();
+  const colors = getColorsFromLocalStorage();
+  const currentTime = new Date().getTime();
+  const twentyFourHours = 24 * 60 * 60 * 1000;
+
+  if (colors && currentTime - colors.timestamp < twentyFourHours) {
+    colorSwatches.value = colors.data;
+  } else {
+    await getColorsFromApi();
+    saveColorsToLocalStorage();
+  }
 }
 
 async function getColorsFromApi() {
@@ -94,12 +100,16 @@ async function getColorsFromApi() {
 }
 
 function saveColorsToLocalStorage() {
-  localStorage.setItem('colorSwatches', JSON.stringify(colorSwatches.value));
+  const colors = {
+    timestamp: new Date().getTime(),
+    data: colorSwatches.value
+  };
+  localStorage.setItem('colorSwatches', JSON.stringify(colors));
 }
 
 function getColorsFromLocalStorage() {
-  let colors = localStorage.getItem('colorSwatches');
-  if (colors) colorSwatches.value = JSON.parse(colors);
+  const colors = localStorage.getItem('colorSwatches');
+  return colors ? JSON.parse(colors) : null;
 }
 
 // computed properties
