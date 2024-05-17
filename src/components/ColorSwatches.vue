@@ -9,6 +9,8 @@
                 <span>{{ swatch.color }}</span>
             </li>
         </ul>
+        <p v-if="props.colorSwatches.length == 0">No results were found, try selecting a different color.</p>
+        
     </article>
     <ImagePopUp v-if="popUpOpen" :url="popUpSwatch.url" :alt="popUpSwatch.alt" :title="popUpSwatch.color" @PopUpClosed="popUpOpen = false" />
 </template>
