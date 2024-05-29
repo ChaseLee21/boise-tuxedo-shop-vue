@@ -18,23 +18,12 @@
       <article>
         <h2 class="text-xl lg:text-2xl font-bold py-2">Available Colors</h2>
         <p>
-          We have over 100 different colors and patterns to choose from. 
-          In order to help you find the perfect accessory, we have provided a color swatch for each color we offer.
-          If you already have a color in mind, you can use the color picker below and we will find colors that are a close match.
+          Below is a list of accessories that we carry in over 100 different colors and patterns.
+          In order to help you find the perfect accessory, we have provided a color swatch and picture for each color we offer.
+          You can click on the color swatch to see a larger image of the color.
+          To filter the colors for your convience, you can use the color picker below to select a color.
           New patterns, styles, and colors are added frequently and this list may not be 100% accurate.
         </p>
-      </article>
-      <article>
-        <h2 class="text-xl lg:text-2xl font-bold py-2">Available Patterns</h2>
-        <p>
-           Colors that contain the below names in them are patterns that we offer.
-           Not all patterns that we carry in store are included in our color list yet.
-        </p>
-        <ul class="list-disc list-inside">
-          <li>Imperial</li>
-          <li>Paisley</li>
-          <li>Stardust</li>
-        </ul>
       </article>
       <article>
         <h2 class="text-xl lg:text-2xl font-bold py-2">Disclaimer</h2>
