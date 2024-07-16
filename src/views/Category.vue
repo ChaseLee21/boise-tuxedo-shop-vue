@@ -7,7 +7,8 @@
             <article v-for="product in filterProducts" class="min-w-fit my-5 mx-1 rounded-md snap-center relative">
                 <figure class=" text-white text-center h-full">
                     <v-lazy-image width="720" height="1200" :src="product.imageURL" :alt="product.imageAlt" class="m-auto min-w-full min-h-full rounded object-cover" />
-                    <figcaption class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.name }}</figcaption>
+                    <figcaption v-if="product.formattedName" class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.formattedName }}</figcaption>
+                    <figcaption v-else class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.name }}</figcaption>
                     <router-link :to="{ name: 'Product', params: {id: product.id } }" class="absolute bottom-0 inset-x-0 w-full p-0.5 rounded-b bg-opacity-30 m-auto bg-black hover:text-lg hover:ease-in-out hover:duration-500">View Style Details</router-link>
                 </figure>
             </article>
@@ -36,7 +37,26 @@ onMounted(() => {
 
 const filterProducts = computed(() => { 
     if (products.length === 0) return;
-    return products.value.filter(product => product.type === props.category);
+    let sortedProducts = [], black = [], blue = [], tan = [], grey = [], burgundy = [], other = [];
+    for (let product of products.value) {
+        if (product.type === props.category) {
+            if (product.name.includes('Black')) {
+                black.push(product);
+            } else if (product.name.includes('Blue')) {
+                blue.push(product);
+            } else if (product.name.includes('Tan') || product.name.includes('Sand') || product.name.includes('Beige')) {
+                tan.push(product);
+            } else if (product.name.includes('Grey') || product.name.includes('Gray') || product.name.includes('Charcoal')) {
+                grey.push(product);
+            } else if (product.name.includes('Burgundy')) {
+                burgundy.push(product);
+            } else {
+                other.push(product);
+            }
+        }
+    }
+    sortedProducts = [...black, ...grey, ...blue, ...tan, ...burgundy, ...other]
+    return sortedProducts;
 });
 
 function formatProductName(tuxedoSuitName) {
@@ -55,7 +75,7 @@ async function getProducts() {
     const data = await reponse.json();
     for (let product of data) {
         if (product.type === 'TuxedoSuit') {
-            product.name = formatProductName(product.name);
+            product.formattedName = formatProductName(product.name);
         }
         if (product.keyFeatures) {
             product.keyFeatures = product.keyFeatures.split(',');
