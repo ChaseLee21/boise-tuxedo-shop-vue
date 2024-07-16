@@ -37,7 +37,7 @@ onMounted(() => {
 
 const filterProducts = computed(() => { 
     if (products.length === 0) return;
-    let sortedProducts = [], black = [], blue = [], tan = [], grey = [], burgundy = [], other = [];
+    let sortedProducts = [], black = [], blue = [], tan = [], ltgrey = [], grey = [], dkgrey = [], burgundy = [], other = [];
     for (let product of products.value) {
         if (product.type === props.category) {
             if (product.name.includes('Black')) {
@@ -46,16 +46,20 @@ const filterProducts = computed(() => {
                 blue.push(product);
             } else if (product.name.includes('Tan') || product.name.includes('Sand') || product.name.includes('Beige')) {
                 tan.push(product);
-            } else if (product.name.includes('Grey') || product.name.includes('Gray') || product.name.includes('Charcoal')) {
+            } else if (product.name.includes('Dark Grey') || product.name.includes('Charcoal') || product.name.includes('Graphite')) {
+                dkgrey.push(product);
+            } else if (product.name.includes('Light Grey') || product.name.includes('Heather')) {
+                ltgrey.push(product);
+            } else if (product.name.includes('Medium Grey') || product.name.includes('Gray') || product.name.includes('Grey')) {
                 grey.push(product);
-            } else if (product.name.includes('Burgundy')) {
+            }  else if (product.name.includes('Burgundy')) {
                 burgundy.push(product);
             } else {
                 other.push(product);
             }
         }
     }
-    sortedProducts = [...black, ...grey, ...blue, ...tan, ...burgundy, ...other]
+    sortedProducts = [...black, ...dkgrey, ...grey, ...ltgrey, ...blue, ...tan, ...burgundy, ...other]
     return sortedProducts;
 });
 
