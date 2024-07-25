@@ -1,12 +1,33 @@
 <template>
     <Header :title = headerProps.title :content = headerProps.content :links = headerProps.links />
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto mx-2">
+        <!-- <ImageGallery :images = prom.images /> -->
         <section>
             <h2 class="text-xl lg:text-2xl font-bold py-2">Custom Fit FAQs</h2>
             <div class="px-2">
                 <article>
                     <h3 class="text-2xl text-red-600 font-bold">What does custom fit mean?</h3>
-                    <p class="indent-3">Custom fit suits and tuxedos are tailored to your exact measurements. You pick out the style and color of the outfit you would like. Then, our professional team members take your measurements and provide the tailoring services.</p>
+                    <p class="indent-3">Custom fit suits and tuxedos are tailored to your exact measurements. You pick out the style and color of the outfit you would like. Then, our professional team members take your measurements and provide the tailoring / alteration services.</p>
+                </article>
+                <article>
+                    <h3 class="text-2xl text-red-600 font-bold">Is custom fit required?</h3>
+                    <p class="indent-3">No! We stock our rentals in a large amount of sizes allowing us to fit a style to the majority of people without heavy alterations needing to be done.</p>
+                </article>
+                <article>
+                    <h3 class="text-2xl text-red-600 font-bold">Do we offer custom fit rentals?</h3>
+                    <p class="indent-3">Yes and no, alterations are available for our tuxedo and suit rentals although we will not perform alterations on rentals that can not be reversed. For example we will hem pants and adjust sleeve lengths but will not take in the jacket.</p>
+                </article>
+                <article>
+                    <h3 class="text-2xl text-red-600 font-bold">How much does custom fit services cost?</h3>
+                    <p class="indent-3">Pricing can vary based on what tailoring work needs to be done. We will always quote you a price before the alterations are performed so everyone is on the same page when it comes to price.</p>
+                </article>
+                <article>
+                    <h3 class="text-2xl text-red-600 font-bold">How long does this process take?</h3>
+                    <p class="indent-3">We try to get all tailoring services done within 2 weeks of us holding the outfit.</p>
+                </article>
+                <article>
+                    <h3 class="text-2xl text-red-600 font-bold">Do we offer this service for product not purchased from us?</h3>
+                    <p class="indent-3">Our professional alteration team has the final decision. The majority of the time we will alter or tailor your outfit. In some scenarios where the condition of the outfit is in question we reserve the right to deny our tailoring services.</p>
                 </article>
             </div>
         </section>
@@ -14,13 +35,11 @@
             <h2 class="text-xl lg:text-2xl font-bold py-2">Pricing</h2>
             <p>These prices are not final and are subject to change</p>
             <article>
-                <h3 class="text-lg">Custom Fit Suits and Tuxedos Pricing</h3>
                 <ul class="list-inside list-disc indent-5">
-                    <li>Placeholder<span class="font-bold">$140</span></li>
+                    <li>Coat and pant starting at <span class="font-bold">$299</span></li>
                 </ul>
             </article>
         </section>
-        <ImageGallery :title = prom.title :images = prom.images />
     </main>    
 </template>
 
@@ -33,15 +52,7 @@ const year = new Date().getFullYear();
 const headerProps = {
     title: `Custom Fit Suits and Tuxedos`,
     content: ``,
-    links: [
-        {
-            text: "Contact Us",
-            url: "/Contact"
-        },
-        {
-            text: "Freuqently Asked Questions",
-            url: "/Faq"
-        }]
+    links: []
 }
 
 const prom = {
@@ -50,26 +61,6 @@ const prom = {
         {
             url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Couple-Orange-Accessories-Navy-Suit-Tangerine-Dress.webp",
             alt: "Prom Couple Orange Accessories Navy Suit Tangerine Dress"
-        },
-        {
-            url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (2).webp",
-            alt: "Young man in a silver black imperial paisley one button shawl tuxedo"
-        },
-        {
-            url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (3).webp",
-            alt: "Prom goers wearing tuxedos with bow ties at the Boise Train Depot"
-        },
-        {
-            url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (4).webp",
-            alt: "Three prom goers in tuxedos and dresses in front of the entrance to their prom venue"
-        },
-        {
-            url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (5).webp",
-            alt: "Teenagers in tuxedos with bow ties and sunglasses posing for a photo at prom"
-        },
-        {
-            url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Popular-Outfit-Choices-Tuxedo-Suits-Boise-Meridian-High-School (6).webp",
-            alt: "Young man in a navy suit and tie with a white shirt and black shoes posing by his car"
         }
     ]
 } 
