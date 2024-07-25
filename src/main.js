@@ -15,6 +15,7 @@ import Prom from './views/Prom.vue'
 import Gallery from './views/Gallery.vue'
 import Reviews from './views/Reviews.vue'
 import Accessories from './views/Accessories.vue'
+import CustomFit from './views/CustomFit.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -32,6 +33,7 @@ const router = createRouter({
         { path: '/Contact', component: Contact, name: 'Contact' },
         { path: '/Prom', component: Prom, name: 'Prom' },
         { path: '/Reviews', component: Reviews, name: 'Reviews' },
+        { path: '/CustomFit', component: CustomFit, name: 'CustomFit' },
         // other routes...
     ],
     scrollBehavior(to, from, savedPosition) {
