@@ -51,7 +51,7 @@ const year = new Date().getFullYear();
 
 const headerProps = {
     title: `Custom Fit Suits and Tuxedos`,
-    content: ``,
+    content: `Custom-fitted men's suits are the epitome of professional attire. Its tailored construction ensures a perfect fit, accentuating the wearer's physique and exuding confidence. In today's business world, a well-tailored suit is a non-negotiable for any man looking to make a lasting impression. The attention to detail and precision in measurements results in a unique and personalized garment that is unmatched in both style and quality. A custom suit not only enhances one's appearance but also provides comfort and flexibility, allowing for ease of movement and added confidence in any professional setting. Investing in a custom fitted men's suit is an investment in oneself projecting a refined and polished image that speaks volumes about one's professionalism and attention to detail.`,
     links: []
 }
 
