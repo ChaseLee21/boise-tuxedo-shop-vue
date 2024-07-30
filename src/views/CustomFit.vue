@@ -1,7 +1,7 @@
 <template>
     <Header :title = headerProps.title :content = headerProps.content :links = headerProps.links />
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto mx-2">
-        <!-- <ImageGallery :images = prom.images /> -->
+        <ImageGallery :images = images.images />
         <section>
             <h2 class="text-xl lg:text-2xl font-bold py-2">Custom Fit FAQs</h2>
             <div class="px-2">
@@ -55,12 +55,24 @@ const headerProps = {
     links: []
 }
 
-const prom = {
+const images = {
     title: "Custom Fit Tuxedos and Suits",
     images: [
         {
-            url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Couple-Orange-Accessories-Navy-Suit-Tangerine-Dress.webp",
-            alt: "Prom Couple Orange Accessories Navy Suit Tangerine Dress"
+            url: "https://btsimagestorage.blob.core.windows.net/product-images/Custom-Fit-Desert-Tan-Suit-Kahki-Accessories-Brown-Shoes.webp",
+            alt: "Adult man where an all tan suit with khaki accessories and a white shirt"
+        },
+        {
+            url: "https://btsimagestorage.blob.core.windows.net/product-images/Custom-Fit-Sage-Suit-White-Accessories-Brown-Shoes.webp",
+            alt: "Adult man where a dark sage suit with white accessories and a white shirt"
+        },
+        {
+            url: "https://btsimagestorage.blob.core.windows.net/product-images/Custom-Fit-Tan-Suit-Lilac-Accessories-Brown-Shoes.webp",
+            alt: "Adult man where an all tan suit with lilac or lavender accessories and a white shirt"
+        },
+        {
+            url: "https://btsimagestorage.blob.core.windows.net/product-images/Custom-Fit-Tan-Suit-White-Accessories-Brown-Shoes.webp",
+            alt: "Adult man where an all khaki suit with white accessories and a white shirt"
         }
     ]
 } 
