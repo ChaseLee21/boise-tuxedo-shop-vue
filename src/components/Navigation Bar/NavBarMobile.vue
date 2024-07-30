@@ -16,9 +16,6 @@
             <nav v-show="navOpen" class="absolute left-0 top-12 w-full">
                 <ul class="flex flex-col p-3 text-lg bg-gray-800 text-white">
                     <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
-                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Gallery">Image Gallery</router-link></li>
-                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Reviews">Google Reviews</router-link></li>
-                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Prom">Prom 2024</router-link></li>
                     <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
                     <ul class="p-2 list-disc list-inside">
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/TuxedoSuit">Tuxedos & Suits</router-link></li>
@@ -26,8 +23,12 @@
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Category/Pants">Pants</router-link></li>
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Accessories">Accessories</router-link></li>
                     </ul>
-                    <li class="p-2 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
-                    <li class="p-2 hover:text-zinc-300"><router-link to="/Contact">Contact Us</router-link></li>
+                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/CustomFit">Custom Fit</router-link></li>
+                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Gallery">Image Gallery</router-link></li>
+                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Reviews">Google Reviews</router-link></li>
+                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Prom">Prom</router-link></li>
+                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
+                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Contact">Contact Us</router-link></li>
                     <li class="md:col-span-1 m-auto">
                     <div class="flex justify-center">
                         <a class="p-2" href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
