@@ -65,7 +65,7 @@ async function getProducts() {
 
 const tuxedoAndSuitProducts = computed(() => {
     let arr = products.value.filter(product => product.type === "TuxedoSuit");
-    while (arr.length > 6) {
+    while (arr.length > 4) {
         arr.pop();
     }
     return arr;
@@ -73,7 +73,7 @@ const tuxedoAndSuitProducts = computed(() => {
 
 const shirtProducts = computed(() => {
     let arr = products.value.filter(product => product.type === "Shirts");
-    while (arr.length > 6) {
+    while (arr.length > 4) {
         arr.pop();
     }
     return arr;
@@ -81,7 +81,7 @@ const shirtProducts = computed(() => {
 
 const pantProducts = computed(() => {
     let arr = products.value.filter(product => product.type === "Pants");
-    while (arr.length > 6) {
+    while (arr.length > 4) {
         arr.pop();
     }
     return arr;
