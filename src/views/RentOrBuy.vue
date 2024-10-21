@@ -38,10 +38,24 @@ onMounted(() => {
     getProducts();
 })
 
+function formatProductName(tuxedoSuitName) {
+    let [firstPart, secondPart] = tuxedoSuitName.split('(');
+    if (secondPart) {
+        [tuxedoSuitName] = secondPart.split(')');
+        tuxedoSuitName = 'The ' + tuxedoSuitName;
+    } else {
+        tuxedoSuitName = '';
+    }
+    return tuxedoSuitName;
+}
+
 async function getProducts() {
     const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
     const data = await reponse.json();
     for (let product of data) {
+        if (product.type === 'TuxedoSuit') {
+            product.formattedName = formatProductName(product.name);
+        }
         if (product.keyFeatures) {
             product.keyFeatures = product.keyFeatures.split(',');
         }
