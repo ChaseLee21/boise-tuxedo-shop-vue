@@ -38,10 +38,24 @@ onMounted(() => {
     getProducts();
 })
 
+function formatProductName(tuxedoSuitName) {
+    let [firstPart, secondPart] = tuxedoSuitName.split('(');
+    if (secondPart) {
+        [tuxedoSuitName] = secondPart.split(')');
+        tuxedoSuitName = 'The ' + tuxedoSuitName;
+    } else {
+        tuxedoSuitName = '';
+    }
+    return tuxedoSuitName;
+}
+
 async function getProducts() {
     const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
     const data = await reponse.json();
     for (let product of data) {
+        if (product.type === 'TuxedoSuit') {
+            product.formattedName = formatProductName(product.name);
+        }
         if (product.keyFeatures) {
             product.keyFeatures = product.keyFeatures.split(',');
         }
@@ -51,7 +65,7 @@ async function getProducts() {
 
 const tuxedoAndSuitProducts = computed(() => {
     let arr = products.value.filter(product => product.type === "TuxedoSuit");
-    while (arr.length > 6) {
+    while (arr.length > 4) {
         arr.pop();
     }
     return arr;
@@ -59,7 +73,7 @@ const tuxedoAndSuitProducts = computed(() => {
 
 const shirtProducts = computed(() => {
     let arr = products.value.filter(product => product.type === "Shirts");
-    while (arr.length > 6) {
+    while (arr.length > 4) {
         arr.pop();
     }
     return arr;
@@ -67,7 +81,7 @@ const shirtProducts = computed(() => {
 
 const pantProducts = computed(() => {
     let arr = products.value.filter(product => product.type === "Pants");
-    while (arr.length > 6) {
+    while (arr.length > 4) {
         arr.pop();
     }
     return arr;
