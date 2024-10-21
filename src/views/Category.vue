@@ -6,8 +6,8 @@
         <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
             <article v-for="product in filterProducts" class="min-w-fit my-5 mx-1 rounded-md snap-center relative">
                 <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500" >
-                    <figure class=" text-white text-center h-full">
-                        <v-lazy-image width="720" height="1200" :src="product.imageURL" :alt="product.imageAlt" class="m-auto min-w-full min-h-full rounded object-cover" />
+                    <figure class="text-white text-center h-full">
+                        <v-lazy-image width="480" height="800" :src="product.imageURL" :alt="product.imageAlt" class="m-auto h-full w-full rounded object-cover" />
                         <figcaption v-if="product.formattedName" class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.formattedName }}</figcaption>
                         <figcaption v-else class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.name }}</figcaption>
                         <figcaption class="absolute bottom-0 inset-x-0 w-full p-0.5 rounded-b bg-opacity-30 m-auto bg-black ">View Style Details</figcaption>
@@ -44,9 +44,9 @@ const filterProducts = computed(() => {
         if (product.type === props.category) {
             if (product.name.includes('Black')) {
                 black.push(product);
-            } else if (product.name.includes('Blue')) {
+            } else if (product.name.includes('Blue') || product.name.includes('Indigo') || product.name.includes('Navy')) {
                 blue.push(product);
-            } else if (product.name.includes('Tan') || product.name.includes('Sand') || product.name.includes('Beige')) {
+            } else if (product.name.includes('Tan') || product.name.includes('Sand') || product.name.includes('Beige') || product.name.includes('Camel') || product.name.includes('Cocoa')) {
                 tan.push(product);
             } else if (product.name.includes('Dark Grey') || product.name.includes('Charcoal') || product.name.includes('Graphite')) {
                 dkgrey.push(product);
