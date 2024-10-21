@@ -9,14 +9,14 @@
         <!-- Product Container -->
         <div ref="productContainer" class="relative flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 py-4 w-full scroll-m-[1rem] md:overflow-hidden">
             <!-- Previous Button -->
-            <button aria-label="Previous image in carousel" v-if="!isMobile" class="sticky left-0 top-1/2" @click="scroll(-1)">
+            <!-- <button aria-label="Previous image in carousel" v-if="!isMobile" class="sticky left-0 top-1/2" @click="scroll(-1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
                         <line x1="10" y1="25" x2="40" y2="10"></line>
                         <line x1="10" y1="25" x2="40" y2="40"></line> 
                 </svg>
-            </button>
+            </button> -->
             <!-- Product Card -->
-            <div class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
+            <div class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto">
                 <article v-for="product in props.products" class="min-w-fit my-5 mx-1 rounded-md snap-center relative">
                     <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500" >
                         <figure class=" text-white text-center h-full">
@@ -29,14 +29,16 @@
                 </article>
             </div>
             <!-- Next Button -->
-            <button aria-label="Next image in carousel" v-if="!isMobile" class="sticky top-1/2 right-0" @click="scroll(1)">
+            <!-- <button aria-label="Next image in carousel" v-if="!isMobile" class="sticky top-1/2 right-0" @click="scroll(1)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
                         <line x1="40" y1="25" x2="10" y2="10"></line>
                         <line x1="40" y1="25" x2="10" y2="40"></line> 
                 </svg>
-            </button>
+            </button> -->
         </div>
-
+        <footer class="mx-auto text-center mb-4">
+            <router-link class="text-base underline button-class " :to="{ name: 'Category', params: {category : props.route } }">View More {{props.title}}</router-link>
+        </footer>
     </section>
 </template>
 
