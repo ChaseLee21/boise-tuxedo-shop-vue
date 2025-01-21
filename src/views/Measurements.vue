@@ -2,10 +2,7 @@
     <Header :title = "headerProps.title" :content = "headerProps.content" :links = "headerProps.links" />
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto mx-2">
         <section role="contentinfo">
-            <article>
-                <h2>Coming Soon</h2>
-                <MeasurementsForm />
-            </article>
+            <MeasurementsForm />
         </section>
     </main>
 </template>
@@ -13,6 +10,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import Header from '../components/Header.vue';
+import MeasurementsForm from '../components/MeasurementsForm.vue';
 
 const headerProps = {
     title: `Submit Your Measurements`,
