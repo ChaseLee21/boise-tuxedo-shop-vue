@@ -5,7 +5,7 @@ import MeasurementsForm from '../MeasurementsForm.vue';
 describe('MeasurementsForm.vue', () => {
   it('renders the initial height value correctly', () => {
     const wrapper = mount(MeasurementsForm);
-    const heightInput = wrapper.find('input[type="text"]');
+    const heightInput = wrapper.find('input[id="heightInput"]');
     expect(heightInput.element.value).toBe('36');
   });
 
