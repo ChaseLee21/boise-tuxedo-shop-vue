@@ -7,7 +7,7 @@
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1">Height: </label>
-                <input class="bg-gray-800 text-white" id="heightTextInput" type="text" :value="heightValue" readonly>
+                <input class="w-auto bg-gray-800 text-white" id="heightTextInput" type="text" :value="heightString" readonly>
                 <div>
                     <input id="heightRangeInput" type="range" min="1" max="72" v-model="heightValue" />
                 </div>
@@ -17,11 +17,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { convertRangeInputToHeight } from '../utils/helpers'
 
 const heightValue = ref(36); // Default value
-
-onMounted(() => {
-    
+const heightString = computed(() => {
+    return convertRangeInputToHeight(heightValue.value)
 })
 </script>

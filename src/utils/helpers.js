@@ -18,6 +18,7 @@ function sortByColor(a, b) {
 function convertRangeInputToHeight(rangeValue) {
     const rangeInputToHeightConversion = [
         `<2'0"`,
+        `2'0"`,
         `2'1"`,
         `2'2"`,
         `2'3"`,
@@ -90,7 +91,8 @@ function convertRangeInputToHeight(rangeValue) {
         `7'10"`,
         `7'11"`,
     ]
-    return rangeInputToHeightConversion[rangeValue]
+    let heightString = rangeInputToHeightConversion[rangeValue]
+    return heightString
 }
 
 export { sortColorSwatchArray, sortAlphabetically, convertRangeInputToHeight };

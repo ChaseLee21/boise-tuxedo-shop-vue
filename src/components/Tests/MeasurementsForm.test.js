@@ -12,7 +12,7 @@ describe('MeasurementsForm.vue', () => {
   it('renders the initial height value correctly from the text input', () => {
     const wrapper = mount(MeasurementsForm);
     const heightTextInput = wrapper.find('input[id="heightTextInput"]');
-    expect(heightTextInput.element.value).toBe('36');
+    expect(heightTextInput.element.value).toBe(`5'0"`);
   });
 
   it('updates the height value when the range input is changed', async () => {
@@ -20,7 +20,7 @@ describe('MeasurementsForm.vue', () => {
     const heightRangeInput = wrapper.find('input[id="heightRangeInput"]');
     const heightTextInput = wrapper.find('input[id="heightTextInput"]');
     await heightRangeInput.setValue(50);
-    expect(heightTextInput.element.value).toBe('50');
+    expect(heightTextInput.element.value).toBe(`6'2"`);
     expect(heightRangeInput.element.value).toBe('50');
   });
 });
