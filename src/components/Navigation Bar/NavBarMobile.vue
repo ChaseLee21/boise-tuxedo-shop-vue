@@ -24,10 +24,10 @@
                         <li class="p-2 hover:text-zinc-300"><router-link to="/Accessories">Accessories</router-link></li>
                     </ul>
                     <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/CustomFit">Custom Fit</router-link></li>
+                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Measurements">Out of Town Measurements</router-link></li>
                     <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Gallery">Image Gallery</router-link></li>
                     <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Reviews">Google Reviews</router-link></li>
                     <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Prom">Prom</router-link></li>
-                    <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Measurements">Measurements</router-link></li>
                     <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Faq">FAQs</router-link></li>
                     <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/Contact">Contact Us</router-link></li>
                     <li class="md:col-span-1 m-auto">
