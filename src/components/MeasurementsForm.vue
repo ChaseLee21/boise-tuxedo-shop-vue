@@ -7,12 +7,9 @@
             </div>
             <div class="flex-col my-1">
                 <label>Height</label>
-                <input type="text" :value=heightValue>
+                <input type="text" :value="heightValue" readonly>
                 <div>
-                    <input type="range" min="1" max="72" />
-                    <!-- <select class="w-full rounded p-1" type="" placeholder="Height">
-                        <option></option>
-                    </select> -->
+                    <input type="range" min="1" max="72" v-model="heightValue" />
                 </div>
             </div>
         </form>
@@ -23,7 +20,7 @@
 import { ref, onMounted } from 'vue';
 import Header from '../components/Header.vue';
 
-let heightValue;
+const heightValue = ref(36); // Default value
 
 const headerProps = {
     title: `Submit Your Measurements`,
