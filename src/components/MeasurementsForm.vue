@@ -3,13 +3,13 @@
         <form class="m-2">
             <div class="flex-col my-1">
                 <label>Name</label>
-                <input class="w-full rounded p-1" type="text" placeholder="John Doe">
+                <input id="nameInput" class="w-full rounded p-1" type="text" placeholder="John Doe">
             </div>
             <div class="flex-col my-1">
                 <label>Height</label>
-                <input id="heightInput" type="text" :value="heightValue" readonly>
+                <input id="heightTextInput" type="text" :value="heightValue" readonly>
                 <div>
-                    <input type="range" min="1" max="72" v-model="heightValue" />
+                    <input id="heightRangeInput" type="range" min="1" max="72" v-model="heightValue" />
                 </div>
             </div>
         </form>
