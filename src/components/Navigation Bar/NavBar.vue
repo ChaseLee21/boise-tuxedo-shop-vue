@@ -35,6 +35,7 @@
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Reviews">Google Reviews</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Prom">Prom</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Faq">FAQs</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/Measurements">Measurements</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Contact">Contact Us</router-link></li>
                 <div class="flex justify-center">
                     <a class="p-2" href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
