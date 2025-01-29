@@ -3,22 +3,22 @@
         <form class="mx-2">
             <div class="flex-col mb-1">
                 <label class="text-white mx-1 text-lg">First and Last Name</label>
-                <input id="name" class="w-full rounded p-1" type="text" maxlength="50" placeholder="John Doe">
+                <input id="clientNameInput" v-model="clientName" class="w-full rounded p-1" type="text" maxlength="50" placeholder="John Doe">
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Email</label>
                 <label class="text-white opacity-80 text-sm">we will only email you if we have any questions about your measurements</label>
-                <input id="email" class="w-full rounded p-1" type="text" placeholder="JohnDoe@gmail.com">
+                <input id="emailInput" v-model="email" class="w-full rounded p-1" type="text" placeholder="JohnDoe@gmail.com">
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Name</label>
                 <label class="text-white opacity-80 text-sm">For weddings, use the name of the marrying couple</label>
-                <input id="eventName" class="w-full rounded p-1" type="text" maxlength="100" placeholder="John & Jane Doe's Wedding">
+                <input id="eventNameInput" v-model="eventName" class="w-full rounded p-1" type="text" maxlength="100" placeholder="John & Jane Doe's Wedding">
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Role</label>
                 <label class="text-white opacity-80 text-sm"></label>
-                <select class="w-full rounded p-1">
+                <select id="eventRoleInput" v-model="eventRole" class="w-full rounded p-1">
                     <option value="No options selected">Please select an option</option>
                     <option value="Groom">Groom</option>
                     <option value="Best Man">Best Man</option>
@@ -35,24 +35,24 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Date</label>
                 <label class="text-white opacity-80 text-sm"></label>
-                <input id="eventDate" class="w-full rounded p-1" type="date" placeholder="">
+                <input id="eventDateInput" v-model="eventDate" class="w-full rounded p-1" type="date" placeholder="">
             </div>
             <div class="flex-col my-1">
-                <label class="text-white mx-1 text-lg">Height: </label>
+                <label class="text-white mx-1 text-lg">Height:</label>
                 <input class="w-auto bg-gray-800 text-white" id="heightString" type="text" :value="heightString" readonly>
                 <div>
-                    <input class="" id="heightRange" type="range" min="1" max="72" v-model="heightValue" />
+                    <input id="heightRange" type="range" min="1" max="72" v-model="heightValue" />
                 </div>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Weight</label>
                 <label class="text-white opacity-80 text-sm">Pounds (lbs)</label>
-                <input id="weight" class="w-full rounded p-1" type="number" min="10" max="400" placeholder="200">
+                <input id="weightInput" v-model="weight" class="w-full rounded p-1" type="number" min="10" max="400" placeholder="200">
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Shoe Size</label>
                 <label class="text-white opacity-80 text-sm">US Men's</label>
-                <select class="w-full rounded p-1">
+                <select id="shoeSizeInput" v-model="shoeSize" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="6">6</option>
                     <option value="6.5">6.5</option>
@@ -78,7 +78,7 @@
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Shoe Width</label>
-                <select class="w-full rounded p-1">
+                <select id="shoeWidthInput" v-model="shoeWidth" class="w-full rounded p-1">
                     <option value="Regular">Regular</option>
                     <option value="Wide">Wide</option>
                 </select>
@@ -86,7 +86,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Chest</label>
                 <label class="text-white opacity-80 text-sm">Inches</label>
-                <select class="w-full rounded p-1">
+                <select id="chestInput" v-model="chest" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="35">35</option>
                     <option value="36">36</option>
@@ -114,7 +114,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Overarm</label>
                 <label class="text-white opacity-80 text-sm">Inches</label>
-                <select class="w-full rounded p-1">
+                <select id="overarmInput" v-model="overarm" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="40">40</option>
                     <option value="41">41</option>
@@ -142,7 +142,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Jacket Sleeve</label>
                 <label class="text-white opacity-80 text-sm">Inches</label>
-                <select class="w-full rounded p-1">
+                <select id="jacketSleeveInput" v-model="jacketSleeve" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="15">15</option>
                     <option value="16">16</option>
@@ -162,7 +162,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Waist</label>
                 <label class="text-white opacity-80 text-sm">Inches</label>
-                <select class="w-full rounded p-1">
+                <select id="waistInput" v-model="waist" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="28">28</option>
                     <option value="29">29</option>
@@ -190,7 +190,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Out Seam</label>
                 <label class="text-white opacity-80 text-sm">Inches</label>
-                <select class="w-full rounded p-1">
+                <select id="outseamInput" v-model="outseam" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="35">35</option>
                     <option value="35.5">35.5</option>
@@ -219,7 +219,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Neck</label>
                 <label class="text-white opacity-80 text-sm">Inches</label>
-                <select class="w-full rounded p-1">
+                <select id="neckInput" v-model="neck" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="13">13</option>
                     <option value="13.5">13.5</option>
@@ -241,7 +241,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Shirt Sleeve</label>
                 <label class="text-white opacity-80 text-sm">Inches</label>
-                <select class="w-full rounded p-1">
+                <select id="shirtSleeveInput" v-model="shirtSleeve" class="w-full rounded p-1">
                     <option value="0">Please select an option</option>
                     <option value="30">30</option>
                     <option value="31">31</option>
@@ -256,16 +256,57 @@
                     <option value="40">40</option>
                 </select>
             </div>
+            <div class="my-3">
+                <button type="button" v-on:click="submitMeasurementsForm" class="p-1 bg-blue-600 rounded text-lg text-white">Submit Measurements</button>
+            </div>
         </form>
     </main>
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, computed } from 'vue';
 import { convertRangeInputToHeight } from '../utils/helpers'
 
-const heightValue = ref(46); // Default value
+const clientName = ref();
+const email = ref();
+const eventName = ref();
+const eventRole = ref("No options selected");
+const eventDate = ref();
+const weight = ref();
+const shoeSize = ref(0);
+const shoeWidth = ref("Regular");
+const chest = ref(0);
+const overarm = ref(0);
+const jacketSleeve = ref(0);
+const waist = ref(0);
+const outseam = ref(0);
+const neck = ref(0);
+const shirtSleeve = ref(0);
+const heightValue = ref(46);
 const heightString = computed(() => {
     return convertRangeInputToHeight(heightValue.value)
 })
+
+const submitMeasurementsForm = () => {
+    const formData = {
+        clientName: clientName.value,
+        email: email.value,
+        eventName: eventName.value,
+        eventRole: eventRole.value,
+        eventDate: eventDate.value,
+        heightString: heightString.value,
+        weight: weight.value,
+        shoeSize: shoeSize.value,
+        shoeWidth: shoeWidth.value,
+        chest: chest.value,
+        overarm: overarm.value,
+        jacketSleeve: jacketSleeve.value,
+        waist: waist.value,
+        outseam: outseam.value,
+        neck: neck.value,
+        shirtSleeve: shirtSleeve.value
+    }
+    console.log(formData)
+}
+
 </script>
