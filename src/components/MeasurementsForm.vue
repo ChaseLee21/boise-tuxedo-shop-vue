@@ -1,19 +1,22 @@
 <template>
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto mx-2 bg-gray-800 rounded p-1">
-        <form class="mx-2">
+        <form class="mx-2" @submit.prevent="submitMeasurementsForm">
             <div class="flex-col mb-1">
                 <label class="text-white mx-1 text-lg">First and Last Name</label>
-                <input id="clientNameInput" v-model="clientName" class="w-full rounded p-1" type="text" maxlength="50" placeholder="John Doe">
+                <input id="clientNameInput" v-model="clientName" class="w-full rounded p-1" type="text" maxlength="50" placeholder="John Doe" />
+                <span v-if="!v$.clientName.required">Name is required</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Email</label>
                 <label class="text-white opacity-80 text-sm">we will only email you if we have any questions about your measurements</label>
-                <input id="emailInput" v-model="email" class="w-full rounded p-1" type="text" placeholder="JohnDoe@gmail.com">
+                <input id="clientEmailInput" v-model="clientEmail" class="w-full rounded p-1" type="text" placeholder="JohnDoe@gmail.com" />
+                <span v-if="!v$.clientEmail.email">Invalid email</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Name</label>
                 <label class="text-white opacity-80 text-sm">For weddings, use the name of the marrying couple</label>
-                <input id="eventNameInput" v-model="eventName" class="w-full rounded p-1" type="text" maxlength="100" placeholder="John & Jane Doe's Wedding">
+                <input id="eventNameInput" v-model="eventName" class="w-full rounded p-1" type="text" maxlength="100" placeholder="John & Jane Doe's Wedding" />
+                <span class="text-red-700" v-if="!v$.eventName.required">Event name is required</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Role</label>
@@ -31,11 +34,13 @@
                     <option value="Guest">Guest</option>
                     <option value="Other">Other</option>
                 </select>
+                <span v-if="!v$.eventRole.required">Event role is required</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Date</label>
                 <label class="text-white opacity-80 text-sm"></label>
-                <input id="eventDateInput" v-model="eventDate" class="w-full rounded p-1" type="date" placeholder="">
+                <input id="eventDateInput" v-model="eventDate" class="w-full rounded p-1" type="date" placeholder="" />
+                <span v-if="!v$.eventDate.required">Event date is required</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Height:</label>
@@ -47,7 +52,7 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Weight</label>
                 <label class="text-white opacity-80 text-sm">Pounds (lbs)</label>
-                <input id="weightInput" v-model="weight" class="w-full rounded p-1" type="number" min="10" max="400" placeholder="200">
+                <input id="weightInput" v-model="weight" class="w-full rounded p-1" type="number" min="10" max="400" placeholder="200" />
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Shoe Size</label>
@@ -265,13 +270,15 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { convertRangeInputToHeight } from '../utils/helpers'
+import { convertRangeInputToHeight } from '../utils/helpers';
+import useVuelidate from '@vuelidate/core';
+import { required, email, minLength, maxLength, alpha } from '@vuelidate/validators';
 
-const clientName = ref();
-const email = ref();
-const eventName = ref();
+const clientName = ref('');
+const clientEmail = ref('');
+const eventName = ref('');
 const eventRole = ref("No options selected");
-const eventDate = ref();
+const eventDate = ref('');
 const weight = ref();
 const shoeSize = ref(0);
 const shoeWidth = ref("Regular");
@@ -287,10 +294,26 @@ const heightString = computed(() => {
     return convertRangeInputToHeight(heightValue.value)
 })
 
+const rules = {
+  clientName: { required, minLength: minLength(2), maxLength: maxLength(50), alpha },
+  clientEmail: { required, email },
+  eventName: { required },
+  eventRole: { required },
+  eventDate: { required }
+};
+
+const v$ = useVuelidate(rules, { clientName, clientEmail, eventName, eventRole, eventDate });
+
 const submitMeasurementsForm = () => {
+    v$.value.$touch();
+    if (v$.value.$invalid) {
+        console.log('Form is invalid');
+        console.log(rules)
+        return;
+    }
     const formData = {
         clientName: clientName.value,
-        email: email.value,
+        clientEmail: clientEmail.value,
         eventName: eventName.value,
         eventRole: eventRole.value,
         eventDate: eventDate.value,
