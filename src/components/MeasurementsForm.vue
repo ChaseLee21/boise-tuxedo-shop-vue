@@ -1,9 +1,9 @@
 <template>
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto mx-2 bg-gray-800 rounded p-1">
-        <form class="m-2">
-            <div class="flex-col my-1">
+        <form class="mx-2">
+            <div class="flex-col mb-1">
                 <label class="text-white mx-1 text-lg">First and Last Name</label>
-                <input id="name" class="w-full rounded p-1" type="text" placeholder="John Doe">
+                <input id="name" class="w-full rounded p-1" type="text" maxlength="50" placeholder="John Doe">
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Email</label>
@@ -13,12 +13,24 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Name</label>
                 <label class="text-white opacity-80 text-sm">For weddings, use the name of the marrying couple</label>
-                <input id="eventName" class="w-full rounded p-1" type="text" placeholder="John & Jane Doe's Wedding">
+                <input id="eventName" class="w-full rounded p-1" type="text" maxlength="100" placeholder="John & Jane Doe's Wedding">
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Role</label>
                 <label class="text-white opacity-80 text-sm"></label>
-                <input id="eventRole" class="w-full rounded p-1" type="text" placeholder="Ex. Groomsman, Father of the Bride">
+                <select class="w-full rounded p-1">
+                    <option value="No options selected">Please select an option</option>
+                    <option value="Groom">Groom</option>
+                    <option value="Best Man">Best Man</option>
+                    <option value="Groomsman">Groomsman</option>
+                    <option value="Father of the Bride">Father of the Bride</option>
+                    <option value="Father of the Groom">Father of the Groom</option>
+                    <option value="Officiant">Officiant</option>
+                    <option value="Usher">Usher</option>
+                    <option value="Ring Bearer">Ring Bearer</option>
+                    <option value="Guest">Guest</option>
+                    <option value="Other">Other</option>
+                </select>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Date</label>
@@ -97,6 +109,151 @@
                     <option value="53">53</option>
                     <option value="54">54</option>
                     <option value="55">55</option>
+                </select>
+            </div>
+            <div class="flex-col my-1">
+                <label class="text-white mx-1 text-lg">Overarm</label>
+                <label class="text-white opacity-80 text-sm">Inches</label>
+                <select class="w-full rounded p-1">
+                    <option value="0">Please select an option</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                    <option value="47">47</option>
+                    <option value="48">48</option>
+                    <option value="49">49</option>
+                    <option value="50">50</option>
+                    <option value="51">51</option>
+                    <option value="52">52</option>
+                    <option value="53">53</option>
+                    <option value="54">54</option>
+                    <option value="55">55</option>
+                    <option value="56">56</option>
+                    <option value="57">57</option>
+                    <option value="58">58</option>
+                    <option value="59">59</option>
+                    <option value="60">60</option>
+                </select>
+            </div>
+            <div class="flex-col my-1">
+                <label class="text-white mx-1 text-lg">Jacket Sleeve</label>
+                <label class="text-white opacity-80 text-sm">Inches</label>
+                <select class="w-full rounded p-1">
+                    <option value="0">Please select an option</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                </select>
+            </div>
+            <div class="flex-col my-1">
+                <label class="text-white mx-1 text-lg">Waist</label>
+                <label class="text-white opacity-80 text-sm">Inches</label>
+                <select class="w-full rounded p-1">
+                    <option value="0">Please select an option</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                    <option value="47">47</option>
+                    <option value="48">48</option>
+                </select>
+            </div>
+            <div class="flex-col my-1">
+                <label class="text-white mx-1 text-lg">Out Seam</label>
+                <label class="text-white opacity-80 text-sm">Inches</label>
+                <select class="w-full rounded p-1">
+                    <option value="0">Please select an option</option>
+                    <option value="35">35</option>
+                    <option value="35.5">35.5</option>
+                    <option value="36">36</option>
+                    <option value="36.5">36.5</option>
+                    <option value="37">37</option>
+                    <option value="37.5">37.5</option>
+                    <option value="38">38</option>
+                    <option value="38.5">38.5</option>
+                    <option value="39">39</option>
+                    <option value="39.5">39.5</option>
+                    <option value="40">40</option>
+                    <option value="40.5">40.5</option>
+                    <option value="41">41</option>
+                    <option value="41.5">41.5</option>
+                    <option value="42">42</option>
+                    <option value="42.5">42.5</option>
+                    <option value="43">43</option>
+                    <option value="43.5">43.5</option>
+                    <option value="44">44</option>
+                    <option value="44.5">44.5</option>
+                    <option value="45">45</option>
+                    <option value="45.5">45.5</option>
+                </select>
+            </div>
+            <div class="flex-col my-1">
+                <label class="text-white mx-1 text-lg">Neck</label>
+                <label class="text-white opacity-80 text-sm">Inches</label>
+                <select class="w-full rounded p-1">
+                    <option value="0">Please select an option</option>
+                    <option value="13">13</option>
+                    <option value="13.5">13.5</option>
+                    <option value="14">14</option>
+                    <option value="14.5">14.5</option>
+                    <option value="15">15</option>
+                    <option value="15.5">15.5</option>
+                    <option value="16">16</option>
+                    <option value="16.5">16.5</option>
+                    <option value="17">17</option>
+                    <option value="17.5">17.5</option>
+                    <option value="18">18</option>
+                    <option value="18.5">18.5</option>
+                    <option value="19">19</option>
+                    <option value="19.5">19.5</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="flex-col my-1">
+                <label class="text-white mx-1 text-lg">Shirt Sleeve</label>
+                <label class="text-white opacity-80 text-sm">Inches</label>
+                <select class="w-full rounded p-1">
+                    <option value="0">Please select an option</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                    <option value="32">32</option>
+                    <option value="33">33</option>
+                    <option value="34">34</option>
+                    <option value="35">35</option>
+                    <option value="36">36</option>
+                    <option value="37">37</option>
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
                 </select>
             </div>
         </form>
