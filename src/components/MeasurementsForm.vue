@@ -3,26 +3,35 @@
         <form class="mx-2" @submit.prevent="submitMeasurementsForm">
             <div class="flex-col mb-1">
                 <label class="text-white mx-1 text-lg">First and Last Name</label>
+                <label v-if="v$.clientName.$errors.length > 0" class="text-red-500 mx-1 text-lg flex-row w-auto">
+                    <span class="w-auto" v-for="error in v$.clientName.$errors">*{{error.$message || error.$params.message}}</span>
+                </label>
                 <input id="clientNameInput" v-model="clientName" class="w-full rounded p-1" type="text" maxlength="50" placeholder="John Doe" />
-                <span v-if="!v$.clientName.required">Name is required</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Email</label>
                 <label class="text-white opacity-80 text-sm">we will only email you if we have any questions about your measurements</label>
+                <label v-if="v$.clientEmail.$errors.length > 0" class="text-red-500 mx-1 text-lg flex-row w-auto">
+                    <span class="w-auto" v-for="error in v$.clientEmail.$errors">*{{error.$message || error.$params.message}}</span>
+                </label>
                 <input id="clientEmailInput" v-model="clientEmail" class="w-full rounded p-1" type="text" placeholder="JohnDoe@gmail.com" />
-                <span v-if="!v$.clientEmail.email">Invalid email</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Name</label>
                 <label class="text-white opacity-80 text-sm">For weddings, use the name of the marrying couple</label>
+                <label v-if="v$.eventName.$errors.length > 0" class="text-red-500 mx-1 text-lg flex-row w-auto">
+                    <span class="w-auto" v-for="error in v$.eventName.$errors">*{{error.$message || error.$params.message}}</span>
+                </label>
                 <input id="eventNameInput" v-model="eventName" class="w-full rounded p-1" type="text" maxlength="100" placeholder="John & Jane Doe's Wedding" />
-                <span class="text-red-700" v-if="!v$.eventName.required">Event name is required</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Wedding or Event Role</label>
                 <label class="text-white opacity-80 text-sm"></label>
+                <label v-if="v$.eventRole.$errors.length > 0" class="text-red-500 mx-1 text-lg flex-row w-auto">
+                    <span class="w-auto" v-for="error in v$.eventRole.$errors">*{{error.$message || error.$params.message}}</span>
+                </label>
                 <select id="eventRoleInput" v-model="eventRole" class="w-full rounded p-1">
-                    <option value="No options selected">Please select an option</option>
+                    <option value="No options selected" disabled>Please select an option</option>
                     <option value="Groom">Groom</option>
                     <option value="Best Man">Best Man</option>
                     <option value="Groomsman">Groomsman</option>
@@ -34,13 +43,14 @@
                     <option value="Guest">Guest</option>
                     <option value="Other">Other</option>
                 </select>
-                <span v-if="!v$.eventRole.required">Event role is required</span>
             </div>
-            <div class="flex-col my-1">
+            <div class="flex-col my-1 w-full">
                 <label class="text-white mx-1 text-lg">Wedding or Event Date</label>
                 <label class="text-white opacity-80 text-sm"></label>
+                <label v-if="v$.eventDate.$errors.length > 0" class="text-red-500 mx-1 text-lg flex-row w-auto">
+                    <span class="w-auto" v-for="error in v$.eventDate.$errors">*{{error.$message || error.$params.message}}</span>
+                </label>
                 <input id="eventDateInput" v-model="eventDate" class="w-full rounded p-1" type="date" placeholder="" />
-                <span v-if="!v$.eventDate.required">Event date is required</span>
             </div>
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Height:</label>
@@ -272,7 +282,19 @@
 import { ref, computed } from 'vue';
 import { convertRangeInputToHeight } from '../utils/helpers';
 import useVuelidate from '@vuelidate/core';
-import { required, email, minLength, maxLength, alpha } from '@vuelidate/validators';
+import { required, email, minLength, maxLength, alpha, helpers } from '@vuelidate/validators';
+
+// Custom validator to allow alphabetic characters and spaces
+const alphaSpaces = helpers.withParams(
+  { message: 'Name must contain only alphabetic characters and spaces' },
+  value => /^[A-Za-z\s]+$/.test(value)
+);
+
+// Custom validator to check if the value is not "Please select an option"
+const defaultValue = helpers.withParams(
+  { message: 'Please choose an option' },
+  value => value !== "No options selected"
+);
 
 const clientName = ref('');
 const clientEmail = ref('');
@@ -295,20 +317,26 @@ const heightString = computed(() => {
 })
 
 const rules = {
-  clientName: { required, minLength: minLength(2), maxLength: maxLength(50), alpha },
+  clientName: { required, minLength: minLength(2), maxLength: maxLength(50), alphaSpaces },
   clientEmail: { required, email },
   eventName: { required },
-  eventRole: { required },
+  eventRole: { required, defaultValue },
   eventDate: { required }
 };
 
 const v$ = useVuelidate(rules, { clientName, clientEmail, eventName, eventRole, eventDate });
 
 const submitMeasurementsForm = () => {
-    v$.value.$touch();
+    v$.value.$touch(); 
     if (v$.value.$invalid) {
         console.log('Form is invalid');
-        console.log(rules)
+        Object.keys(rules).forEach(field => {
+            if (v$.value[field].$errors) {
+                v$.value[field].$errors.forEach(error => {
+                console.log(`Field: ${field}, Rule: ${error.$validator}, Message: ${error.$message}`);
+                });
+            }
+        });
         return;
     }
     const formData = {
