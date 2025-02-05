@@ -326,7 +326,7 @@ const rules = {
 
 const v$ = useVuelidate(rules, { clientName, clientEmail, eventName, eventRole, eventDate });
 
-const submitMeasurementsForm = () => {
+const submitMeasurementsForm = async () => {
     v$.value.$touch(); 
     if (v$.value.$invalid) {
         console.log('Form is invalid');
@@ -357,7 +357,29 @@ const submitMeasurementsForm = () => {
         neck: neck.value,
         shirtSleeve: shirtSleeve.value
     }
-    console.log(formData)
+    const requestData = {
+        name: formData.clientName,
+        message: formData,
+        confirmationEmail: formData.clientEmail
+    }
+    try {
+        const response = await fetch('https://www.boisetuxedoshop.com/api/measurements/send', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const responseData = await response.json();
+        console.log(responseData);
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
 
 </script>
