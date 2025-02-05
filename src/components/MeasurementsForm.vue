@@ -55,8 +55,8 @@
             <div class="flex-col my-1">
                 <label class="text-white mx-1 text-lg">Height:</label>
                 <input class="w-auto bg-gray-800 text-white" id="heightString" type="text" :value="heightString" readonly>
-                <div>
-                    <input id="heightRange" type="range" min="1" max="72" v-model="heightValue" />
+                <div class="w-full">
+                    <input class=" w-full" id="heightRange" type="range" min="1" max="72" v-model="heightValue" />
                 </div>
             </div>
             <div class="flex-col my-1">
