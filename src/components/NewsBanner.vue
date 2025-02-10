@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full text-center bg-red-600 bg-opacity-75">
+    <div class="w-full text-center bg-red-600 bg-opacity-75 p-1">
         <p class="font-bold" v-if="bannerText != ''">{{ bannerText }}</p>
     </div>
 </template>
