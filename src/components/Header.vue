@@ -11,7 +11,7 @@
                 </ul>
             </article>
             <figure class="flex justify-center">
-                <img width="300px" height="252px" src="/Tuxedo-Shop-Logo-3.webp">
+                <img width="300px" height="252px" src="/Boise-Tuxedo-And-Suit-Shop-Logo-Rental-Purchase-Accessories.webp">
             </figure>
             <article class="flex flex-col text-center justify-center m-auto text-xl font-bold">
                 <ul>
@@ -24,7 +24,7 @@
         </div>
         <!-- Mobile -> Logo Only -->
         <figure v-else class="flex justify-center">
-            <img width="150px" height="126px" src="/Tuxedo-Shop-Logo-3.webp">
+            <img width="150px" height="126px" src="/Boise-Tuxedo-And-Suit-Shop-Logo-Rental-Purchase-Accessories.webp">
         </figure>
         <!-- Both -->
         <h1 class="text-start text-3xl lg:text-4xl xl:text-5x font-bold" >{{ props.title }}</h1>
