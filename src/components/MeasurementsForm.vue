@@ -357,13 +357,33 @@ const submitMeasurementsForm = async () => {
         neck: neck.value,
         shirtSleeve: shirtSleeve.value
     }
+    const message = `
+        CONTACT & EVENT INFORMATION:
+        Name: ${formData.clientName},
+        Email: ${formData.clientEmail},
+        Event: ${formData.eventName},
+        Role: ${formData.eventRole},
+        Date: ${formData.eventDate},
+
+        MEASUREMENTS:
+        Height: ${formData.heightString},
+        Weight: ${formData.weight},
+        Shoe: ${formData.shoeSize} ${formData.shoeWidth},
+        Chest: ${formData.chest},
+        Over Arm: ${formData.overarm},
+        Jacket Sleeve: ${formData.jacketSleeve},
+        Waist: ${formData.waist},
+        Outseam: ${formData.outseam},
+        Neck: ${formData.neck},
+        Shirt Sleeve: ${formData.shirtSleeve},
+    `
     const requestData = {
         name: formData.clientName,
-        message: formData,
+        message: message,
         confirmationEmail: formData.clientEmail
     }
     try {
-        const response = await fetch('https://www.boisetuxedoshop.com/api/measurements/send', {
+        const response = await fetch('https://boisetuxedoshop.azurewebsites.net/api/measurements/send', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -376,9 +396,9 @@ const submitMeasurementsForm = async () => {
         }
 
         const responseData = await response.json();
-        console.log(responseData);
+        window.location.reload();
     } catch (error) {
-        console.error('Error:', error);
+        console.error(error);
     }
 }
 
