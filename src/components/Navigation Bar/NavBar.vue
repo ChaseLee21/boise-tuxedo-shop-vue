@@ -48,10 +48,14 @@
             </ul>
         </nav>
     </section>
+    <section>
+        <NewsBanner />
+    </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import NewsBanner from '../NewsBanner.vue';
 
 let rentOrBuyNavOpen = ref(false);
 
