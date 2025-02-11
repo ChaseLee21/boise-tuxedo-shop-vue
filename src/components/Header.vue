@@ -23,8 +23,8 @@
             </article>
         </div>
         <!-- Mobile -> Logo Only -->
-        <figure v-else class="flex justify-center">
-            <img width="150px" height="126px" src="/Boise-Tuxedo-And-Suit-Shop-Logo-Rental-Purchase-Accessories.webp">
+        <figure v-else class="flex justify-center my-2">
+            <img width="250px" src="/Boise-Tuxedo-And-Suit-Shop-Logo-Rental-Purchase-Accessories.webp">
         </figure>
         <!-- Both -->
         <h1 class="text-start text-3xl lg:text-4xl xl:text-5x font-bold" >{{ props.title }}</h1>
