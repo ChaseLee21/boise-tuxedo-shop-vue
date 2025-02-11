@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full text-center bg-red-600 bg-opacity-75 p-1">
-        <p class="font-bold" v-if="bannerText != ''">{{ bannerText }}</p>
+    <div class="w-full bg-red-600 bg-opacity-75 p-1 relative overflow-hidden">
+        <p class="text-lg flex items-center w-fit whitespace-nowrap text-nowrap banner-animate" v-if="bannerText != ''">{{ bannerText }}</p>
     </div>
 </template>
 
@@ -12,3 +12,14 @@ let isMobile = ref(window.innerWidth < 768);
 let bannerText = ref("Booking rentals for Weddings and Proms now! Come in today to get complimentary measurements and choose your style from our collection of over 4000 suits and tuxedos!")
 
 </script>
+
+<style scoped>
+@keyframes loop {
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(-50%);}
+}
+
+.banner-animate {
+    animation: loop 20s linear infinite;
+}
+</style>
