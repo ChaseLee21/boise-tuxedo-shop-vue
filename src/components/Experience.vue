@@ -1,13 +1,13 @@
 <template>
     <main class="flex flex-col justify-around">
-        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto m-4">
+        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto">
             <article v-for="experience in experiences" class="min-w-fit m-2 relative">
                 <a :href="experience.link" >
-                    <figure class="relative text-white text-center bg-black overflow-hidden animate-image animate-underline rounded">
+                    <figure class="relative text-white text-center bg-black overflow-hidden animate-image animate-button rounded">
                         <v-lazy-image width="720" height="1200" :src="experience.image" :alt="experience.alt" class="m-auto min-w-full opacity-70 zoom-image-transition" />
                         <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-4xl font-bold m-auto">{{ experience.title }}</h2>
-                        <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl m-auto">{{ experience.text }}</figcaption>
-                        <button class="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 text-2xl button-text py-1 px-2 border-2 underline-text-transition">Learn More</button>
+                        <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-2xl m-auto">{{ experience.text }}</figcaption>
+                        <button class="absolute top-3/4 right-1/2 translate-x-1/2 text-2xl button-text py-1 px-2 border-2 button-transition">Learn More</button>
                     </figure>
                 </a>
             </article>
@@ -64,12 +64,13 @@ let experiences = [
     transform: scale(1.1);
 }
 
-.underline-text-transition {
-    transition: text-decoration .3s ease-in-out;
+.button-transition {
+    transition: background .3s ease-in-out, color .3s ease-in-out;
 }
 
-.animate-underline:hover .underline-text-transition {
-    text-decoration: underline;
+.animate-button:hover .button-transition {
+    background: #FFFFFFcc;
+    color: #000;
 }
 
 
