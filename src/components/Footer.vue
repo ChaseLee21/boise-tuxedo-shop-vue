@@ -8,7 +8,7 @@
         <div class="flex flex-col flex-wrap justify-center">
             <Location />
             <section class="mb-4">
-                <p class="col-span-1 md:col-span-3">© 2023 Boise Tuxedo Shop. All rights reserved.</p>
+                <p class="col-span-1 md:col-span-3">© 2025 Boise Tuxedo Shop. All rights reserved.</p>
                 <ul class="flex flex-row justify-evenly">
                     <li class="underline"><router-link to="/Privacy">Privacy Policy</router-link></li>
                     <li class="underline"><router-link to="/Terms">Terms of Use</router-link></li>
