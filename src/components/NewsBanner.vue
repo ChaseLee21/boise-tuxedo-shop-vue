@@ -1,6 +1,9 @@
 <template>
-    <div class="w-full bg-red-600 bg-opacity-75 p-1 relative overflow-hidden">
+    <div v-if="isMobile" class="w-full bg-red-600 bg-opacity-75 p-1 relative overflow-hidden">
         <p class="text-lg flex items-center w-fit whitespace-nowrap text-nowrap banner-animate" v-if="bannerText != ''">{{ bannerText }}</p>
+    </div>
+    <div v-else class="w-full bg-red-600 bg-opacity-75 p-1 text-center text-lg">
+        <p v-if="bannerText != ''">{{ bannerText }}</p>
     </div>
 </template>
 
