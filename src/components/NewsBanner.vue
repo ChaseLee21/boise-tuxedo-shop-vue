@@ -18,8 +18,8 @@ let bannerText = ref("Booking rentals for Weddings and Proms now! Come in today 
 
 <style scoped>
 @keyframes loop {
-    0% {transform: translateX(0%);}
-    100% {transform: translateX(-50%);}
+    0% {transform: translateX(25%);}
+    100% {transform: translateX(-75%);}
 }
 
 .banner-animate {
