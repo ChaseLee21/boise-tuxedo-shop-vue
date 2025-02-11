@@ -1,14 +1,14 @@
 <template>
-    <main class=" flex flex-col justify-around">
-        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
-            <article v-for="experience in experiences" class="min-w-fit p-2 my-1 me-2 rounded-md snap-center relative">
-                <a :href="experience.link">
-                    <figure class="relative text-white text-center">
-                      <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-2xl font-bold rounded bg-opacity-60 m-auto bg-black">{{ experience.title }}</h2>
-                      <v-lazy-image width="720" height="1200" :src="experience.image" :alt="experience.alt" class="m-auto min-w-full rounded-md" />
-                       <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl rounded bg-opacity-60 m-auto bg-black">{{ experience.text }}</figcaption>
+    <main class="flex flex-col justify-around">
+        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto m-4">
+            <article v-for="experience in experiences" class="min-w-fit m-2 relative">
+                <a :href="experience.link" >
+                    <figure class="relative text-white text-center bg-black overflow-hidden animate-image animate-underline rounded">
+                        <v-lazy-image width="720" height="1200" :src="experience.image" :alt="experience.alt" class="m-auto min-w-full opacity-70 zoom-image-transition" />
+                        <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-4xl font-bold m-auto">{{ experience.title }}</h2>
+                        <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-xl m-auto">{{ experience.text }}</figcaption>
+                        <button class="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 text-2xl button-text py-1 px-2 border-2 underline-text-transition">Learn More</button>
                     </figure>
-                    <!-- <p class="bg-slate-800 underline text-white rounded p-1 text-xl -bottom-2 absolute inset-x-2 text-center w-fit mx-auto"> {{ experience.linkText }} </p> -->
                 </a>
             </article>
         </section>
@@ -53,3 +53,24 @@ let experiences = [
     },
 ]
 </script>
+
+<style scoped>
+.zoom-image-transition {
+    transition: transform .3s ease-in-out, text-decoration .3s ease-in-out;
+}
+
+
+.animate-image:hover .zoom-image-transition {
+    transform: scale(1.1);
+}
+
+.underline-text-transition {
+    transition: text-decoration .3s ease-in-out;
+}
+
+.animate-underline:hover .underline-text-transition {
+    text-decoration: underline;
+}
+
+
+</style>
