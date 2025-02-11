@@ -1,5 +1,5 @@
 <template>
-    <Header title = 'Tuxedo and Suits for Rent or Purchase' content = "The Treasure Valley's First Choice for Formal Attire" />
+    <Header title = "The Treasure Valley's First Choice for Men's Formal Attire" content = "" />
     <main>
         <Experience />
         <HeroCarousel v-if="!isMobile"/>
