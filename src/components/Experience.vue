@@ -6,8 +6,8 @@
                     <figure class="relative text-white text-center bg-black overflow-hidden animate-image animate-button rounded">
                         <v-lazy-image width="720" height="1200" :src="experience.image" :alt="experience.alt" class="m-auto min-w-full opacity-70 zoom-image-transition" />
                         <h2 class="absolute top-3 inset-x-0 w-fit p-1 text-4xl font-bold m-auto">{{ experience.title }}</h2>
-                        <figcaption class="absolute bottom-8 inset-x-0 w-fit p-1 text-2xl m-auto">{{ experience.text }}</figcaption>
-                        <button class="absolute top-3/4 right-1/2 translate-x-1/2 text-2xl button-text py-1 px-2 border-2 button-transition">Learn More</button>
+                        <figcaption class="absolute top-2/3 translate-y-12 inset-x-0 w-fit p-1 text-2xl m-auto">{{ experience.text }}</figcaption>
+                        <button class="absolute top-2/3 right-1/2 translate-x-1/2 text-2xl button-text py-1 px-2 border-2 button-transition">Learn More</button>
                     </figure>
                 </a>
             </article>
