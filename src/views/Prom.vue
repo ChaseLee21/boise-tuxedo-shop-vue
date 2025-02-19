@@ -151,7 +151,7 @@ const headerProps = {
 }
 
 const prom = {
-    title: "Prom 2024 Image Gallery",
+    title: "Prom 2025 Image Gallery",
     images: [
         {
             url: "https://btsimagestorage.blob.core.windows.net/product-images/Prom-Couple-Orange-Accessories-Navy-Suit-Tangerine-Dress.webp",
