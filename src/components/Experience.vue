@@ -56,7 +56,7 @@ let experiences = [
 
 <style scoped>
 .zoom-image-transition {
-    transition: transform .3s ease-in-out, text-decoration .3s ease-in-out;
+    transition: transform .3s ease-in-out;
 }
 
 
