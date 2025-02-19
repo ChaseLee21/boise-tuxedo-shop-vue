@@ -27,7 +27,7 @@
             <img width="250px" src="/Boise-Tuxedo-And-Suit-Shop-Logo-Rental-Purchase-Accessories.webp">
         </figure>
         <!-- Both -->
-        <h1 class="text-start text-3xl lg:text-4xl xl:text-5x font-bold" >{{ props.title }}</h1>
+        <h1 class="text-start text-3xl lg:text-4xl xl:text-5x font-bold mt-4" >{{ props.title }}</h1>
         <article>
             <p v-html="props.content" class="text-start md:text-lg lg:text-xl mx-2"></p>
             <nav v-if="props.links">
