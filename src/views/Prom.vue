@@ -2,6 +2,31 @@
     <Header :title = headerProps.title :content = headerProps.content :links = headerProps.links />
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto mx-2">
         <section>
+            <article>
+                <h3 class="text-xl font-bold">Prom Tuxedo and Suit Packages</h3>
+                <ul class="list-inside list-disc">
+                    <li>5 Piece: Pants, shirt, vest, tie, and shoes --- <span class="font-bold">$140</span></li>
+                    <li>5 Piece: Coat, pants, shirt, vest, and tie (no shoes included)  --- <span class="font-bold">$170</span></li>
+                    <li>6 Piece: Coat, pants, shirt, vest, tie, and shoes --- <span class="font-bold">$185</span></li>
+                    <li>9 Piece: Full 6 piece package, belt, cufflink set, pocket square, and socks --- <span class="font-bold">$215</span></li>
+                </ul>
+            </article>
+            <!-- <article>
+                <h3 class="text-xl font-bold">Prom Individual Rental Items</h3>
+                <ul class="list-inside list-disc">
+                    <li>Coat --- <span class="font-bold">$85</span></li>
+                    <li>Pant --- <span class="font-bold">$45</span></li>
+                    <li>Shirt --- <span class="font-bold">$25</span></li>
+                    <li>Vest --- <span class="font-bold">$30</span></li>
+                    <li>Tie --- <span class="font-bold">$10</span></li>
+                    <li>Shoes --- <span class="font-bold">$30</span></li>
+                    <li>Belt --- <span class="font-bold">$15</span></li>
+                    <li>Stud and Cufflink Set --- <span class="font-bold">$10</span></li>
+                    <li>Pocket Square --- <span class="font-bold">$5</span></li>
+                </ul>
+            </article> -->
+        </section>
+        <section>
             <h2 class="text-xl lg:text-2xl font-bold py-2">Prom FAQs</h2>
             <div class="px-2">
                 <article>
@@ -44,32 +69,6 @@
                     <p class="indent-3 text-lg">Yes, all of our rentals and most all purchase tuxedos and suits are either slim or ultra slim. We also carry an athletic fit as well.</p>
                 </article>
             </div>
-        </section>
-        <section>
-            <h2 class="text-2xl font-bold py-2">Prom 2025 Pricing</h2>
-            <article>
-                <h3 class="text-xl font-bold">Prom Tuxedo and Suit Packages</h3>
-                <ul class="list-inside list-disc">
-                    <li>5 Piece: Pants, shirt, vest, tie, and shoes --- <span class="font-bold">$140</span></li>
-                    <li>5 Piece: Coat, pants, shirt, vest, and tie (no shoes included)  --- <span class="font-bold">$170</span></li>
-                    <li>6 Piece: Coat, pants, shirt, vest, tie, and shoes --- <span class="font-bold">$185</span></li>
-                    <li>9 Piece: Full 6 piece package, belt, cufflink set, pocket square, and socks --- <span class="font-bold">$215</span></li>
-                </ul>
-            </article>
-            <article>
-                <h3 class="text-xl font-bold">Prom Individual Rental Items</h3>
-                <ul class="list-inside list-disc">
-                    <li>Coat --- <span class="font-bold">$85</span></li>
-                    <li>Pant --- <span class="font-bold">$45</span></li>
-                    <li>Shirt --- <span class="font-bold">$25</span></li>
-                    <li>Vest --- <span class="font-bold">$30</span></li>
-                    <li>Tie --- <span class="font-bold">$10</span></li>
-                    <li>Shoes --- <span class="font-bold">$30</span></li>
-                    <li>Belt --- <span class="font-bold">$15</span></li>
-                    <li>Stud and Cufflink Set --- <span class="font-bold">$10</span></li>
-                    <li>Pocket Square --- <span class="font-bold">$5</span></li>
-                </ul>
-            </article>
         </section>
         <section class="">
             <h2 class="text-xl lg:text-2xl font-bold py-2">Prom 2025 Dates</h2>
