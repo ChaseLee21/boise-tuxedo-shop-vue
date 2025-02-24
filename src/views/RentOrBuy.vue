@@ -1,6 +1,6 @@
 <template>
     <Header :title = headerProps.title :content = headerProps.content />
-    <main>
+    <main  class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
         <FeaturedProducts :products = tuxedoAndSuitProducts :title = tuxedoAndSuit.title :route = tuxedoAndSuit.route />
         <FeaturedProducts :products = shirtProducts :title = shirts.title :route = shirts.route />
         <FeaturedProducts :products = pantProducts :title = pants.title :route = pants.route />
