@@ -3,16 +3,21 @@
     <Header v-else :title="props.category" />
     <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
 
-        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
-            <article v-for="product in filterProducts" class="min-w-fit my-5 mx-1 rounded-md snap-center relative">
-                <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500" >
-                    <figure class="relative text-white text-center overflow-hidden animate-image animate-button rounded h-full">
-                        <v-lazy-image width="480" height="800" :src="product.imageURL" :alt="product.imageAlt" class="min-w-full scale-110 h-full object-cover zoom-image-transition" />
-                        <figcaption v-if="product.formattedName" class="absolute top-0 inset-x-0 w-full p-0.5 text-xl rounded-t bg-opacity-30 m-auto bg-black">{{ product.formattedName }}</figcaption>
-                        <figcaption v-else class="absolute top-0 inset-x-0 w-full p-0.5 text-xl rounded-t bg-opacity-40 m-auto bg-black">{{ product.name }}</figcaption>
-                        <button class="absolute bottom-6 right-1/2 translate-x-1/2 text-xl button-text py-1 px-2 border-2 button-transition bg-opacity-40 m-auto bg-black">View Details</button>
-                    </figure>
-                </router-link>
+        <section class="flex flex-wrap justify-center justify-items-center my-4">
+            <!-- Product Card -->
+            <article v-for="product in filterProducts" class="relative basis-80 mx-1">
+                <div class="grid grid-flow-row grid-rows-6">
+                    <!-- Clickable Area -->
+                    <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500 row-span-5" >
+                        <!-- Product Image -->
+                        <figure class="relative text-white text-center overflow-hidden animate-image animate-button rounded-md">
+                            <v-lazy-image width="480" height="800" :src="product.imageURL" :alt="product.imageAlt" class="object-cover zoom-image-transition max-h-[800px] w-full aspect-[3/5]" />
+                            <button class="absolute bottom-6 right-1/2 translate-x-1/2 text-xl button-text py-1 px-2 border-2 button-transition bg-opacity-40 m-auto bg-black">View Details</button>
+                        </figure>
+                    </router-link>
+                    <!-- Product Title -->
+                    <p v-if="product.formattedName" class="flex-row text-center text-2xl m-1 pb-3 row-span-1">{{ product.formattedName }}</p>
+                </div>
             </article>
         </section>
     </main>
@@ -98,7 +103,7 @@ async function getProducts() {
 
 
 .animate-image:hover .zoom-image-transition {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .button-transition {
