@@ -3,16 +3,22 @@
     <Header v-else :title="props.category" />
     <main class="m-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
 
-        <section class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto mb-8">
-            <article v-for="product in filterProducts" class="min-w-fit my-5 mx-1 rounded-md snap-center relative">
-                <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500" >
-                    <figure class="text-white text-center h-full">
-                        <v-lazy-image width="480" height="800" :src="product.imageURL" :alt="product.imageAlt" class="m-auto h-full w-full rounded object-cover" />
-                        <figcaption v-if="product.formattedName" class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.formattedName }}</figcaption>
-                        <figcaption v-else class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.name }}</figcaption>
-                        <figcaption class="absolute bottom-0 inset-x-0 w-full p-0.5 rounded-b bg-opacity-30 m-auto bg-black ">View Style Details</figcaption>
-                    </figure>
-                </router-link>
+        <section class="flex flex-wrap justify-center justify-items-center my-4">
+            <!-- Product Card -->
+            <article v-for="product in filterProducts" class="relative basis-80 mx-1">
+                <div class="grid grid-flow-row grid-rows-6">
+                    <!-- Clickable Area -->
+                    <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500 row-span-5" >
+                        <!-- Product Image -->
+                        <figure class="relative text-white text-center overflow-hidden animate-image animate-button rounded-md">
+                            <v-lazy-image width="480" height="800" :src="product.imageURL" :alt="product.imageAlt" class="object-cover zoom-image-transition max-h-[800px] w-full aspect-[3/5]" />
+                            <button class="absolute bottom-6 right-1/2 translate-x-1/2 text-xl button-text py-1 px-2 border-2 button-transition bg-opacity-40 m-auto bg-black">View Details</button>
+                        </figure>
+                    </router-link>
+                    <!-- Product Title -->
+                    <p v-if="product.formattedName" class="flex-row text-center text-2xl m-1 pb-3 row-span-1">{{ product.formattedName }}</p>
+                    <p v-else class="flex-row text-center text-2xl m-1 pb-3 row-span-1">{{ product.name }}</p>
+                </div>
             </article>
         </section>
     </main>
@@ -90,37 +96,25 @@ async function getProducts() {
     products.value = data;
 }
 </script>
-<script>
-        // Old product card template
-        // <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-        //     <!-- Product Card -->
-        //     <article class="flex flex-col justify-evenly bg-gray-800 text-white text-center font-bold m-4 px-3 shadow-lg shadow-black rounded items-center" v-for="product in filterProducts">
-        //         <router-link class="w-full flex flex-col justify-center items-center" 
-        //         :to="{ name: 'Product', params: {id: product.id } }">
-        //             <p class="p-1 text-lg md:text-xl lg:text-2xl">{{ product.name }}</p>
-        //             <img class="h-[40rem] max-h-[75vh] w-fit object-cover object-center rounded shadow shadow-black" :src="product.imageURL" :alt="product.imageAlt" >
-        //         </router-link>
 
-        //         <!-- Pricing -->
-        //         <div v-if="product.retailPrice && !product.saleRetailPrice && !product.rentalPrice" class="">
-        //             <p>Purchase Price: ${{ product.retailPrice }}</p>
-        //         </div>
-        //         <div v-if="product.retailPrice && product.saleRetailPrice && !product.rentalPrice" class="flex justify-between w-full px-2">
-        //             <p>Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
-        //             <p class="text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
-        //         </div>
-        //         <div v-if="product.retailPrice && !product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2">
-        //             <p>Purchase Price: ${{ product.retailPrice }}</p>
-        //             <p>Rental Price: ${{ product.rentalPrice }}</p>
-        //         </div>
-        //         <div v-if="product.retailPrice && product.saleRetailPrice && product.rentalPrice" class="flex justify-between w-full px-2 text-center">
-        //             <p>Purchase Price: <span class="line-through">${{ product.retailPrice }}</span></p>
-        //             <p class="text-red-600">On Sale: ${{ product.saleRetailPrice }}</p>
-        //             <p >Rental Price: ${{ product.rentalPrice }}</p>
-        //         </div>
-        //         <div v-if="product.rentalPrice && !product.retailPrice && !product.saleRetailPrice">
-        //             <p>Rental Price: ${{ product.rentalPrice }}</p>
-        //         </div>
-        //     </article>
-        // </section>
-</script>
+<style scoped>
+.zoom-image-transition {
+    transition: transform .3s ease-in-out;
+}
+
+
+.animate-image:hover .zoom-image-transition {
+    transform: scale(1.1);
+}
+
+.button-transition {
+    transition: background .3s ease-in-out, color .3s ease-in-out;
+}
+
+.animate-button:hover .button-transition {
+    background: #FFFFFFcc;
+    color: #000;
+}
+
+
+</style>

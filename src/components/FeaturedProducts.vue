@@ -1,43 +1,31 @@
 <template>
     <!-- Container  -->
-    <section class="my-3 xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
+    <section class="border-t-2 mb-4">
         <!-- Category Title -->
-        <header class="flex flex-row justify-start items-end mx-3">
-            <h2 class="text-start text-2xl md:text-3xl lg:text-4xl mx-2 ">{{props.title}}</h2> 
-            <router-link class="text-base underline button-class" :to="{ name: 'Category', params: {category : props.route } }">View All</router-link>
+        <header class="flex flex-row justify-center items-end m-3">
+            <h2 class="text-start text-3xl lg:text-4xl xl:text-5x font-bold mt-4">{{props.title}}</h2> 
+            <router-link class="text-xl text-black bg-white py-1 px-2 border-2 border-black bg-opacity-40 mx-4 hover:bg-black hover:bg-opacity-30 hover:border-opacity-30 hover:text-white hover:ease-in-out hover:transition-all hover:duration-300 duration-300" :to="{ name: 'Category', params: {category : props.route } }">View More {{props.title}}</router-link>
         </header>
         <!-- Product Container -->
-        <div ref="productContainer" class="relative flex flex-row flex-nowrap overflow-scroll scroll-smooth snap-x snap-mandatory m-0 py-4 w-full scroll-m-[1rem] md:overflow-hidden">
-            <!-- Previous Button -->
-            <!-- <button aria-label="Previous image in carousel" v-if="!isMobile" class="sticky left-0 top-1/2" @click="scroll(-1)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
-                        <line x1="10" y1="25" x2="40" y2="10"></line>
-                        <line x1="10" y1="25" x2="40" y2="40"></line> 
-                </svg>
-            </button> -->
+        <section class="flex flex-wrap justify-center justify-items-center my-4">
             <!-- Product Card -->
-            <div class="sm:flex sm:flex-col md:h-full md:grid md:grid-flow-row md:grid-cols-2 md:w-[90%] lg:w-[80%] xl:grid-cols-4 md:mx-auto">
-                <article v-for="product in props.products" class="min-w-fit my-5 mx-1 rounded-md snap-center relative">
-                    <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500" >
-                        <figure class=" text-white text-center h-full">
-                            <v-lazy-image width="720" height="1200" :src="product.imageURL" :alt="product.imageAlt" class="m-auto min-w-full min-h-full rounded object-cover" />
-                            <figcaption v-if="product.formattedName" class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.formattedName }}</figcaption>
-                            <figcaption v-else class="absolute top-0 inset-x-0 w-full p-0.5 text-lg rounded-t bg-opacity-30 m-auto bg-black">{{ product.name }}</figcaption>
-                            <figcaption class="absolute bottom-0 inset-x-0 w-full p-0.5 rounded-b bg-opacity-30 m-auto bg-black ">View Style Details</figcaption>
+            <article v-for="product in props.products" class="relative basis-80 mx-1">
+                <div class="grid grid-flow-row grid-rows-6">
+                    <!-- Clickable Area -->
+                    <router-link :to="{ name: 'Product', params: {id: product.id } }" class="hover:text-lg hover:ease-in-out hover:duration-500 row-span-5" >
+                        <!-- Product Image -->
+                        <figure class="relative text-white text-center overflow-hidden animate-image animate-button rounded-md">
+                            <v-lazy-image width="480" height="800" :src="product.imageURL" :alt="product.imageAlt" class="object-cover zoom-image-transition max-h-[800px] w-full aspect-[3/5]" />
+                            <button class="absolute bottom-6 right-1/2 translate-x-1/2 text-xl button-text py-1 px-2 border-2 button-transition bg-opacity-40 m-auto bg-black">View Details</button>
                         </figure>
                     </router-link>
-                </article>
-            </div>
-            <!-- Next Button -->
-            <!-- <button aria-label="Next image in carousel" v-if="!isMobile" class="sticky top-1/2 right-0" @click="scroll(1)">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-black stroke-2 opacity-50 hover:opacity-75">
-                        <line x1="40" y1="25" x2="10" y2="10"></line>
-                        <line x1="40" y1="25" x2="10" y2="40"></line> 
-                </svg>
-            </button> -->
-        </div>
+                    <!-- Product Title -->
+                    <p v-if="product.formattedName" class="flex-row text-center text-2xl m-1 row-span-1">{{ product.formattedName }}</p>
+                </div>
+            </article>
+        </section>
         <footer class="mx-auto text-center mb-4">
-            <router-link class="text-base underline button-class " :to="{ name: 'Category', params: {category : props.route } }">View More {{props.title}}</router-link>
+            <router-link class="text-xl text-black bg-white py-1 px-2 border-2 border-black bg-opacity-40 mx-4 hover:bg-black hover:bg-opacity-30 hover:border-opacity-30 hover:text-white hover:ease-in-out hover:transition-all hover:duration-300 duration-300" :to="{ name: 'Category', params: {category : props.route } }">View More {{props.title}}</router-link>
         </footer>
     </section>
 </template>
@@ -46,10 +34,7 @@
 </style>
 
 <script setup>
-import { ref, onMounted } from 'vue';
 import VLazyImage from 'v-lazy-image';
-
-let isMobile = ref(window.innerWidth < 768);
 
 const props = defineProps({
     products: {
@@ -65,17 +50,26 @@ const props = defineProps({
         required: true
     }
 })
+</script>
 
-const productContainer = ref(null);
-
-const scroll = (direction) => {
-    const container = productContainer.value;
-    const scrollAmount = direction * container.children[2].clientWidth;
-    container.scrollLeft += scrollAmount;
-    console.log(container.children[2].clientWidth);
+<style scoped>
+.zoom-image-transition {
+    transition: transform .3s ease-in-out;
 }
 
-onMounted(() => {
-    console.log(props.title);
-})
-</script>
+
+.animate-image:hover .zoom-image-transition {
+    transform: scale(1.1);
+}
+
+.button-transition {
+    transition: background .3s ease-in-out, color .3s ease-in-out;
+}
+
+.animate-button:hover .button-transition {
+    background: #FFFFFFcc;
+    color: #000;
+}
+
+
+</style>
