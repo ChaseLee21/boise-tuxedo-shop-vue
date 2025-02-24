@@ -17,6 +17,7 @@
                     </router-link>
                     <!-- Product Title -->
                     <p v-if="product.formattedName" class="flex-row text-center text-2xl m-1 pb-3 row-span-1">{{ product.formattedName }}</p>
+                    <p v-else class="flex-row text-center text-2xl m-1 pb-3 row-span-1">{{ product.name }}</p>
                 </div>
             </article>
         </section>
