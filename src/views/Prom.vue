@@ -124,7 +124,7 @@
             </div>
         </section>
         
-        <ImageGallery :title = prom.title :images = prom.images />
+        <!-- <ImageGallery :title = prom.title :images = prom.images /> -->
     </main>    
 </template>
 
