@@ -6,9 +6,15 @@
                 <button class="p-1 me-1 rounded rounded-s-none text-white border-2 border-s-0 button-transition bg-black bg-opacity-40 text-xl">Search</button>
             </div> -->
         </div>
-        <div class="w-full">
-            <ul class="flex-col w-[66%] border-t justify-start m-auto bg-white p-2 rounded rounded-t-none">
-                <li v-for="product in results">{{product.name}}</li>
+        <div class="fixed z-50 w-full">
+            <ul class="flex-col w-[66%] shadow-md border justify-start m-auto bg-white p-2 rounded rounded-t-none">
+                <div v-for="product in results">
+                    <li>
+                        <router-link :to="{ name: 'Product', params: {id: product.id } }">
+                            {{product.name}}
+                        </router-link>
+                    </li>
+                </div>
             </ul>
         </div>
     </section>
@@ -16,6 +22,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { getProducts } from '../utils/fetchApi';
+import { RouterLink } from 'vue-router';
 
 let searchQuery = ref("")
 let products = ref([]);
@@ -29,9 +36,11 @@ function onInputChange() {
 }
 
 const results = computed(() => {
-    if (searchQuery.value == "") return null
+    if (searchQuery.value.length < 1) return null
     let arr = products.value.filter(product => product.name.toLowerCase().trim().includes(searchQuery.value.toLowerCase().trim()));
-    console.log(products.value)
+    while (arr.length > 5) {
+        arr.pop();
+    }
     return arr;
 })
 
