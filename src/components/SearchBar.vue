@@ -1,5 +1,5 @@
 <template>
-
+<h1>SEARCH</h1>
 </template>
 <script setup>
 //TODO: implement a search bar
