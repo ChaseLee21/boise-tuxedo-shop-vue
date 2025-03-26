@@ -10,6 +10,7 @@
 <script setup>
 import FeaturedProducts from '../components/FeaturedProducts.vue';
 import { computed, onMounted, ref } from 'vue';
+import { formatProductName } from '../utils/helpers'
 import Header from '../components/Header.vue';
 
 const tuxedoAndSuit = {
@@ -37,17 +38,6 @@ const products = ref([]);
 onMounted(() => {
     getProducts();
 })
-
-function formatProductName(tuxedoSuitName) {
-    let [firstPart, secondPart] = tuxedoSuitName.split('(');
-    if (secondPart) {
-        [tuxedoSuitName] = secondPart.split(')');
-        tuxedoSuitName = 'The ' + tuxedoSuitName;
-    } else {
-        tuxedoSuitName = '';
-    }
-    return tuxedoSuitName;
-}
 
 async function getProducts() {
     const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');

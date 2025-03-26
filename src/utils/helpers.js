@@ -15,6 +15,17 @@ function sortByColor(a, b) {
     return a.hexCode > b.hexCode ? 1 : -1;
 }
 
+function formatProductName(tuxedoSuitName) {
+    let [firstPart, secondPart] = tuxedoSuitName.split('(');
+    if (secondPart) {
+        [tuxedoSuitName] = secondPart.split(')');
+        tuxedoSuitName = 'The ' + tuxedoSuitName;
+    } else {
+        tuxedoSuitName = '';
+    }
+    return tuxedoSuitName;
+}
+
 function convertRangeInputToHeight(rangeValue) {
     const rangeInputToHeightConversion = [
         `<2'0"`,
@@ -95,4 +106,4 @@ function convertRangeInputToHeight(rangeValue) {
     return heightString
 }
 
-export { sortColorSwatchArray, sortAlphabetically, convertRangeInputToHeight };
+export { sortColorSwatchArray, sortAlphabetically, convertRangeInputToHeight, formatProductName };
