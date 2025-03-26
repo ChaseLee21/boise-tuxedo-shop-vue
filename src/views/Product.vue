@@ -65,7 +65,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { getProduct } from '../utils/fetchApi';
 
 const props = defineProps({
     id: {
@@ -76,15 +78,18 @@ const props = defineProps({
 
 const id = ref(parseInt(props.id));
 const product = ref({});
+const route = useRoute();
 
 onMounted(async () => {
-    const response = await fetch(`https://boisetuxedoshop.azurewebsites.net/api/products/${id.value}`);
-    const data = await response.json();
-    if (data.keyFeatures) {
-        data.keyFeatures = data.keyFeatures.split(',');
-    }
-    product.value = data;
+    product.value = await getProduct(id.value);
+    console.log(product.value)
 })
+
+// Watch for changes in the route parameter and fetch the new product
+watch(() => route.params.id, async (newId) => {
+    id.value = parseInt(newId);
+    product.value = await getProduct(id.value);
+});
 
 //TODO: add a share button to share product on social media or via message / email
 //TODO: insure this works on iOS

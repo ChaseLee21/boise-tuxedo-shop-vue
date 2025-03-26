@@ -14,4 +14,13 @@ async function getProducts() {
     return data;
 }
 
-export { getProducts };
+async function getProduct(id) {
+    const response = await fetch(`https://boisetuxedoshop.azurewebsites.net/api/products/${id}`);
+    const data = await response.json();
+    if (data.keyFeatures) {
+        data.keyFeatures = data.keyFeatures.split(',');
+    }
+    return data;
+}
+
+export { getProducts, getProduct };
