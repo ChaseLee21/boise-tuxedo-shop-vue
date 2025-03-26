@@ -2,7 +2,6 @@
   <div id="app">
     <NavBar v-if="!isMobile" />
     <NavBarMobile v-else="!isMobile" />
-    <SearchBar />
     <router-view />
     <Footer />
   </div>
@@ -14,7 +13,6 @@ import NavBarMobile from './components/Navigation Bar/NavBarMobile.vue';
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
 import { ref } from 'vue';
-import SearchBar from './components/SearchBar.vue';
 
 const isMobile = ref(window.innerWidth < 768);
 </script>

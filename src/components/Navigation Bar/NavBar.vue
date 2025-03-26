@@ -1,5 +1,6 @@
 <template>
     <div id="navMenu" class="sticky top-0 w-full">
+        <SearchBar />
         <nav class="bg-slate-800 text-white">
             <ul class="flex flex-row flex-wrap justify-center items-center text-lg p-3">
                 <li class="lg:text-2xl text-xl font-bold hover:text-zinc-300 mx-2"><router-link to="/" >Boise Tuxedo Shop</router-link></li>
@@ -53,6 +54,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import SearchBar from '../SearchBar.vue';
 import NewsBanner from '../NewsBanner.vue';
 
 let rentOrBuyNavOpen = ref(false);
