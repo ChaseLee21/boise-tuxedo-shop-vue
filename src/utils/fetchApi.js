@@ -1,3 +1,5 @@
+import { formatProductName } from '../utils/helpers'
+
 async function getProducts() {
     const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
     const data = await reponse.json();
@@ -9,8 +11,7 @@ async function getProducts() {
             product.keyFeatures = product.keyFeatures.split(',');
         }
     }
-    products.value = data;
-    console.log(products.value)
+    return data;
 }
 
 export { getProducts };
