@@ -5,6 +5,13 @@
         </div>
         <div v-if="showSearchResults" class="fixed z-50 w-full">
             <ul class="flex-col w-[66%] shadow-md border justify-start m-auto bg-white p-2 rounded rounded-t-none overflow-y-scroll max-h-[75vh]">
+                <div v-for="category in categoryResults">
+                    <li class="hover:bg-zinc-300 text-black" @click="handleSearchResultsClick(category)">
+                        <router-link :to="category.link">
+                            <p>{{ category.name }}</p>
+                        </router-link>
+                    </li>
+                </div>
                 <div v-for="product in results">
                     <li class="hover:bg-zinc-300 text-black" @click="handleSearchResultsClick(product)">
                         <router-link :to="{ name: 'Product', params: {id: product.id } }">
@@ -32,6 +39,13 @@ let searchQuery = ref("")
 let products = ref([]);
 const showSearchResults = ref(false);
 const results = ref([]);
+const categoryResults = ref([]);
+const categories = [
+    {name: 'Tuxedos and Suits', link: "/Category/TuxedoSuit", tags: ["tux", "tuxedo", "tuxedos", "suit", "suits", "men", "mens", "buy"]},
+    {name: 'Shirts', link: "/Category/Shirts", tags: ["shirt", "shirts"]},
+    {name: 'Pants', link: "/Category/Pants", tags: ["pant", "pants", "slack", "slacks"]},
+    {name: 'Accessories', link: "/Accessories", tags: ["tie", "ties", "bowtie", "accessory", "accessories", "suspenders", "pocket", "handkerchief", "hanky", "bow", "self", "neck", "cufflinks", "neckwear", "clip"]},
+]
 
 onMounted(async () => {
     products.value = await getProducts();
@@ -48,21 +62,34 @@ watch(searchQuery, (newQuery) => {
     }
 
     let resultsArr = products.value.filter(product => {
-        return containsKeyword(product.name, keywords);
+        return strContainsKeyword(product.name, keywords);
+    });
+    let categoryResultsArr = categories.filter(category => {
+        return arrContainsKeyword(category.tags, keywords);
     });
 
     results.value = resultsArr;
-    showSearchResults.value = results.value.length > 0;
+    categoryResults.value = categoryResultsArr;
+    showSearchResults.value = results.value.length > 0 || categoryResults.value.length > 0;
 })
 
-function containsKeyword(a, keywords) {
-    a = a.toLowerCase().trim();
+function strContainsKeyword(str, keywords) {
+    str = str.toLowerCase().trim();
     for (let keyword of keywords) {
-        if (!a.includes(keyword)) {
+        if (!str.includes(keyword)) {
             return false;
         }
     }
     return true;
+}
+
+function arrContainsKeyword(tags, keywords) {
+    for (let keyword of keywords) {
+        if (tags.find((tag) => tag.includes(keyword))) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function handleSearchBarFocus() {
@@ -78,4 +105,5 @@ function handleSearchResultsClick(product) {
     searchQuery.value = product.name;
     showSearchResults.value = false;
 }
+
 </script>
