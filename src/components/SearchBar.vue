@@ -6,14 +6,14 @@
         <div v-if="showSearchResults" class="fixed z-50 w-full">
             <ul class="flex-col w-[66%] shadow-md border justify-start m-auto bg-white p-2 rounded rounded-t-none overflow-y-scroll max-h-[75vh]">
                 <div v-for="category in categoryResults">
-                    <li class="hover:bg-zinc-300 text-black" @click="handleSearchResultsClick(category)">
+                    <li class="hover:bg-zinc-300 text-black p-1 rounded" @click="handleSearchResultsClick(category)">
                         <router-link :to="category.link">
                             <p>{{ category.name }}</p>
                         </router-link>
                     </li>
                 </div>
                 <div v-for="product in results">
-                    <li class="hover:bg-zinc-300 text-black" @click="handleSearchResultsClick(product)">
+                    <li class="hover:bg-zinc-300 text-black p-1 rounded" @click="handleSearchResultsClick(product)">
                         <router-link :to="{ name: 'Product', params: {id: product.id } }">
                             <figure class="flex items-center rounded-md">
                                 <v-lazy-image width="96" height="160" :src="product.imageURL" :alt="product.imageAlt" class="object-cover max-h-[160px] w-24 aspect-[3/5]" />
@@ -22,6 +22,11 @@
                                 </figcaption>
                             </figure>
                         </router-link>
+                    </li>
+                </div>
+                <div v-if="showNoResults">
+                    <li class="text-black p-1 rounded">
+                        <p>No results found</p>
                     </li>
                 </div>
             </ul>
@@ -38,6 +43,7 @@ import VLazyImage from 'v-lazy-image';
 let searchQuery = ref("")
 let products = ref([]);
 const showSearchResults = ref(false);
+let showNoResults = ref(false);
 const results = ref([]);
 const categoryResults = ref([]);
 const categories = [
@@ -70,7 +76,12 @@ watch(searchQuery, (newQuery) => {
 
     results.value = resultsArr;
     categoryResults.value = categoryResultsArr;
-    showSearchResults.value = results.value.length > 0 || categoryResults.value.length > 0;
+    if (results.value.length > 0 || categoryResults.value.length > 0) {
+        showNoResults = false;
+        showSearchResults.value = true;
+    } else {
+        showNoResults = true;
+    }
 })
 
 function strContainsKeyword(str, keywords) {
