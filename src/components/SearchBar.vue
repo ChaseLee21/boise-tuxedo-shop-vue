@@ -4,11 +4,16 @@
             <input class="w-[66%] rounded rounded-b-none p-2" type="search" v-model="searchQuery" @focus="handleSearchBarFocus()" @blur="handleSearchBarBlur()" placeholder="Search Boise Tuxedo shop">
         </div>
         <div v-if="showSearchResults" class="fixed z-50 w-full">
-            <ul class="flex-col w-[66%] shadow-md border justify-start m-auto bg-white p-2 rounded rounded-t-none">
-                <div  v-for="product in results">
-                    <li @click="handleSearchResultsClick(product)">
+            <ul class="flex-col w-[66%] shadow-md border justify-start m-auto bg-white p-2 rounded rounded-t-none overflow-y-scroll max-h-[75vh]">
+                <div v-for="product in results">
+                    <li class="hover:bg-zinc-300 text-black" @click="handleSearchResultsClick(product)">
                         <router-link :to="{ name: 'Product', params: {id: product.id } }">
-                            {{product.name}}
+                            <figure class="flex items-center rounded-md">
+                                <v-lazy-image width="96" height="160" :src="product.imageURL" :alt="product.imageAlt" class="object-cover max-h-[160px] w-24 aspect-[3/5]" />
+                                <figcaption class="text-lg mx-2">
+                                    <p>{{ product.name }}</p>
+                                </figcaption>
+                            </figure>
                         </router-link>
                     </li>
                 </div>
@@ -20,6 +25,8 @@
 import { ref, onMounted, watch } from 'vue';
 import { getProducts } from '../utils/fetchApi';
 import { RouterLink } from 'vue-router';
+import VLazyImage from 'v-lazy-image';
+
 
 let searchQuery = ref("")
 let products = ref([]);
@@ -44,8 +51,7 @@ watch(searchQuery, (newQuery) => {
         return containsKeyword(product.name, keywords);
     });
 
-    // Limit results to 8 items
-    results.value = resultsArr.slice(0, 8);
+    results.value = resultsArr;
     showSearchResults.value = results.value.length > 0;
 })
 
@@ -73,15 +79,3 @@ function handleSearchResultsClick(product) {
     showSearchResults.value = false;
 }
 </script>
-
-<!-- Styling -->
-<style scoped>
-.button-transition {
-    transition: background .3s ease-in-out, color .3s ease-in-out;
-}
-
-.animate-button:hover .button-transition {
-    background: #FFFFFFcc;
-    color: #000;
-}
-</style>
