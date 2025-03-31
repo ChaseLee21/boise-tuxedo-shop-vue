@@ -17,33 +17,36 @@
     </section>
 </template>
 <script setup>
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { getProducts } from '../utils/fetchApi';
 import { RouterLink } from 'vue-router';
 
 let searchQuery = ref("")
 let products = ref([]);
 const showSearchResults = ref(false);
+const results = ref([]);
 
 onMounted(async () => {
     products.value = await getProducts();
-})
+});
 
-// Search Results
-const results = computed(() => {
-    showSearchResults.value = true
-    let resultsArr; 
-    let query = searchQuery.value.toLowerCase().trim();
-    let keywords = query.split(" ");
-    if (query.length < 1) return null;
-    resultsArr = products.value.filter(product => {
-        return containsKeyword(product.name,keywords);
-    });
-    while (resultsArr.length > 8) {
-        resultsArr.pop();
+// Watch searchQuery and update results
+watch(searchQuery, (newQuery) => {
+    const query = newQuery.toLowerCase().trim();
+    const keywords = query.split(" ");
+    if (query.length < 1) {
+        results.value = [];
+        showSearchResults.value = false;
+        return;
     }
 
-    return resultsArr;
+    let resultsArr = products.value.filter(product => {
+        return containsKeyword(product.name, keywords);
+    });
+
+    // Limit results to 8 items
+    results.value = resultsArr.slice(0, 8);
+    showSearchResults.value = results.value.length > 0;
 })
 
 function containsKeyword(a, keywords) {
