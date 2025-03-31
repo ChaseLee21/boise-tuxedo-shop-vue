@@ -1,7 +1,7 @@
 <template >
     <section class="w-full flex-col items-center content-center justify-center bg-slate-800 pt-2">
         <div class="flex justify-center">
-            <input class="w-[66%] rounded rounded-b-none p-2" type="search" v-model="searchQuery" v-on:input="onInputChange()" placeholder="Search Boise Tuxedo shop">
+            <input class="w-[66%] rounded rounded-b-none p-2" type="search" v-model="searchQuery" placeholder="Search Boise Tuxedo shop">
         </div>
         <div v-if="showSearchResults" class="fixed z-50 w-full">
             <ul class="flex-col w-[66%] shadow-md border justify-start m-auto bg-white p-2 rounded rounded-t-none">
@@ -49,16 +49,11 @@ const results = computed(() => {
 function containsKeyword(a, keywords) {
     a = a.toLowerCase().trim();
     for (let keyword of keywords) {
-        console.log(keyword, a);
         if (!a.includes(keyword)) {
             return false;
         }
     }
     return true;
-}
-
-function onInputChange() {
-    console.log("results", results.value)
 }
 
 function handleSearchResultsClick(product) {
