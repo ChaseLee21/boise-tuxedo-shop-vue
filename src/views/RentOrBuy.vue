@@ -10,6 +10,7 @@
 <script setup>
 import FeaturedProducts from '../components/FeaturedProducts.vue';
 import { computed, onMounted, ref } from 'vue';
+import { getProducts } from '../utils/fetchApi';
 import Header from '../components/Header.vue';
 
 const tuxedoAndSuit = {
@@ -32,36 +33,11 @@ const headerProps = {
     content: "Not only do we value helping you look good for your big event but we think it is important to do it your way. Whether you are wanting to rent or buy your outfit, we have you covered at Boise Tuxedo Shop. Our rental package for both tuxedos and suits includes 5 pieces: jacket, pants, shirt, vest, and your choice of tie, bowtie, or suspenders. You may upgrade your rental package to include shoes or cufflinks for an additional fee."
 }
 
-const products = ref([]);
+let products = ref([]);
 
-onMounted(() => {
-    getProducts();
+onMounted(async () => {
+    products.value = await getProducts();
 })
-
-function formatProductName(tuxedoSuitName) {
-    let [firstPart, secondPart] = tuxedoSuitName.split('(');
-    if (secondPart) {
-        [tuxedoSuitName] = secondPart.split(')');
-        tuxedoSuitName = 'The ' + tuxedoSuitName;
-    } else {
-        tuxedoSuitName = '';
-    }
-    return tuxedoSuitName;
-}
-
-async function getProducts() {
-    const reponse = await fetch('https://boisetuxedoshop.azurewebsites.net/api/products');
-    const data = await reponse.json();
-    for (let product of data) {
-        if (product.type === 'TuxedoSuit') {
-            product.formattedName = formatProductName(product.name);
-        }
-        if (product.keyFeatures) {
-            product.keyFeatures = product.keyFeatures.split(',');
-        }
-    }
-    products.value = data;
-}
 
 const tuxedoAndSuitProducts = computed(() => {
     let arr = products.value.filter(product => product.type === "TuxedoSuit");

@@ -1,5 +1,6 @@
 <template>
     <div class="sticky top-0 w-full z-10">
+        <SearchBar />
         <div id="navMenu" class=" w-full flex flex-row items-center justify-center p-3 bg-gray-800 text-white">
             <button id="navButton" class="absolute left-0 top-1">
                 <svg v-if="!navOpen" xmlns="http://www.w3.org/2000/svg" width="50" height="50" class="stroke-red-600 stroke-[4px]">
@@ -14,7 +15,7 @@
             </button>
             <router-link to="/" class="text-2xl font-bold">Boise Tuxedo Shop</router-link>
             <Transition>
-                <nav v-show="navOpen" class="absolute left-0 top-12 w-full">
+                <nav v-show="navOpen" class="absolute left-0 top-12 w-full z-50">
                     <ul class="flex flex-col p-3 text-lg bg-gray-800 text-white">
                         <li class="p-2 font-bold hover:text-zinc-300"><router-link to="/">Home</router-link></li>
                         <li class="p-2 pb-0 hover:text-zinc-300"><router-link to="/RentOrBuy">Rent or Buy</router-link></li>
@@ -52,6 +53,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import NewsBanner from '../NewsBanner.vue';
+import SearchBar from '../SearchBar.vue';
 
 let navOpen = ref(false);
 
