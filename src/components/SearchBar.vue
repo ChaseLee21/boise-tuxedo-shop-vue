@@ -47,10 +47,10 @@ let showNoResults = ref(false);
 const results = ref([]);
 const categoryResults = ref([]);
 const categories = [
-    {name: 'Tuxedos and Suits', link: "/Category/TuxedoSuit", tags: ["tux", "tuxedo", "tuxedos", "suit", "suits", "men", "mens", "buy"]},
-    {name: 'Shirts', link: "/Category/Shirts", tags: ["shirt", "shirts"]},
-    {name: 'Pants', link: "/Category/Pants", tags: ["pant", "pants", "slack", "slacks"]},
-    {name: 'Accessories', link: "/Accessories", tags: ["tie", "ties", "bowtie", "accessory", "accessories", "suspenders", "pocket", "handkerchief", "hanky", "bow", "self", "neck", "cufflinks", "neckwear", "clip"]},
+    {name: 'Browse Tuxedos and Suits', link: "/Category/TuxedoSuit", tags: ["tux", "tuxedo", "tuxedos", "suit", "suits", "men", "mens", "buy"]},
+    {name: 'Browse Shirts', link: "/Category/Shirts", tags: ["shirt", "shirts"]},
+    {name: 'Browse Pants', link: "/Category/Pants", tags: ["pant", "pants", "slack", "slacks"]},
+    {name: 'Browse Accessories', link: "/Accessories", tags: ["tie", "ties", "bowtie", "accessory", "accessories", "suspenders", "pocket", "handkerchief", "hanky", "bow", "self", "neck", "cufflinks", "neckwear", "clip"]},
 ]
 
 onMounted(async () => {
