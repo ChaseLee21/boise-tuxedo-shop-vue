@@ -3,7 +3,8 @@
     <main class="xl:w-[80vw] xl:flex xl:flex-col xl:m-auto">
         <section role="contentinfo" class="flex flex-col">
             <ul class="text-lg list-inside list-disc mx-2 indent-2">
-                <li><a class="link" href="tel:208-375-9616">Call: (208) 375-9616</a></li>
+                <li><a class="link" href="tel:208-375-9616">Call Only: (208) 375-9616</a></li>
+                <li><a class="link" href="tel:208-986-2999">Text or Call: (208) 986-2999</a></li>
                 <li><a class="link" href="mailto:boisetuxedoshop@gmail.com" target="_blank">Email: boisetuxedoshop@gmail.com</a></li>
             </ul>
         </section>
