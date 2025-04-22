@@ -12,7 +12,9 @@ import { ref } from 'vue';
 
 let isMobile = ref(window.innerWidth < 768);
 
-let bannerText = ref("Booking rentals for Weddings and Proms now! Come in today to get complimentary measurements and choose your style from our collection of over 4000 suits and tuxedos!")
+let bannerText = ref("Due to a family wedding on May 23-26 we will be closed. We apologize for any inconvenience this may cause. We will be back open on May 27th. Questions? Call 208-986-2999.");
+
+let additionalMessage = ref("Booking rentals for Weddings and Proms now! Come in today to get complimentary measurements and choose your style from our collection of over 4000 suits and tuxedos!");
 
 </script>
 
