@@ -17,7 +17,7 @@ import Reviews from './views/Reviews.vue'
 import Accessories from './views/Accessories.vue'
 import CustomFit from './views/CustomFit.vue'
 import Measurements from './views/Measurements.vue'
-import MarineCropBall from './views/MarineCropBall.vue'
+import MarineCorpBall from './views/MarineCorpBall.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -37,7 +37,7 @@ const router = createRouter({
         { path: '/Reviews', component: Reviews, name: 'Reviews' },
         { path: '/CustomFit', component: CustomFit, name: 'CustomFit' },
         { path: '/Measurements', component: Measurements, name: 'Measurements' },
-        { path: '/MarineCropBall', component: MarineCropBall, name: 'MarineCropBall' },
+        { path: '/MarineCorpBall', component: MarineCorpBall, name: 'MarineCorpBall' },
         // other routes...
     ],
     scrollBehavior(to, from, savedPosition) {
