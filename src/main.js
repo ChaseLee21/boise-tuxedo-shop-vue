@@ -18,6 +18,7 @@ import Accessories from './views/Accessories.vue'
 import CustomFit from './views/CustomFit.vue'
 import Measurements from './views/Measurements.vue'
 import MarineCorpBall from './views/MarineCorpBall.vue'
+import SchoolPerformanceAttire from './views/SchoolPerformanceAttire.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -38,6 +39,7 @@ const router = createRouter({
         { path: '/CustomFit', component: CustomFit, name: 'CustomFit' },
         { path: '/Measurements', component: Measurements, name: 'Measurements' },
         { path: '/MarineCorpBall', component: MarineCorpBall, name: 'MarineCorpBall' },
+        { path: '/SchoolPerformanceAttire', component: SchoolPerformanceAttire, name: 'SchoolPerformanceAttire' },
         // other routes...
     ],
     scrollBehavior(to, from, savedPosition) {

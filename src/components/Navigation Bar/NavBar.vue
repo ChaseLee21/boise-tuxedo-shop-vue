@@ -32,6 +32,7 @@
                     </Transition>
                 </div>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Prom">Prom</router-link></li>
+                <li class="hover:text-zinc-300 mx-2"><router-link to="/SchoolPerformanceAttire">School Performance Attire</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/CustomFit">Custom Fit</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Gallery">Image Gallery</router-link></li>
                 <li class="hover:text-zinc-300 mx-2"><router-link to="/Reviews">Google Reviews</router-link></li>
@@ -42,7 +43,7 @@
                     <a class="p-2" href="https://www.facebook.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
                         <img width="32px" height="32px" src="/Facebook_Logo_Primary.webp" alt="Facebook" />
                     </a>
-                    <a class="p-2" href="https://www.instagram.com/boisetuxedoshop/" target="_blank" rel="noopener noreferrer">
+                    <a class="p-2" href="https://www.instagram.com/boisetuxig/" target="_blank" rel="noopener noreferrer">
                         <img width="32px" height="32px" src="/Instagram_Glyph_Gradient.webp" alt="Instagram" />
                     </a>
                 </div>
